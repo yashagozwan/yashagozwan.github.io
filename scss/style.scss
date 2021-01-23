@@ -216,10 +216,6 @@ body {
 
 // small screen
 @media screen and (max-width: 576px) {
-  body {
-    // background: $bg-white;
-  }
-
   .modal-box  {
     border-radius: 10px;
     width: 85%;
@@ -261,11 +257,8 @@ body {
 
 // mobile wide
 @media screen and (max-width: 736px) {
-  body {
-    // background: $bg-white;
-  }
-
   .modal-box  {
+    margin-top: 2rem;
     border-radius: 10px;
     width: 85%;
     flex-flow: column;

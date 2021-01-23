@@ -220,6 +220,7 @@ body {
 
 @media screen and (max-width: 736px) {
   .modal-box {
+    margin-top: 2rem;
     border-radius: 10px;
     width: 85%;
     flex-flow: column;
