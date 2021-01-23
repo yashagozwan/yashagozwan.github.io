@@ -62,7 +62,6 @@ body {
 
 // style body
 .modal-box {
-  overflow: hidden;
   position: relative;
   margin: auto;
   background: $bg-white;
@@ -178,6 +177,7 @@ body {
 // mini desktop
 @media screen and (min-width: 768px) {
   .modal-box  {
+    overflow: hidden;
     transform: scale(.80);
     @include boxshadow;
     width: 960px;
@@ -258,14 +258,15 @@ body {
 // mobile wide
 @media screen and (max-width: 736px) {
   .modal-box  {
-    margin-top: 2rem;
+    overflow-y: scroll;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     border-radius: 10px;
     width: 85%;
     flex-flow: column;
     padding: 10px;
     &-img {
       display: none;
-
       img {
         height: 100%;
         width: 100%;
