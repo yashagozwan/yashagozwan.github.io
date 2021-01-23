@@ -220,13 +220,11 @@ body {
 
 @media screen and (max-width: 736px) {
   .modal-box {
-    overflow-y: scroll;
     margin-top: 1rem;
-    margin-bottom: 1rem;
     border-radius: 10px;
     width: 85%;
     flex-flow: column;
-    padding: 10px;
+    padding: 5px;
   }
   .modal-box-img {
     display: none;
