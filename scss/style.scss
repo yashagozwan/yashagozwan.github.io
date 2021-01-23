@@ -46,9 +46,6 @@ a {
 }
 
 body {
-  background: linear-gradient(-45deg, #3A2E39, #1E555C, #F4D8CD, #F15152);
-	background-size: 400% 400%;
-	animation: gradient 10s ease infinite;
   width: 100%;
   height: 100vh;
 }
@@ -56,11 +53,13 @@ body {
 .container {
   max-width: 1120px;
   margin: auto;
+  height: 100%;
   display: flex;
 }
 
 // style body
 .modal-box {
+  overflow: hidden;
   position: relative;
   margin: auto;
   background: $bg-white;
@@ -154,7 +153,6 @@ body {
   }
   .switch {
     margin-top: 1.5rem;
-    display: flex;
     button {
       cursor: pointer;
       border: none;
@@ -175,11 +173,12 @@ body {
 
 // mini desktop
 @media screen and (min-width: 768px) {
-  .container {
-    height: 100%;
+  body {
+    background: linear-gradient(-45deg, #3A2E39, #1E555C, #F4D8CD, #F15152);
+	  animation: gradient 10s ease infinite;
+    background-size: 400% 400%;
   }
   .modal-box  {
-    overflow: hidden;
     transform: scale(.80);
     @include boxshadow;
     width: 960px;
@@ -211,6 +210,7 @@ body {
     }
   }
   .switch {
+    display: flex;
     justify-content: flex-end;
   }
   
@@ -219,8 +219,9 @@ body {
 // small screen
 @media screen and (max-width: 576px) {
   .modal-box  {
-    border-radius: 10px;
     flex-flow: column;
+    padding: 10px;
+
     &-img {
       display: none;
 
@@ -256,16 +257,16 @@ body {
 
 // mobile wide
 @media screen and (max-width: 736px) {
-  .container {
-    height: 110vh;
+  body {
+    background-color: #fff;
   }
   .modal-box  {
-    border-radius: 10px;
-    width: 90%;
+    width: 100%;
     flex-flow: column;
-    padding: 5px;
+    padding: 10px;
     &-img {
       display: none;
+
       img {
         height: 100%;
         width: 100%;
@@ -285,16 +286,17 @@ body {
       }
 
       .social-media {
-        justify-content: space-between;
+        justify-content: flex-start;
         border-top: $border-line;
         padding-top: 1.5rem;
         &-box {
+          margin-right: 20px;
           border: $border-line;
         }
       }
     }
   }
   .switch {
-    justify-content: center;
+    display: none;
   }
 }
