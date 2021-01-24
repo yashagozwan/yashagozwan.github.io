@@ -227,9 +227,6 @@ body {
     flex-flow: column;
     padding: 10px;
   }
-  .modal-box-img {
-    display: none;
-  }
   .modal-box-img img {
     height: 100%;
     width: 100%;
