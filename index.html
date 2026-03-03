@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Yasha Gozwan Shuhada - Flutter Developer</title>
+	<title>Yasha Gozwan Shuhada - Resume</title>
 	<script src="https://cdn.tailwindcss.com"></script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	<script>
 		tailwind.config = {
 			theme: {
@@ -16,237 +16,662 @@
 					fontFamily: {
 						sans: ['Inter', 'sans-serif'],
 					},
+					colors: {
+						gray: {
+							50: '#f9fafb',
+							100: '#f3f4f6',
+							200: '#e5e7eb',
+							300: '#d1d5db',
+							400: '#9ca3af',
+							500: '#6b7280',
+							600: '#4b5563',
+							700: '#374151',
+							800: '#1f2937',
+							900: '#111827',
+						}
+					}
 				}
 			}
 		}
 	</script>
+	<style>
+		/* Custom scrollbar for an elegant touch */
+		::-webkit-scrollbar {
+			width: 8px;
+		}
+
+		::-webkit-scrollbar-track {
+			background: #f9fafb;
+		}
+
+		::-webkit-scrollbar-thumb {
+			background: #cbd5e1;
+			border-radius: 4px;
+		}
+
+		::-webkit-scrollbar-thumb:hover {
+			background: #94a3b8;
+		}
+	</style>
 </head>
 
-<body class="bg-white text-gray-800 font-sans antialiased selection:bg-blue-600 selection:text-white">
-	<!-- Navbar -->
-	<nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-		<div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-			<a href="#" class="font-bold text-gray-900 tracking-tight">yashagozwan.com</a>
-			<div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
-				<a href="#about" class="hover:text-blue-600 transition-colors">About</a>
-				<a href="#experience" class="hover:text-blue-600 transition-colors">Experience</a>
-				<a href="#projects" class="hover:text-blue-600 transition-colors">Projects</a>
-				<a href="https://docs.google.com/document/d/e/2PACX-1vS5I9s0eezh0bU4DqWFcSWIRB5hkBaGzC1Kl1ffMY6B6Q4cGrnIxH0kB4rEFesoH8Nh5oAqaKgBvVDv/pub"
-					target="_blank" class="hover:text-blue-600 transition-colors">CV</a>
-			</div>
-			<a href="mailto:yashagozwan@gmail.com"
-				class="hidden md:inline-flex px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors shadow-sm">Get
-				in Touch</a>
-		</div>
-	</nav>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased selection:bg-gray-900 selection:text-white">
 
-	<main class="max-w-4xl mx-auto px-6 py-16 md:py-24">
-		<!-- Hero / About Section -->
-		<header id="about"
-			class="flex flex-col-reverse md:flex-row items-center md:items-start justify-between gap-10 md:gap-16 mb-24">
-			<div class="flex-1 text-center md:text-left">
-				<div
-					class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-6">
-					<span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-					Available for work
-				</div>
-				<h1 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
-					Yasha Gozwan Shuhada
-				</h1>
-				<h2 class="text-xl md:text-2xl text-gray-500 font-medium mb-6">
-					Flutter Developer
-				</h2>
-				<p class="text-gray-600 text-lg leading-relaxed max-w-2xl mb-8">
-					Hi, I am a Flutter developer. I am very happy to introduce myself to you. Right now I am eager to
-					apply what I have mastered. If you need a mobile application that can run on Android and iOS, please
-					contact me. I am happy to help your business grow through high-quality mobile applications.
-				</p>
-				<div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
-					<a href="mailto:yashagozwan@gmail.com"
-						class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all font-medium shadow-sm active:scale-95">
-						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path
-								d="M21.2 8.4c.5.38.8.97.8 1.6v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10a2 2 0 0 1 .8-1.6l8-6a2 2 0 0 1 2.4 0l8 6Z" />
-							<path d="m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10" />
-						</svg>
-						Email Me
-					</a>
-					<a href="https://docs.google.com/document/d/e/2PACX-1vS5I9s0eezh0bU4DqWFcSWIRB5hkBaGzC1Kl1ffMY6B6Q4cGrnIxH0kB4rEFesoH8Nh5oAqaKgBvVDv/pub"
-						target="_blank"
-						class="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 text-gray-700 rounded-xl hover:bg-gray-50 transition-all font-medium shadow-sm active:scale-95">
-						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M14 2v4a2 2 0 0 0 2 2h4" />
-							<path d="M10.4 12.6a2 2 0 1 1 3 3L8 21l-4 1 1-4Z" />
-							<path d="M18 18v-1a2 2 0 0 0-2-2h-3" />
-							<path d="M4 13V6a2 2 0 0 1 2-2h8l6 6v10a2 2 0 0 1-2 2h-4" />
-						</svg>
-						View Resume
-					</a>
-				</div>
-			</div>
-			<div class="w-48 h-48 md:w-56 md:h-56 shrink-0 group">
-				<div
-					class="relative w-full h-full rounded-3xl overflow-hidden bg-gray-100 ring-1 ring-gray-900/5 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
-					<div class="absolute inset-0 bg-blue-600/10 mix-blend-overlay z-10"></div>
-					<img src="images/yasha.png" alt="Profile of Yasha Gozwan Shuhada"
-						class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-						onerror="this.src='https://ui-avatars.com/api/?name=Yasha+Gozwan&size=256&background=f3f4f6&color=4b5563'">
-				</div>
-			</div>
-		</header>
+	<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+		<!-- Main Container -->
+		<main class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
 
-		<hr class="border-gray-100 mb-20">
+			<!-- Header Section -->
+			<header class="p-8 md:p-12 lg:p-16 border-b border-gray-100 bg-white">
+				<div class="flex flex-col-reverse md:flex-row items-start md:items-center justify-between gap-8">
+					<div class="flex-1">
+						<h1 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-2">
+							Yasha Gozwan Shuhada
+						</h1>
+						<h2 class="text-lg md:text-xl text-gray-600 font-medium tracking-wide mb-6">
+							IT Developer &bull; Mobile Developer &bull; Flutter Developer &bull; Software Engineer
+							&bull; AI Enthusiast
+						</h2>
 
-		<!-- Experience Section -->
-		<section id="experience" class="mb-24">
-			<div class="flex items-center gap-4 mb-10">
-				<div class="p-2.5 bg-blue-50 text-blue-600 rounded-xl">
-					<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-						stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-						<path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-						<rect width="20" height="14" x="2" y="6" rx="2" />
-					</svg>
-				</div>
-				<h3 class="text-2xl font-bold text-gray-900">Experience</h3>
-			</div>
-
-			<div class="space-y-12 border-l-2 border-gray-100 ml-5 pl-8 md:pl-10">
-				<!-- Job 1 -->
-				<div class="relative">
-					<div
-						class="absolute -left-[43px] md:-left-[51px] top-1.5 w-4 h-4 rounded-full bg-white border-4 border-blue-500 shadow-sm ring-4 ring-white">
+						<!-- Contact Info Group -->
+						<div class="flex flex-wrap items-center gap-y-3 gap-x-6 text-sm text-gray-500 font-medium">
+							<span class="flex items-center gap-2">
+								<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+									</path>
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+								</svg>
+								Cilodong, Kota Depok
+							</span>
+							<a href="mailto:yashagozwan13@gmail.com"
+								class="flex items-center gap-2 hover:text-gray-900 transition-colors">
+								<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+									</path>
+								</svg>
+								yashagozwan13@gmail.com
+							</a>
+							<a href="tel:+621315467648"
+								class="flex items-center gap-2 hover:text-gray-900 transition-colors">
+								<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+									</path>
+								</svg>
+								+621315467648
+							</a>
+							<a href="https://yashagozwan.github.io" target="_blank"
+								class="flex items-center gap-2 hover:text-gray-900 transition-colors">
+								<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1">
+									</path>
+								</svg>
+								yashagozwan.github.io
+							</a>
+						</div>
 					</div>
-					<div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2 gap-2">
-						<h4 class="text-xl font-semibold text-gray-900">Flutter Developer</h4>
-						<span
-							class="inline-flex text-sm font-medium text-gray-500 bg-gray-50 border border-gray-100 px-3 py-1 rounded-full whitespace-nowrap">Present</span>
-					</div>
-					<p class="text-blue-600 font-medium mb-4">Freelance / Independent</p>
-					<p class="text-gray-600 leading-relaxed max-w-2xl">
-						Developing cross-platform mobile applications for Android and iOS using Flutter. Focusing on
-						clean architecture, responsive UI, state management, and seamless native integration.
+				</div>
+			</header>
+
+			<div class="p-8 md:p-12 lg:p-16 space-y-16">
+
+				<!-- Summary Section -->
+				<section>
+					<h3 class="text-xs uppercase tracking-widest font-bold text-gray-400 mb-4">Summary</h3>
+					<p class="text-gray-600 leading-relaxed text-[15px] text-justify">
+						Hi, my name is Yasha Gozwan Shuhada, a Mobile Developer with over 4 years of experience
+						specializing in Flutter for Android and iOS application development. I have hands-on experience
+						in developing, maintaining, and publishing mobile applications to both Google Play Store and
+						Apple App Store, primarily within the fintech industry, delivering solutions aligned with
+						business needs. I am accustomed to working in cross-functional teams using Scrum methodology,
+						collaborating closely with product, backend, and QA teams throughout the development lifecycle.
+						Currently, I am seeking new opportunities to work with different technologies and tackle new
+						challenges.
 					</p>
-				</div>
-			</div>
-		</section>
+				</section>
 
-		<!-- Projects Section -->
-		<section id="projects" class="mb-24">
-			<div class="flex items-center gap-4 mb-10">
-				<div class="p-2.5 bg-blue-50 text-blue-600 rounded-xl">
-					<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-						stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-						<path d="m5 11 4-7" />
-						<path d="m19 11-4-7" />
-						<path d="M2 11h20" />
-						<path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8c.9 0 1.8-.7 2-1.6l1.7-7.4" />
-						<path d="m9 11 1 9" />
-						<path d="M4.5 15.5h15" />
-						<path d="m15 11-1 9" />
+				<!-- Experience Section -->
+				<section>
+					<h3 class="text-xs uppercase tracking-widest font-bold text-gray-400 mb-8">Work Experience</h3>
+
+					<div class="space-y-12">
+						<!-- Job 1 -->
+						<div>
+							<div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
+								<h4 class="text-lg font-bold text-gray-900">IT Developer</h4>
+								<span class="text-sm font-medium text-gray-500 whitespace-nowrap">2024 Mar –
+									Present</span>
+							</div>
+							<p class="text-[15px] font-medium text-gray-700 mb-4">Home Credit Indonesia <span
+									class="text-gray-400 font-normal ml-1">&bull; Kebagusan, Jakarta Selatan</span></p>
+							<ul class="list-disc leading-relaxed text-[14px] text-gray-600 pl-5 space-y-2">
+								<li>Develop and maintain Flutter-based mobile applications for internal fintech
+									products, applying Bloc state management, Clean Architecture, and Domain-Driven
+									Design (DDD) to ensure scalable, testable, and maintainable solutions.</li>
+								<li>Structure applications with clear separation between presentation, domain, and data
+									layers, making the codebase easier to maintain and collaborate on.</li>
+								<li>Apply DDD principles in feature development by using entities, use cases, and
+									repositories to align technical implementation with business needs.</li>
+								<li>Maintain existing applications through SDK and dependency updates, as well as legacy
+									code refactoring, ensuring stability and compliance with Google Play Store and Apple
+									App Store policies.</li>
+								<li>Develop and deliver new production features, from implementation to deployment on
+									Android and iOS platforms.</li>
+								<li>Use Bloc to manage application state and business logic, especially for features
+									with complex user flows.</li>
+								<li>Integrate native Android and iOS SDKs via Flutter Method Channel when suitable
+									Flutter plugins are not available.</li>
+								<li>Manage application releases to the Google Play Store and Apple App Store, working
+									closely with QA and E2E teams to ensure release quality.</li>
+								<li>Implement event tracking and analytics to support business campaigns, enabling
+									feature monitoring through Power BI, Google Analytics, and SAS 360 Customer
+									Intelligence.</li>
+								<li>Write Unit Tests and Integration Tests to ensure application reliability and proper
+									REST API integration across different environments.</li>
+								<li>Support QA automation efforts by collaborating on test automation using Katalon and
+									Appium.</li>
+								<li>Build and maintain CI/CD pipelines using Azure DevOps and GitLab CI/CD, covering
+									code analysis, automated testing, builds, and distribution via Firebase App
+									Distribution.</li>
+								<li>Integrate push notifications using Firebase Cloud Messaging and SAS 360 to support
+									user engagement and campaign delivery.</li>
+								<li>Develop location-based features using Google Maps to support business needs such as
+									area-based marketing.</li>
+								<li>Work in an Agile Scrum environment, using JIRA to track sprint progress and
+									collaborate with Product Managers and Squad Leads.</li>
+								<li>Apply Git Flow branching strategy using Azure Repos and GitLab to maintain clean
+									version control and controlled releases.</li>
+								<li>Integrate biometric identity verification (selfie and ID capture) using Innovatrics
+									SDK to support secure customer onboarding.</li>
+								<li>Monitor application stability using Firebase Crashlytics, allowing fast detection
+									and resolution of production issues.</li>
+								<li>Consume and integrate RESTful APIs from backend teams using Postman and Swagger.
+								</li>
+								<li>Translate Figma designs into pixel-perfect Flutter UI, following established design
+									systems and UX guidelines.</li>
+							</ul>
+						</div>
+
+						<!-- Job 2 -->
+						<div>
+							<div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
+								<h4 class="text-lg font-bold text-gray-900">Mobile Platform Officer</h4>
+								<span class="text-sm font-medium text-gray-500 whitespace-nowrap">2023 Sep - 2024
+									Mar</span>
+							</div>
+							<p class="text-[15px] font-medium text-gray-700 mb-4">PT. Infomedia Solusi Humanika <span
+									class="text-gray-400 font-normal ml-1">&bull; Fatmawati, Jakarta Selatan</span></p>
+							<ul class="list-disc leading-relaxed text-[14px] text-gray-600 pl-5 space-y-2">
+								<li>Maintained and ensured optimal performance of existing mobile applications in
+									production.</li>
+								<li>Developed mobile applications using Flutter, focusing on feature enhancements,
+									performance improvements, and innovation.</li>
+								<li>Performed RESTful API testing using Postman to ensure reliability, security, and
+									proper integration with backend services.</li>
+								<li>Implemented Unit Testing to validate application functionality and ensure features
+									behaved according to defined scenarios.</li>
+								<li>Optimized Hive local storage to support offline-first functionality and improve data
+									handling performance.</li>
+								<li>Managed the application deployment process to the Google Play Store, including
+									release of monitoring and issue resolution.</li>
+								<li>Designed application prototypes using Figma, creating both low-fidelity and
+									high-fidelity designs to support clear and functional UI/UX.</li>
+								<li>Applied Clean Architecture principles to ensure codebase sustainability,
+									flexibility, and ease of maintenance.</li>
+								<li>Coordinated project progress by providing regular updates and reports to supervisors
+									and stakeholders.</li>
+								<li>Conducted ongoing program analysis to ensure user requirements were met and
+									delivered timely, effective solutions.</li>
+								<li>Implemented local notifications using Flutter Local Notifications and integrated
+									them with Firebase Cloud Messaging (FCM) for real-time user engagement.</li>
+							</ul>
+						</div>
+
+						<!-- Job 3 -->
+						<div>
+							<div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
+								<h4 class="text-lg font-bold text-gray-900">Flutter Developer <span
+										class="text-gray-500 font-normal text-base">(Freelance)</span></h4>
+								<span class="text-sm font-medium text-gray-500 whitespace-nowrap">Sep 2023 - Jan
+									2024</span>
+							</div>
+							<p class="text-[15px] font-medium text-gray-700 mb-4">PT. Elka Sistem Optima <span
+									class="text-gray-400 font-normal ml-1">&bull; Bintaro, Jakarta Selatan</span></p>
+							<ul class="list-disc leading-relaxed text-[14px] text-gray-600 pl-5 space-y-2">
+								<li>Implemented state management using Provider to ensure application stability and
+									efficiency.</li>
+								<li>Managed local data storage using SharedPreferences for fast and secure data
+									handling.</li>
+								<li>Designed and developed UI/UX prototypes using Figma, aligning visual design with
+									functional requirements.</li>
+								<li>Applied Clean Architecture to maintain a modular, scalable, and maintainable
+									codebase.</li>
+								<li>Developed location-based features to detect device coordinates and enhance user
+									experience.</li>
+								<li>Performed code refactoring and outdated library upgrades to improve performance,
+									security, and maintainability.</li>
+								<li>Integrated RESTful APIs to enable real-time data exchange between client and server.
+								</li>
+								<li>Utilized Git and GitLab for version control and collaborative development workflows.
+								</li>
+							</ul>
+						</div>
+
+						<!-- Job 4 -->
+						<div>
+							<div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
+								<h4 class="text-lg font-bold text-gray-900">Flutter Developer <span
+										class="text-gray-500 font-normal text-base">(Freelance)</span></h4>
+								<span class="text-sm font-medium text-gray-500 whitespace-nowrap">Jul 2023 – Mar
+									2024</span>
+							</div>
+							<p class="text-[15px] font-medium text-gray-700 mb-4">PT. Kaltim Prima Coal <span
+									class="text-gray-400 font-normal ml-1">&bull; Sangatta, Kalimantan Timur</span></p>
+							<ul class="list-disc leading-relaxed text-[14px] text-gray-600 pl-5 space-y-2">
+								<li>Managed and implemented local data storage using Hive for efficient offline data
+									handling.</li>
+								<li>Performed periodic data synchronization to ensure data consistency between local
+									storage and backend services.</li>
+								<li>Utilized GetX for state management to improve performance and simplify application
+									logic.</li>
+								<li>Implemented UI components based on Figma designs, ensuring accuracy and consistency
+									with design specifications.</li>
+								<li>Integrated and consumed RESTful APIs using Dio for secure and reliable data
+									communication.</li>
+								<li>Developed camera features to enable image capture directly within the application.
+								</li>
+								<li>Integrated Google Maps services to provide location visualization and mapping
+									functionality.</li>
+								<li>Implemented Geolocator for coordinate mapping and real-time user location tracking.
+								</li>
+							</ul>
+						</div>
+
+						<!-- Job 5 -->
+						<div>
+							<div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
+								<h4 class="text-lg font-bold text-gray-900">Flutter Developer <span
+										class="text-gray-500 font-normal text-base">(Freelance)</span></h4>
+								<span class="text-sm font-medium text-gray-500 whitespace-nowrap">Jan 2023 - Apr
+									2023</span>
+							</div>
+							<p class="text-[15px] font-medium text-gray-700 mb-4">PT. Ini Kuliner Indonesia <span
+									class="text-gray-400 font-normal ml-1">&bull; Jakarta Pusat</span></p>
+							<ul class="list-disc leading-relaxed text-[14px] text-gray-600 pl-5 space-y-2">
+								<li>Implemented user interface (UI) designs from Figma into responsive and user-friendly
+									Flutter applications.</li>
+								<li>Integrated in-app notifications to deliver important updates and information to
+									users.</li>
+								<li>Utilized Bloc for state management to efficiently handle application state and data
+									flow.</li>
+								<li>Integrated and consumed RESTful APIs using Dio for reliable and secure data
+									communication.</li>
+								<li>Implemented authentication mechanisms to ensure user security and data privacy.</li>
+								<li>Integrated Google Maps and Geolocator for location visualization and user tracking.
+								</li>
+								<li>Applied geocoding to convert addresses into geographic coordinates.</li>
+								<li>Managed local data storage to improve application performance and offline
+									capability.</li>
+								<li>Developed camera features to enable in-app image capture functionality.</li>
+							</ul>
+						</div>
+
+						<!-- Job 6 -->
+						<div>
+							<div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
+								<h4 class="text-lg font-bold text-gray-900">Back-End Developer <span
+										class="text-gray-500 font-normal text-base">(Freelance)</span></h4>
+								<span class="text-sm font-medium text-gray-500 whitespace-nowrap">Jan 2023 – Mar
+									2023</span>
+							</div>
+							<p class="text-[15px] font-medium text-gray-700 mb-4">PT. Genero Pharmaceuticals <span
+									class="text-gray-400 font-normal ml-1">&bull; Cikarang, Jawa Barat</span></p>
+							<ul class="list-disc leading-relaxed text-[14px] text-gray-600 pl-5 space-y-2">
+								<li>Managed and streamlined data workflows using the Laravel framework to support
+									backend application processes.</li>
+								<li>Designed and implemented database relationships to optimize data interaction across
+									entities.</li>
+								<li>Wrote and optimized SQL queries and used Laravel Query Builder for efficient data
+									retrieval and maintainability.</li>
+								<li>Focused on performance optimization to achieve fast response times.</li>
+								<li>Ensured data security and integrity within the database layer, following structured
+									coding standards.</li>
+								<li>Collaborated closely with development teams and stakeholders throughout the project
+									lifecycle.</li>
+							</ul>
+						</div>
+
+						<!-- Job 7 -->
+						<div>
+							<div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
+								<h4 class="text-lg font-bold text-gray-900">Full-Stack Developer <span
+										class="text-gray-500 font-normal text-base">(Freelance)</span></h4>
+								<span class="text-sm font-medium text-gray-500 whitespace-nowrap">Jul 2022 – Aug
+									2022</span>
+							</div>
+							<p class="text-[15px] font-medium text-gray-700 mb-4">PT. Genero Pharmaceuticals <span
+									class="text-gray-400 font-normal ml-1">&bull; Cikarang, Jawa Barat</span></p>
+							<ul class="list-disc leading-relaxed text-[14px] text-gray-600 pl-5 space-y-2">
+								<li>Developed efficient RESTful APIs to connect and integrate various components within
+									the application.</li>
+								<li>Translated Figma UI designs into responsive user interfaces.</li>
+								<li>Wrote raw SQL queries and integrated external APIs using Axios.</li>
+								<li>Managed end-to-end data flow and implemented business logic for reliable
+									functionality.</li>
+								<li>Utilized Redux Toolkit for efficient and scalable state management.</li>
+								<li>Implemented token-based authentication (Bearer) using JSON Web Token (JWT).</li>
+							</ul>
+						</div>
+
+						<!-- Add other older roles compactly if needed -->
+						<div class="mt-8 pt-6 border-t border-gray-100">
+							<h4 class="text-sm font-bold text-gray-900 mb-3">Previous Experience</h4>
+							<div class="space-y-4">
+								<div class="flex justify-between items-start">
+									<div>
+										<p class="text-[14px] font-semibold text-gray-800">Video Editor & Graphic
+											Designer <span class="text-gray-500 font-normal ml-1">at PT. Gian Teknokindo
+												Solusi</span></p>
+									</div>
+									<span class="text-xs text-gray-500 shrink-0">Apr 2018 – Sep 2018</span>
+								</div>
+								<div class="flex justify-between items-start">
+									<div>
+										<p class="text-[14px] font-semibold text-gray-800">Multimedia Teacher <span
+												class="text-gray-500 font-normal ml-1">at SMK Taruna Bhakti Depok</span>
+										</p>
+									</div>
+									<span class="text-xs text-gray-500 shrink-0">Aug 2016 – Apr 2018</span>
+								</div>
+								<div class="flex justify-between items-start">
+									<div>
+										<p class="text-[14px] font-semibold text-gray-800">Multimedia Teacher <span
+												class="text-gray-500 font-normal ml-1">at SMK Assalam Depok</span></p>
+									</div>
+									<span class="text-xs text-gray-500 shrink-0">Jan 2015 – Apr 2017</span>
+								</div>
+								<div class="flex justify-between items-start">
+									<div>
+										<p class="text-[14px] font-semibold text-gray-800">Graphic Designer (Intern)
+											<span class="text-gray-500 font-normal ml-1">at PT. Jasa Marga (Persero)
+												Tbk</span></p>
+									</div>
+									<span class="text-xs text-gray-500 shrink-0">Aug 2014 – Dec 2014</span>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</section>
+
+				<div class="grid md:grid-cols-2 gap-12 border-t border-gray-100 pt-12">
+					<!-- Education Section -->
+					<section>
+						<h3 class="text-xs uppercase tracking-widest font-bold text-gray-400 mb-6">Education</h3>
+						<div class="space-y-6">
+							<div>
+								<h4 class="text-[15px] font-bold text-gray-900">S2 – IPB University</h4>
+								<p class="text-sm text-gray-600 mb-1">Faculty of Mathematics and Natural Sciences
+									(FMIPA) &bull; Major: Computer Science</p>
+								<p class="text-xs text-gray-500 font-medium">2025 – Present</p>
+								<p class="text-[13px] text-gray-600 mt-2"><span class="font-medium text-gray-800">Focus
+										Areas:</span> Artificial Intelligence, Algorithms, Optimization Techniques, Data
+									Analysis, Machine Learning, Data Visualization, and System Analysis</p>
+							</div>
+							<div>
+								<h4 class="text-[15px] font-bold text-gray-900">S1 - Universitas Bina Sarana Informatika
+								</h4>
+								<p class="text-sm text-gray-600 mb-1">Faculty of Information Technology (FTI) &bull;
+									Major: Software Engineering</p>
+								<p class="text-xs text-gray-500 font-medium mb-2">2019 – 2023 &bull; GPA: 3.50 / 4.00
+								</p>
+								<p class="text-[13px] text-gray-600"><span
+										class="font-medium text-gray-800">Thesis:</span> Implementation of Musical
+									Instrument Audio Recognition in an Android-Based Application</p>
+								<p class="text-[13px] text-gray-600 mt-1"><span class="font-medium text-gray-800">Focus
+										Areas:</span> Software Development, Project Management, Data Structures...</p>
+								<a href="https://github.com/yashagozwan/audeam-mobile/tree/development" target="_blank"
+									class="inline-block mt-2 text-xs font-medium text-blue-600 hover:text-blue-800">View
+									Thesis Code &rarr;</a>
+							</div>
+							<div>
+								<h4 class="text-[15px] font-bold text-gray-900">SMK Taruna Bhakti Depok</h4>
+								<p class="text-sm text-gray-600 mb-1">Major: Multimedia</p>
+								<p class="text-xs text-gray-500 font-medium mb-2">2013 - 2016</p>
+								<p class="text-[13px] text-gray-600"><span
+										class="font-medium text-gray-800">Project:</span> Creating a Corporate Bumper
+									Video</p>
+							</div>
+						</div>
+					</section>
+
+					<!-- Skills Section -->
+					<section>
+						<h3 class="text-xs uppercase tracking-widest font-bold text-gray-400 mb-6">Skills</h3>
+						<div class="space-y-5">
+							<div>
+								<h4 class="text-[14px] font-bold text-gray-900 mb-2">Hard Skills</h4>
+								<div class="flex flex-wrap gap-2">
+									<span
+										class="px-2 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded">Flutter
+										SDK</span>
+									<span
+										class="px-2 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded">Dart</span>
+									<span
+										class="px-2 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded">Java</span>
+									<span
+										class="px-2 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded">Kotlin</span>
+									<span
+										class="px-2 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded">JavaScript
+										/ TypeScript</span>
+									<span
+										class="px-2 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded">Python</span>
+									<span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded">PHP /
+										Laravel</span>
+									<span
+										class="px-2 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded">Node.js</span>
+									<span
+										class="px-2 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded">React.js</span>
+									<span
+										class="px-2 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded">SQL</span>
+									<span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded">HTML /
+										CSS / Tailwind</span>
+								</div>
+							</div>
+							<div>
+								<h4 class="text-[14px] font-bold text-gray-900 mb-2">Tools & Platforms</h4>
+								<p class="text-[13px] text-gray-600 leading-relaxed">
+									Git, GitHub, Gitlab, Azure, CI/CD, Jira, Scrum, MySQL, PostgreSQL, MongoDB,
+									Firebase, Google Maps, Visual Studio Code, Android Studio, Google Chrome, Google
+									Colab, Jupyter Notebook, Postman, Swagger, Figma.
+								</p>
+							</div>
+							<div>
+								<h4 class="text-[14px] font-bold text-gray-900 mb-2">Soft Skills</h4>
+								<p class="text-[13px] text-gray-600 leading-relaxed">
+									Problem-Solving, Critical Thinking, Teamwork, Adaptability, Project Management,
+									Collaboration, and Self-Learning.
+								</p>
+							</div>
+							<div>
+								<h4 class="text-[14px] font-bold text-gray-900 mb-2">Languages</h4>
+								<p class="text-[13px] text-gray-600 leading-relaxed">
+									Indonesia (Native), English (Basic), Japanese (Basic).
+								</p>
+							</div>
+						</div>
+					</section>
+				</div>
+
+				<div class="grid md:grid-cols-2 gap-12 border-t border-gray-100 pt-12">
+					<!-- Bootcamps Section -->
+					<section>
+						<h3 class="text-xs uppercase tracking-widest font-bold text-gray-400 mb-6">Bootcamps & Programs
+						</h3>
+						<div class="space-y-5">
+							<div class="border-l-2 border-gray-200 pl-4">
+								<h4 class="text-[14px] font-bold text-gray-900">IDCamp Indosat Ooredoo Hutchison 2025
+								</h4>
+								<p class="text-xs text-gray-500 font-medium mb-1">Multi-Platform App Developer</p>
+								<p class="text-[13px] text-gray-600"><span class="font-medium text-gray-800">Final
+										Project:</span> Crypto Mini App News</p>
+							</div>
+							<div class="border-l-2 border-gray-200 pl-4">
+								<h4 class="text-[14px] font-bold text-gray-900">Coding Camp 2025 (DBS Foundation)</h4>
+								<p class="text-xs text-gray-500 font-medium mb-1">AI Engineer (Feb 2025 - Jun 2025)</p>
+								<p class="text-[13px] text-gray-600"><span class="font-medium text-gray-800">Final
+										Project:</span> Machine Learning Models on Tabular Data</p>
+							</div>
+							<div class="border-l-2 border-gray-200 pl-4">
+								<h4 class="text-[14px] font-bold text-gray-900">IDCamp 2023 - React Developer</h4>
+								<p class="text-xs text-gray-500 font-medium mb-1">Sep 2023 – Dec 2023</p>
+								<p class="text-[13px] text-gray-600"><span class="font-medium text-gray-800">Final
+										Project:</span> Web-based Notes Application</p>
+							</div>
+							<div class="border-l-2 border-gray-200 pl-4">
+								<h4 class="text-[14px] font-bold text-gray-900">DBS Foundation Coding Camp 2023</h4>
+								<p class="text-xs text-gray-500 font-medium mb-1">Back-End Developer (Node.js)</p>
+								<p class="text-[13px] text-gray-600"><span class="font-medium text-gray-800">Final
+										Project:</span> Book Management System RESTful API</p>
+							</div>
+							<div class="border-l-2 border-gray-200 pl-4">
+								<h4 class="text-[14px] font-bold text-gray-900">Alterra Academy</h4>
+								<p class="text-xs text-gray-500 font-medium mb-1">Flutter: From Zero to Hero Engineer
+									(Aug - Dec 2022)</p>
+								<p class="text-[13px] text-gray-600"><span class="font-medium text-gray-800">Final
+										Project:</span> DiscussIn – Social Media Platform</p>
+							</div>
+							<div class="border-l-2 border-gray-200 pl-4">
+								<h4 class="text-[14px] font-bold text-gray-900">Bangkit Academy 2022</h4>
+								<p class="text-xs text-gray-500 font-medium mb-1">Android Native Development (Feb - Jul
+									2022)</p>
+								<p class="text-[13px] text-gray-600"><span
+										class="font-medium text-gray-800">Achievement:</span> Top 15 Capstone Project
+									(Inacure)</p>
+							</div>
+						</div>
+					</section>
+
+					<!-- Projects & Certs -->
+					<div class="space-y-12">
+						<section>
+							<h3 class="text-xs uppercase tracking-widest font-bold text-gray-400 mb-6">Notable Projects
+							</h3>
+							<ul class="list-disc pl-5 text-[14px] text-gray-800 font-medium space-y-2">
+								<li>Kimper By KPC <span
+										class="text-gray-500 font-normal border-l border-gray-300 ml-2 pl-2">PT. Kaltim
+										Prima Coal</span></li>
+								<li>OneAppCIMB <span
+										class="text-gray-500 font-normal border-l border-gray-300 ml-2 pl-2">PT. Bank
+										CIMB Niaga</span></li>
+								<li>VMon BTN <span
+										class="text-gray-500 font-normal border-l border-gray-300 ml-2 pl-2">PT. Bank
+										Tabungan Negara (BTN)</span></li>
+								<li>Toko Cung: Menyala! <span
+										class="text-gray-500 font-normal border-l border-gray-300 ml-2 pl-2">CV Cipta
+										Niaga Gemilang</span></li>
+								<li>Sintesys Joyday Hawker & Hunter <span
+										class="text-gray-500 font-normal border-l border-gray-300 ml-2 pl-2">PT. Yili
+										Indonesia Dairy</span></li>
+							</ul>
+						</section>
+
+						<section>
+							<h3 class="text-xs uppercase tracking-widest font-bold text-gray-400 mb-6">Certifications
+							</h3>
+							<div
+								class="max-h-64 overflow-y-auto pr-2 custom-scrollbar text-[13px] text-gray-600 space-y-2">
+								<p><span class="font-semibold text-gray-800">Udemy:</span> Complete Flutter Development
+									Bootcamp (Sep 2025), Pemrograman Dart (Aug 2025), Dart & Flutter (Dec 2024), SOLID
+									Principles & Design Patterns (Dec 2024), Swift 5 for Beginners (Dec 2024).</p>
+								<p><span class="font-semibold text-gray-800">Dicoding:</span> Data Visualization (Feb
+									2024), Python (Feb 2024), React Web App (Nov 2023), Front-End Web (Oct 2023), Basic
+									Web Programming (Sep 2023), SQL (May 2023), Back-End for Beginners (Mar 2023), Java
+									(Feb 2023), Flutter for Beginners (Jun 2022), Android Intermediate (Mar 2022), SOLID
+									Principles (Mar 2022), Android Fundamentals (Mar 2022), Kotlin (Feb 2022).</p>
+								<p><span class="font-semibold text-gray-800">Meta:</span> Version Control, Programming
+									with JavaScript, Front-End & Back-End Dev (Aug 2023).</p>
+								<p><span class="font-semibold text-gray-800">Google:</span> Foundations of UX Design
+									(Aug 2023).</p>
+								<p><span class="font-semibold text-gray-800">Others:</span> Kotlin for Java Developers
+									(JetBrains - Aug 2023), BNSP Software Engineer Certification (Aug 2022).</p>
+							</div>
+						</section>
+
+						<section>
+							<h3 class="text-xs uppercase tracking-widest font-bold text-gray-400 mb-4">Hobbies &
+								Interests</h3>
+							<ul class="list-disc pl-5 text-[13px] text-gray-600 leading-relaxed space-y-1">
+								<li>Exploring experimental projects in mobile architecture and AI.</li>
+								<li>Learning new technologies through docs and tech articles.</li>
+								<li>Participating in dev communities and open-source.</li>
+								<li>Following industry trends, research papers, and tech conferences.</li>
+							</ul>
+						</section>
+					</div>
+				</div>
+
+			</div>
+		</main>
+
+		<!-- Footer / Social Media -->
+		<footer class="mt-8 mb-12 flex justify-center">
+			<div class="flex flex-wrap items-center justify-center gap-6">
+				<!-- LinkedIn -->
+				<a href="https://www.linkedin.com/in/yasha-gozwan-shuhada-b924a699/" target="_blank"
+					class="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-sm border border-gray-100 text-gray-500 hover:text-blue-600 hover:shadow-md transition-all">
+					<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+						<path
+							d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
 					</svg>
-				</div>
-				<h3 class="text-2xl font-bold text-gray-900">Featured Work</h3>
+				</a>
+				<!-- GitHub -->
+				<a href="https://github.com/yashagozwan" target="_blank"
+					class="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-sm border border-gray-100 text-gray-500 hover:text-gray-900 hover:shadow-md transition-all">
+					<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+						<path
+							d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+					</svg>
+				</a>
+				<!-- Instagram -->
+				<a href="https://www.instagram.com/yashagozwan" target="_blank"
+					class="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-sm border border-gray-100 text-gray-500 hover:text-pink-600 hover:shadow-md transition-all">
+					<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+						<path
+							d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+					</svg>
+				</a>
+				<!-- X / Twitter -->
+				<a href="https://x.com/letyasha" target="_blank"
+					class="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-sm border border-gray-100 text-gray-500 hover:text-gray-900 hover:shadow-md transition-all">
+					<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+						<path
+							d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+					</svg>
+				</a>
+				<!-- Facebook -->
+				<a href="https://www.facebook.com/profile.php?id=100000579267721" target="_blank"
+					class="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-sm border border-gray-100 text-gray-500 hover:text-blue-700 hover:shadow-md transition-all">
+					<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+						<path
+							d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+					</svg>
+				</a>
+				<!-- YouTube -->
+				<a href="https://www.youtube.com/channel/UCIlCtJwFlzmZAfBYFqibNQg" target="_blank"
+					class="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-sm border border-gray-100 text-gray-500 hover:text-red-600 hover:shadow-md transition-all">
+					<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+						<path
+							d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.015 3.015 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.501 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.377.55 9.377.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+					</svg>
+				</a>
 			</div>
-
-			<div class="grid md:grid-cols-2 gap-6">
-				<!-- Project 1 -->
-				<div
-					class="group flex flex-col p-6 rounded-3xl border border-gray-200 bg-white hover:border-blue-200 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-blue-500/5 transition-all duration-300">
-					<div
-						class="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-blue-50 group-hover:text-blue-600 transition-all text-gray-400">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
-							<path d="M12 18h.01" />
-						</svg>
-					</div>
-					<h4 class="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-						Mobile App Project</h4>
-					<p class="text-gray-600 mb-6 flex-1 text-sm leading-relaxed">
-						A robust, high-performance Flutter application built with detailed attention to animations and
-						pixel-perfect UI across iOS and Android.
-					</p>
-					<div class="flex flex-wrap gap-2 mt-auto">
-						<span
-							class="text-xs font-semibold text-gray-600 bg-gray-100 px-3 py-1.5 rounded-lg">Flutter</span>
-						<span class="text-xs font-semibold text-gray-600 bg-gray-100 px-3 py-1.5 rounded-lg">Dart</span>
-					</div>
-				</div>
-
-				<!-- Template Download Card -->
-				<div
-					class="group flex flex-col items-center justify-center text-center p-8 rounded-3xl border-2 border-dashed border-gray-200 hover:border-blue-300 hover:bg-blue-50/50 transition-all bg-gray-50/50">
-					<div
-						class="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mb-4 text-blue-600">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-							<polyline points="7 10 12 15 17 10" />
-							<line x1="12" x2="12" y1="15" y2="3" />
-						</svg>
-					</div>
-					<h4 class="text-lg font-semibold text-gray-900 mb-2">Want this template?</h4>
-					<p class="text-gray-500 text-sm mb-6 max-w-xs">You can download and use this developer portfolio
-						template for free.</p>
-					<a href="https://github.com/yashagozwan/yashagozwan.github.io" target="_blank"
-						class="text-sm font-semibold text-blue-600 hover:text-blue-700 hover:underline underline-offset-4">Get
-						Source Code</a>
-				</div>
-			</div>
-		</section>
-	</main>
-
-	<!-- Footer / Social -->
-	<footer class="bg-gray-50 border-t border-gray-100">
-		<div class="max-w-4xl mx-auto px-6 py-12">
-			<div class="flex flex-col md:flex-row items-center justify-between gap-6">
-				<div class="flex items-center gap-2">
-					<span class="font-bold text-gray-900">yashagozwan</span>
-					<span class="text-gray-400">© 2026</span>
-				</div>
-
-				<div class="flex items-center gap-5">
-					<a href="https://github.com/yashagozwan" target="_blank"
-						class="text-gray-400 hover:text-gray-900 transition-colors" aria-label="GitHub">
-						<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path
-								d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-							<path d="M9 18c-4.51 2-5-2-7-2" />
-						</svg>
-					</a>
-					<a href="https://www.linkedin.com/in/yasha-gozwan-shuhada-b924a699" target="_blank"
-						class="text-gray-400 hover:text-blue-600 transition-colors" aria-label="LinkedIn">
-						<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-							<rect width="4" height="12" x="2" y="9" />
-							<circle cx="4" cy="4" r="2" />
-						</svg>
-					</a>
-					<a href="https://www.instagram.com/yashagozwan" target="_blank"
-						class="text-gray-400 hover:text-pink-600 transition-colors" aria-label="Instagram">
-						<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-							<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-							<line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-						</svg>
-					</a>
-					<a href="https://x.com/letyasha" target="_blank"
-						class="text-gray-400 hover:text-gray-900 transition-colors" aria-label="X">
-						<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path
-								d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-						</svg>
-					</a>
-				</div>
-			</div>
-		</div>
-	</footer>
+		</footer>
+	</div>
 </body>
 
 </html>
