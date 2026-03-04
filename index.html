@@ -233,6 +233,7 @@
               if (scrollPercent >= milestone && !scrollMilestones[milestone]) {
                 scrollMilestones[milestone] = true;
                 gtag("event", "scroll", {
+                  send_to: "G-R06ZC07TJE",
                   percent_scrolled: parseInt(milestone),
                   event_label: "Scroll Milestone: " + milestone + "%",
                 });
@@ -242,6 +243,28 @@
           { passive: true },
         );
       })();
+    </script>
+
+    <!-- Firebase JS SDK (Analytics) -->
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAujqVmBJ1DGo-eqkwIOzeAC6hO-Cun4Dc",
+        authDomain: "yashagozwan-portfolio.firebaseapp.com",
+        projectId: "yashagozwan-portfolio",
+        storageBucket: "yashagozwan-portfolio.firebasestorage.app",
+        messagingSenderId: "1074266806510",
+        appId: "1:1074266806510:web:85872519a05c14ecccbbff",
+        measurementId: "G-34L60NWMHJ",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
     </script>
   </head>
 
@@ -296,6 +319,7 @@
           href="mailto:yashagozwan13@gmail.com"
           onclick="
             gtag('event', 'select_content', {
+              send_to: 'G-R06ZC07TJE',
               content_type: 'button',
               item_id: 'Nav Say Hello',
             })
@@ -360,6 +384,7 @@
             href="#projects"
             onclick="
               gtag('event', 'select_content', {
+                send_to: 'G-R06ZC07TJE',
                 content_type: 'button',
                 item_id: 'Hero View My Work',
               })
@@ -373,6 +398,7 @@
             target="_blank"
             onclick="
               gtag('event', 'select_content', {
+                send_to: 'G-R06ZC07TJE',
                 content_type: 'button',
                 item_id: 'Hero Preview Full CV',
               })
@@ -399,6 +425,7 @@
             target="_blank"
             onclick="
               gtag('event', 'select_content', {
+                send_to: 'G-R06ZC07TJE',
                 content_type: 'button',
                 item_id: 'Hero GitHub Profile',
               })
@@ -1206,6 +1233,7 @@
                   href="https://github.com/yashagozwan/audeam-mobile/tree/development"
                   onclick="
                     gtag('event', 'select_content', {
+                      send_to: 'G-R06ZC07TJE',
                       content_type: 'button',
                       item_id: 'Education View Source Code',
                     })
@@ -1445,6 +1473,7 @@
           target="_blank"
           onclick="
             gtag('event', 'select_content', {
+              send_to: 'G-R06ZC07TJE',
               content_type: 'button',
               item_id: 'Banner Use My Template',
             })
@@ -1480,6 +1509,7 @@
           href="mailto:yashagozwan13@gmail.com"
           onclick="
             gtag('event', 'select_content', {
+              send_to: 'G-R06ZC07TJE',
               content_type: 'button',
               item_id: 'Footer Send Email',
             })
@@ -1515,6 +1545,7 @@
               target="_blank"
               onclick="
                 gtag('event', 'select_content', {
+                  send_to: 'G-R06ZC07TJE',
                   content_type: 'button',
                   item_id: 'Social GitHub',
                 })
@@ -1533,6 +1564,7 @@
               target="_blank"
               onclick="
                 gtag('event', 'select_content', {
+                  send_to: 'G-R06ZC07TJE',
                   content_type: 'button',
                   item_id: 'Social LinkedIn',
                 })
@@ -1551,6 +1583,7 @@
               target="_blank"
               onclick="
                 gtag('event', 'select_content', {
+                  send_to: 'G-R06ZC07TJE',
                   content_type: 'button',
                   item_id: 'Social Instagram',
                 })
@@ -1569,6 +1602,7 @@
               target="_blank"
               onclick="
                 gtag('event', 'select_content', {
+                  send_to: 'G-R06ZC07TJE',
                   content_type: 'button',
                   item_id: 'Social X',
                 })
