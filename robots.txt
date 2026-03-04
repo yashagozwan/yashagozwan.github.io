@@ -1,0 +1,23 @@
+# robots.txt for yashagozwan.github.io
+# Allow all search engines to crawl the website
+
+User-agent: *
+Allow: /
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /package.json
+Disallow: /package-lock.json
+
+# Allow specific crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
+Sitemap: https://yashagozwan.github.io/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 0
