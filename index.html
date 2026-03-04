@@ -93,7 +93,25 @@
 		}
 		gtag("js", new Date());
 
+
 		gtag("config", "G-R06ZC07TJE");
+
+		// Scroll Depth Tracking
+		(function () {
+			let scrollMilestones = { 25: false, 50: false, 75: false, 90: false };
+			window.addEventListener('scroll', function () {
+				let scrollPercent = Math.round((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100);
+				for (let milestone in scrollMilestones) {
+					if (scrollPercent >= milestone && !scrollMilestones[milestone]) {
+						scrollMilestones[milestone] = true;
+						gtag('event', 'scroll', {
+							'percent_scrolled': parseInt(milestone),
+							'event_label': 'Scroll Milestone: ' + milestone + '%'
+						});
+					}
+				}
+			}, { passive: true });
+		})();
 	</script>
 </head>
 
