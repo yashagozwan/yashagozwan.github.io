@@ -40,6 +40,14 @@
     <priority>0.8</priority>
   </url>
   
+  <!-- Hobbies Page -->
+  <url>
+    <loc>https://yashagozwan.github.io/hobbies.html</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
   <!-- External Resources Linked -->
   <url>
     <loc>https://github.com/yashagozwan</loc>
