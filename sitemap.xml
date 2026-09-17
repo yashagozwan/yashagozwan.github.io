@@ -48,6 +48,14 @@
     <priority>0.85</priority>
   </url>
   
+  <!-- Ideas & Reflections Page -->
+  <url>
+    <loc>https://yashagozwan.github.io/ideas.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
   <!-- External Resources Linked -->
   <url>
     <loc>https://github.com/yashagozwan</loc>

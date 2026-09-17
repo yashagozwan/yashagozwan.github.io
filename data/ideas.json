@@ -1,0 +1,20 @@
+[
+  {
+    "id": "beyond-the-title",
+    "title": "Beyond the Title",
+    "category": "Philosophy",
+    "description": "A personal reflection on ambition, recognition, freedom, and self-worth.",
+    "cover": "images/bagaimana_saya_ingin_menjalani_hidup.png",
+    "googleDriveUrl": "https://drive.google.com/file/d/YOUR_GOOGLE_DRIVE_FILE_ID/view?usp=sharing",
+    "tags": [
+      "Diogenes",
+      "Philosophy",
+      "Reflection",
+      "Career",
+      "Self-worth"
+    ],
+    "date": "2026",
+    "actionLabel": "Read Reflection ↗",
+    "featured": true
+  }
+]
