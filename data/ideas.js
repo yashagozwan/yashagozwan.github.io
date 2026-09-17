@@ -53,4 +53,16 @@ window.IDEAS_COLLECTION = [
     actionLabel: "Read Reflection ↗",
     featured: true
   },
+  {
+    id: "what-remains-of-me",
+    title: "What Remains of Me?",
+    category: "Philosophy",
+    description: "A personal reflection on desire, recognition, ambition, and what remains when professional status no longer defines self-worth.",
+    cover: "images/what_remains_of_me.png",
+    googleDriveUrl: "https://drive.google.com/file/d/1rz5rGg04TTUm8e0VkVphQ6cAjpDPHRw3/view?usp=sharing",
+    tags: ["Schopenhauer", "Philosophy", "Reflection", "Career", "Recognition", "Self-worth"],
+    date: "2026",
+    actionLabel: "Read Reflection ↗",
+    featured: false
+  },
 ];
