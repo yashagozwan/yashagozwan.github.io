@@ -169,6 +169,16 @@
       },
     };
   </script>
+  <style>
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-R06ZC07TJE"></script>
   <script>
@@ -346,7 +356,7 @@
   </section>
 
   <!-- Stats / Overview Bar -->
-  <div class="max-w-5xl mx-auto px-6 mb-32 -mt-10 relative z-20">
+  <div class="max-w-6xl mx-auto px-6 mb-20 md:mb-24 -mt-10 relative z-20">
     <div
       class="bg-white rounded-3xl shadow-xl shadow-gray-200/50 p-8 border border-gray-100 grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-gray-100">
       <div>
@@ -379,18 +389,19 @@
   </div>
 
   <!-- About Section -->
-  <section id="about" class="py-24 bg-white">
+  <section id="about" class="py-20 md:py-24 bg-white border-t border-gray-100/50">
     <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row gap-16 items-center">
       <div class="flex-1">
         <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-          Over 4 years building fintech & enterprise mobile solutions.
+          Over 4 years building enterprise mobile solutions.
         </h2>
         <p class="text-lg text-gray-600 leading-relaxed mb-8">
-          I specialize in Flutter for Android and iOS application development.
-          From building state-of-the-art fintech apps at
-          <span class="text-gray-900 font-semibold">Home Credit Indonesia</span>
-          to handling large-scale consumer applications, I emphasize Clean
-          Architecture, Domain-Driven Design (DDD), and seamless UI/UX.
+          I specialize in <span class="text-gray-900 font-semibold">Flutter</span>
+          for Android and iOS application development, building scalable and
+          maintainable mobile applications with a strong focus on performance,
+          architecture, and user experience. I work extensively with Clean
+          Architecture, Bloc, Domain-Driven Design (DDD), and native platform
+          integration.
         </p>
         <p class="text-lg text-gray-600 leading-relaxed mb-10">
           I thrive in Agile Scrum environments, collaborating deeply with QA,
@@ -399,28 +410,166 @@
         </p>
 
         <h3 class="font-bold text-gray-900 mb-4 text-lg">My Core Stack</h3>
+
         <div class="flex flex-wrap gap-3">
+          <!-- Mobile Development -->
           <span
-            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">Flutter
-            & Dart</span>
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Flutter & Dart
+          </span>
+
           <span
-            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">Swift
-            & Kotlin</span>
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Kotlin & Android
+          </span>
+
           <span
-            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">Riverpod
-            / Bloc</span>
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Bloc
+          </span>
+
           <span
-            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">Firebase
-            & GCP</span>
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Provider
+          </span>
+
           <span
-            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">Clean
-            Architecture</span>
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            GetX
+          </span>
+
+          <!-- Web Development -->
           <span
-            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">React.js
-            & Node.js</span>
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Vue.js & TypeScript
+          </span>
+
           <span
-            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">Laravel
-            & PHP</span>
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Nuxt.js
+          </span>
+
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Vite
+          </span>
+
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            React.js
+          </span>
+
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Tailwind CSS
+          </span>
+
+          <!-- Backend -->
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Node.js & Express.js
+          </span>
+
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Laravel & PHP
+          </span>
+
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            REST API
+          </span>
+
+          <!-- Database & Cloud -->
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            MySQL & PostgreSQL
+          </span>
+
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            MongoDB
+          </span>
+
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Firebase
+          </span>
+
+          <!-- Architecture -->
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Clean Architecture
+          </span>
+
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Domain-Driven Design
+          </span>
+
+          <!-- Tools & DevOps -->
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Git & GitLab
+          </span>
+
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            CI/CD
+          </span>
+
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Azure DevOps
+          </span>
+
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Jira
+          </span>
+
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Postman & Swagger
+          </span>
+
+          <!-- Testing -->
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Unit Testing
+          </span>
+
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Integration Testing
+          </span>
+
+          <!-- AI & Data -->
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Python
+          </span>
+
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Machine Learning
+          </span>
+
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Google Colab
+          </span>
+
+          <!-- Design & Platform -->
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Figma
+          </span>
+
+          <span
+            class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm font-semibold text-gray-700 hover:-translate-y-1 transition-transform cursor-default">
+            Google Maps
+          </span>
         </div>
       </div>
       <div class="w-full md:w-[450px] shrink-0 relative group">
@@ -439,9 +588,9 @@
   </section>
 
   <!-- Experience Section (Modern Cards) -->
-  <section id="experience" class="py-32">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="text-center mb-20">
+  <section id="experience" class="py-20 md:py-24 bg-gray-50/40 border-t border-gray-100/60">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12 md:mb-16">
         <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
           Professional Experience
         </h2>
@@ -665,14 +814,14 @@
 
   <!-- Projects Section -->
   <section id="projects"
-    class="py-32 bg-gray-900 text-white rounded-[3rem] mx-2 md:mx-6 my-10 relative overflow-hidden">
+    class="py-20 md:py-24 bg-gray-900 text-white rounded-[2.5rem] md:rounded-[3rem] mx-3 md:mx-6 my-12 md:my-16 relative overflow-hidden">
     <!-- Decoration -->
     <div
       class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-800 via-gray-900 to-black opacity-50">
     </div>
 
     <div class="max-w-6xl mx-auto px-6 relative z-10">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6">
         <div class="max-w-xl">
           <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-4">
             Featured Work
@@ -806,130 +955,639 @@
     </div>
   </section>
 
-  <!-- Education & Training Section -->
-  <section id="education" class="py-32">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="font-display text-3xl font-bold text-gray-900 mb-12 border-b border-gray-100 pb-6">
-        Education & Learning Journey
-      </h2>
+  <!-- Engineering Highlights Section -->
+  <section id="engineering-highlights" class="py-20 md:py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12 md:mb-16">
+        <div
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-brand-50 text-brand-600 rounded-full text-xs font-semibold tracking-wide uppercase mb-4 border border-brand-100">
+          Case Studies &amp; Problem Solving
+        </div>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+          Engineering Highlights
+        </h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+          A few engineering problems, technical approaches, and lessons from the things I build.
+        </p>
+      </div>
 
-      <div class="grid md:grid-cols-2 gap-16">
-        <!-- Academic -->
-        <div>
-          <h3 class="text-lg font-semibold text-brand-600 mb-8 flex items-center gap-2">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z">
-              </path>
-            </svg>
-            Academic Background
-          </h3>
-
-          <div class="relative pl-8 border-l-2 border-gray-100 space-y-10">
-            <div class="relative">
-              <div class="absolute -left-[41px] top-1.5 w-4 h-4 rounded-full bg-white border-[3px] border-brand-500">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Card 1: Flutter Architecture -->
+        <div
+          class="engineering-card group bg-white border border-gray-100 rounded-3xl p-6 sm:p-7 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 hover:border-brand-200 transition-all duration-300 hover:-translate-y-1 cursor-pointer flex flex-col justify-between"
+          tabindex="0" role="button" aria-haspopup="dialog" aria-label="View Flutter Architecture case details"
+          data-highlight-id="flutter-architecture">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div
+                class="w-11 h-11 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center border border-brand-100/80 group-hover:bg-brand-600 group-hover:text-white transition-colors duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                  </path>
+                </svg>
               </div>
-              <h4 class="text-xl font-bold text-gray-900">
-                S2 Computer Science
-              </h4>
-              <p class="text-sm font-medium text-gray-600 mb-2">
-                IPB University
-                <span class="text-gray-400 font-normal">| 2025 - Present</span>
+              <span
+                class="inline-flex items-center text-xs font-semibold text-gray-400 group-hover:text-brand-600 transition-colors gap-1">
+                Case details
+                <span class="text-sm transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </span>
+            </div>
+
+            <h3 class="font-display text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-600 transition-colors">
+              Flutter Architecture
+            </h3>
+
+            <div class="space-y-2 mb-6 text-sm">
+              <p class="text-gray-600 leading-relaxed">
+                <span class="font-semibold text-gray-800">Problem:</span> Application complexity increased as features
+                and business logic grew.
               </p>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                Focus: Artificial Intelligence, Machine Learning, Data
-                Analytics & Algorithms.
+              <p class="text-gray-500 leading-relaxed">
+                <span class="font-semibold text-gray-700">Approach:</span> Applied Clean Architecture with Bloc to
+                separate presentation, domain, and data responsibilities.
               </p>
             </div>
-            <div class="relative">
-              <div class="absolute -left-[41px] top-1.5 w-4 h-4 rounded-full bg-white border-[3px] border-gray-300">
+          </div>
+
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-100">
+            <span
+              class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">Flutter</span>
+            <span
+              class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">Bloc</span>
+            <span
+              class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">Clean
+              Architecture</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Native Integration -->
+        <div
+          class="engineering-card group bg-white border border-gray-100 rounded-3xl p-6 sm:p-7 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 hover:border-brand-200 transition-all duration-300 hover:-translate-y-1 cursor-pointer flex flex-col justify-between"
+          tabindex="0" role="button" aria-haspopup="dialog" aria-label="View Native Integration case details"
+          data-highlight-id="native-integration">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div
+                class="w-11 h-11 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center border border-brand-100/80 group-hover:bg-brand-600 group-hover:text-white transition-colors duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
               </div>
-              <h4 class="text-xl font-bold text-gray-900">
-                S1 Software Engineering
-              </h4>
-              <p class="text-sm font-medium text-gray-600 mb-2">
-                Universitas Bina Sarana Informatika
-                <span class="text-gray-400 font-normal">| GPA: 3.50/4.00</span>
+              <span
+                class="inline-flex items-center text-xs font-semibold text-gray-400 group-hover:text-brand-600 transition-colors gap-1">
+                Case details
+                <span class="text-sm transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </span>
+            </div>
+
+            <h3 class="font-display text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-600 transition-colors">
+              Native Integration
+            </h3>
+
+            <div class="space-y-2 mb-6 text-sm">
+              <p class="text-gray-600 leading-relaxed">
+                <span class="font-semibold text-gray-800">Problem:</span> Some application capabilities required
+                platform-specific Android and iOS functionality.
               </p>
-              <p class="text-sm text-gray-600 leading-relaxed mb-1">
-                Thesis: Implementation of Musical Instrument Audio Recognition
-                in an Android-Based App.
+              <p class="text-gray-500 leading-relaxed">
+                <span class="font-semibold text-gray-700">Approach:</span> Integrated Flutter with native platform code
+                using MethodChannel.
               </p>
-              <a href="https://github.com/yashagozwan/audeam-mobile/tree/development" onclick="
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-100">
+            <span
+              class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">Flutter</span>
+            <span
+              class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">Kotlin</span>
+            <span
+              class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">Swift</span>
+            <span
+              class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">MethodChannel</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Mobile Testing -->
+        <div
+          class="engineering-card group bg-white border border-gray-100 rounded-3xl p-6 sm:p-7 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 hover:border-brand-200 transition-all duration-300 hover:-translate-y-1 cursor-pointer flex flex-col justify-between"
+          tabindex="0" role="button" aria-haspopup="dialog" aria-label="View Mobile Testing case details"
+          data-highlight-id="mobile-testing">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div
+                class="w-11 h-11 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center border border-brand-100/80 group-hover:bg-brand-600 group-hover:text-white transition-colors duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                  </path>
+                </svg>
+              </div>
+              <span
+                class="inline-flex items-center text-xs font-semibold text-gray-400 group-hover:text-brand-600 transition-colors gap-1">
+                Case details
+                <span class="text-sm transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </span>
+            </div>
+
+            <h3 class="font-display text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-600 transition-colors">
+              Mobile Testing
+            </h3>
+
+            <div class="space-y-2 mb-6 text-sm">
+              <p class="text-gray-600 leading-relaxed">
+                <span class="font-semibold text-gray-800">Problem:</span> Repeated manual regression testing became
+                time-consuming for critical application flows.
+              </p>
+              <p class="text-gray-500 leading-relaxed">
+                <span class="font-semibold text-gray-700">Approach:</span> Introduced automated testing for important
+                application scenarios and regression flows.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-100">
+            <span
+              class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">Flutter</span>
+            <span
+              class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">Testing</span>
+            <span
+              class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">Automation</span>
+          </div>
+        </div>
+
+        <!-- Card 4: ML Research -->
+        <div
+          class="engineering-card group bg-white border border-gray-100 rounded-3xl p-6 sm:p-7 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 hover:border-brand-200 transition-all duration-300 hover:-translate-y-1 cursor-pointer flex flex-col justify-between"
+          tabindex="0" role="button" aria-haspopup="dialog" aria-label="View ML Research case details"
+          data-highlight-id="ml-research">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div
+                class="w-11 h-11 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center border border-brand-100/80 group-hover:bg-brand-600 group-hover:text-white transition-colors duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                  </path>
+                </svg>
+              </div>
+              <span
+                class="inline-flex items-center text-xs font-semibold text-gray-400 group-hover:text-brand-600 transition-colors gap-1">
+                Case details
+                <span class="text-sm transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </span>
+            </div>
+
+            <h3 class="font-display text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-600 transition-colors">
+              ML Research
+            </h3>
+
+            <div class="space-y-2 mb-6 text-sm">
+              <p class="text-gray-600 leading-relaxed">
+                <span class="font-semibold text-gray-800">Problem:</span> Identify unusual patterns in mobile
+                application event logs.
+              </p>
+              <p class="text-gray-500 leading-relaxed">
+                <span class="font-semibold text-gray-700">Approach:</span> Experimented with Autoencoder and traditional
+                anomaly detection approaches.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-100">
+            <span
+              class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">Python</span>
+            <span
+              class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">Machine
+              Learning</span>
+            <span
+              class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">Autoencoder</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education & Training Section -->
+  <section id="education" class="py-20 md:py-24 bg-gradient-to-b from-transparent via-gray-50/50 to-transparent">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12 md:mb-16">
+        <div
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-brand-50 text-brand-600 rounded-full text-xs font-semibold tracking-wide uppercase mb-4 border border-brand-100">
+          Academic &amp; Continuous Learning
+        </div>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+          Education &amp; Learning Journey
+        </h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+          Formal academic foundations, specialized bootcamps, and continuous technical certifications.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-10">
+        <!-- Academic Background Column -->
+        <div class="space-y-6">
+          <div class="flex items-center gap-3 mb-2">
+            <div
+              class="w-10 h-10 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center border border-brand-100 shadow-sm">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z">
+                </path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z">
+                </path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-gray-900">Academic Background</h3>
+              <p class="text-xs text-gray-500">Degree programs &amp; research focus</p>
+            </div>
+          </div>
+
+          <!-- Academic Card 1: S2 -->
+          <div
+            class="bg-white border border-gray-100 rounded-3xl p-6 sm:p-7 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 hover:border-brand-200 transition-all duration-300">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span
+                class="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-50 text-brand-600 rounded-full text-xs font-semibold border border-brand-100">
+                <span class="w-2 h-2 rounded-full bg-brand-600 animate-pulse"></span>
+                2025 — Present
+              </span>
+              <span class="text-xs font-medium text-gray-400">Postgraduate</span>
+            </div>
+
+            <h4 class="text-xl font-bold font-display text-gray-900 mb-1">
+              S2 Computer Science
+            </h4>
+            <p class="text-sm font-semibold text-brand-600 mb-3">
+              IPB University
+            </p>
+            <p class="text-sm text-gray-600 leading-relaxed mb-5">
+              Focus: Artificial Intelligence, Machine Learning, Data Analytics &amp; Algorithms.
+            </p>
+
+            <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-100">
+              <span
+                class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">AI
+                &amp; ML</span>
+              <span
+                class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">Data
+                Analytics</span>
+              <span
+                class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">Algorithms</span>
+            </div>
+          </div>
+
+          <!-- Academic Card 2: S1 -->
+          <div
+            class="bg-white border border-gray-100 rounded-3xl p-6 sm:p-7 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 hover:border-brand-200 transition-all duration-300">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span
+                class="inline-flex items-center px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full text-xs font-semibold border border-emerald-100">
+                GPA: 3.50 / 4.00
+              </span>
+              <span class="text-xs font-medium text-gray-400">Undergraduate</span>
+            </div>
+
+            <h4 class="text-xl font-bold font-display text-gray-900 mb-1">
+              S1 Software Engineering
+            </h4>
+            <p class="text-sm font-semibold text-gray-700 mb-3">
+              Universitas Bina Sarana Informatika
+            </p>
+            <p class="text-sm text-gray-600 leading-relaxed mb-5">
+              Thesis: Implementation of Musical Instrument Audio Recognition in an Android-Based App.
+            </p>
+
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs text-gray-400">Android Audio AI</span>
+              <a href="https://github.com/yashagozwan/audeam-mobile/tree/development" target="_blank" onclick="
                     gtag('event', 'select_content', {
                       send_to: 'G-R06ZC07TJE',
                       content_type: 'button',
                       item_id: 'Education View Source Code',
                     })
-                  " class="text-brand-600 text-xs font-semibold hover:underline">View Source Code &rarr;</a>
+                  "
+                class="inline-flex items-center gap-1.5 text-brand-600 text-xs font-semibold hover:text-brand-700 transition-colors group">
+                <span>View Source Code</span>
+                <span class="transition-transform group-hover:translate-x-0.5">&rarr;</span>
+              </a>
             </div>
           </div>
         </div>
 
-        <!-- Bootcamps & Certifications -->
-        <div>
-          <h3 class="text-lg font-semibold text-brand-600 mb-8 flex items-center gap-2">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-            </svg>
-            Continuous Learning
-          </h3>
+        <!-- Continuous Learning Column -->
+        <div class="space-y-6">
+          <div class="flex items-center gap-3 mb-2">
+            <div
+              class="w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center border border-indigo-100 shadow-sm">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                </path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-gray-900">Continuous Learning</h3>
+              <p class="text-xs text-gray-500">Intensive industry bootcamps</p>
+            </div>
+          </div>
 
-          <div class="space-y-6">
-            <div
-              class="bg-gray-50 border border-gray-100 rounded-2xl p-6 hover:bg-white hover:shadow-md transition-all">
-              <h4 class="text-gray-900 font-bold mb-1">
-                IDCamp 2025 (Indosat)
-              </h4>
-              <p class="text-sm text-gray-600">
-                Multi-Platform App Developer. Built Crypto Mini App News.
-              </p>
+          <!-- Bootcamp 1 -->
+          <div
+            class="bg-white border border-gray-100 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 hover:border-brand-200 transition-all duration-300">
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">IDCamp 2025</span>
+              <span class="text-xs font-medium text-gray-400">Indosat Ooredoo Hutchison</span>
             </div>
-            <div
-              class="bg-gray-50 border border-gray-100 rounded-2xl p-6 hover:bg-white hover:shadow-md transition-all">
-              <h4 class="text-gray-900 font-bold mb-1">
-                AI Engineer (DBS Foundation)
-              </h4>
-              <p class="text-sm text-gray-600">
-                Coding Camp 2025. Focused on Machine Learning Models on
-                Tabular Data.
-              </p>
+            <h4 class="text-base font-bold font-display text-gray-900 mb-1">
+              Multi-Platform App Developer
+            </h4>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Built Crypto Mini App News leveraging modern cross-platform development architecture.
+            </p>
+          </div>
+
+          <!-- Bootcamp 2 -->
+          <div
+            class="bg-white border border-gray-100 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 hover:border-brand-200 transition-all duration-300">
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider">DBS Foundation</span>
+              <span class="text-xs font-medium text-gray-400">Coding Camp 2025</span>
             </div>
-            <div
-              class="bg-gray-50 border border-gray-100 rounded-2xl p-6 hover:bg-white hover:shadow-md transition-all">
-              <h4 class="text-gray-900 font-bold mb-1">
-                Bangkit Academy 2022
-              </h4>
-              <p class="text-sm text-gray-600">
-                Google, GoTo, Traveloka.
-                <span class="font-semibold text-brand-600">Top 15 Capstone Project</span>
-                (Inacure).
-              </p>
+            <h4 class="text-base font-bold font-display text-gray-900 mb-1">
+              AI Engineer
+            </h4>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Specialized in machine learning predictive pipelines and tabular data classification models.
+            </p>
+          </div>
+
+          <!-- Bootcamp 3 -->
+          <div
+            class="bg-white border border-gray-100 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 hover:border-brand-200 transition-all duration-300">
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="text-xs font-bold text-rose-600 uppercase tracking-wider">Bangkit Academy 2022</span>
+              <span
+                class="inline-flex items-center gap-1 px-2.5 py-0.5 bg-amber-50 text-amber-700 border border-amber-200/80 rounded-full text-xs font-semibold">
+                <svg class="w-3 h-3 text-amber-500 fill-current" viewBox="0 0 20 20">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                  </path>
+                </svg>
+                Top 15 Capstone
+              </span>
             </div>
+            <h4 class="text-base font-bold font-display text-gray-900 mb-1">
+              Google, GoTo, Traveloka
+            </h4>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Selected in the Top 15 Capstone Projects out of nationwide cohorts with product Inacure.
+            </p>
           </div>
         </div>
       </div>
 
-      <!-- Quick certifications tags -->
-      <div class="mt-12 flex flex-wrap gap-2 justify-center">
-        <span class="px-3 py-1 bg-white border border-gray-200 text-gray-500 rounded-full text-xs font-semibold">Udemy:
-          Flutter Dev Bootcamp</span>
-        <span
-          class="px-3 py-1 bg-white border border-gray-200 text-gray-500 rounded-full text-xs font-semibold">Dicoding:
-          Flutter, React, SQL</span>
-        <span class="px-3 py-1 bg-white border border-gray-200 text-gray-500 rounded-full text-xs font-semibold">Meta:
-          Version Control & JS</span>
-        <span class="px-3 py-1 bg-white border border-gray-200 text-gray-500 rounded-full text-xs font-semibold">Google:
-          UX Design</span>
+      <!-- Flutter & Dart Verified Certifications Carousel -->
+      <div
+        class="mt-16 bg-gradient-to-b from-white to-gray-50/50 border border-gray-100 rounded-3xl p-6 sm:p-8 shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+          <div>
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1 bg-brand-50 text-brand-600 rounded-full text-xs font-semibold tracking-wide uppercase mb-2 border border-brand-100">
+              Verified Specializations
+            </div>
+            <h3 class="font-display text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
+              Flutter &amp; Dart Certifications
+            </h3>
+            <p class="text-sm text-gray-500 mt-1">
+              Verified credentials focusing on Clean Architecture, SOLID design patterns, and framework mastery.
+            </p>
+          </div>
+
+          <!-- Carousel Scroll Controls -->
+          <div class="flex items-center gap-2 self-end sm:self-auto shrink-0">
+            <span class="text-xs font-medium text-gray-400 mr-1 sm:hidden">Swipe &harr;</span>
+            <button id="cert-prev-btn" type="button" aria-label="Scroll left"
+              class="w-10 h-10 rounded-full border border-gray-200 bg-white hover:bg-gray-50 hover:text-brand-600 hover:border-brand-200 text-gray-700 flex items-center justify-center transition-all shadow-sm active:scale-95">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button id="cert-next-btn" type="button" aria-label="Scroll right"
+              class="w-10 h-10 rounded-full border border-gray-200 bg-white hover:bg-gray-50 hover:text-brand-600 hover:border-brand-200 text-gray-700 flex items-center justify-center transition-all shadow-sm active:scale-95">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Swipeable Cards Track -->
+        <div id="cert-carousel"
+          class="flex gap-5 overflow-x-auto pb-4 pt-2 scroll-smooth snap-x snap-mandatory no-scrollbar">
+
+          <!-- Card 1: SOLID Principles -->
+          <a href="https://www.udemy.com/certificate/UC-314d1c64-844f-498c-a656-7d250e82e854/" target="_blank"
+            rel="noopener noreferrer"
+            onclick="gtag('event', 'select_content', { send_to: 'G-R06ZC07TJE', content_type: 'certificate', item_id: 'Cert: Flutter & Dart SOLID Principles' })"
+            class="group snap-start shrink-0 w-[290px] sm:w-[330px] md:w-[340px] bg-white border border-gray-200/80 hover:border-brand-300 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-xs font-semibold border border-purple-100">
+                  <span class="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
+                  Udemy
+                </span>
+                <span class="text-xs font-medium text-gray-400">4 hrs • Dec 2024</span>
+              </div>
+              <h4
+                class="font-display text-lg font-bold text-gray-900 group-hover:text-brand-600 transition-colors leading-snug mb-2">
+                Flutter &amp; Dart: SOLID Principles and Top Design Patterns
+              </h4>
+              <p class="text-xs text-gray-500 mb-4">
+                Instructor: <span class="text-gray-700 font-medium">Piotr Paweska</span>
+              </p>
+            </div>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-medium text-gray-500 bg-gray-50 px-2.5 py-1 rounded-md">Architecture</span>
+              <span
+                class="inline-flex items-center gap-1 text-xs font-semibold text-brand-600 group-hover:text-brand-700 transition-colors">
+                Verify Credential
+                <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </span>
+            </div>
+          </a>
+
+          <!-- Card 2: Dart Clean Code -->
+          <a href="https://drive.google.com/file/d/1RnUcZZ8ZiTkimlk_YUSsONLVl5-j1bJn/view" target="_blank"
+            rel="noopener noreferrer"
+            onclick="gtag('event', 'select_content', { send_to: 'G-R06ZC07TJE', content_type: 'certificate', item_id: 'Cert: Dart Clean Code LinkedIn' })"
+            class="group snap-start shrink-0 w-[290px] sm:w-[330px] md:w-[340px] bg-white border border-gray-200/80 hover:border-brand-300 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold border border-blue-100">
+                  <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                  LinkedIn Learning
+                </span>
+                <span class="text-xs font-medium text-gray-400">1.1 hrs • May 2026</span>
+              </div>
+              <h4
+                class="font-display text-lg font-bold text-gray-900 group-hover:text-brand-600 transition-colors leading-snug mb-2">
+                Dart Clean Code: Writing High-Efficiency, Maintainable Programs
+              </h4>
+              <p class="text-xs text-gray-500 mb-4">
+                Platform: <span class="text-gray-700 font-medium">LinkedIn Learning</span>
+              </p>
+            </div>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-medium text-gray-500 bg-gray-50 px-2.5 py-1 rounded-md">Clean Code</span>
+              <span
+                class="inline-flex items-center gap-1 text-xs font-semibold text-brand-600 group-hover:text-brand-700 transition-colors">
+                Verify Credential
+                <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </span>
+            </div>
+          </a>
+
+          <!-- Card 3: Complete Flutter Bootcamp -->
+          <a href="https://ude.my/UC-f9e723c2-8b9c-4d51-bf09-018cb15d0219" target="_blank" rel="noopener noreferrer"
+            onclick="gtag('event', 'select_content', { send_to: 'G-R06ZC07TJE', content_type: 'certificate', item_id: 'Cert: Complete Flutter Bootcamp Angela Yu' })"
+            class="group snap-start shrink-0 w-[290px] sm:w-[330px] md:w-[340px] bg-white border border-gray-200/80 hover:border-brand-300 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-xs font-semibold border border-purple-100">
+                  <span class="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
+                  Udemy
+                </span>
+                <span class="text-xs font-medium text-gray-400">29 hrs • Sept 2025</span>
+              </div>
+              <h4
+                class="font-display text-lg font-bold text-gray-900 group-hover:text-brand-600 transition-colors leading-snug mb-2">
+                The Complete Flutter Development Bootcamp with Dart
+              </h4>
+              <p class="text-xs text-gray-500 mb-4">
+                Instructor: <span class="text-gray-700 font-medium">Dr. Angela Yu</span>
+              </p>
+            </div>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-medium text-gray-500 bg-gray-50 px-2.5 py-1 rounded-md">Full Stack Mobile</span>
+              <span
+                class="inline-flex items-center gap-1 text-xs font-semibold text-brand-600 group-hover:text-brand-700 transition-colors">
+                Verify Credential
+                <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </span>
+            </div>
+          </a>
+
+          <!-- Card 4: Stephen Grider -->
+          <a href="https://ude.my/UC-70b9003a-b45a-4b0f-a30f-ce956aa7adf4" target="_blank" rel="noopener noreferrer"
+            onclick="gtag('event', 'select_content', { send_to: 'G-R06ZC07TJE', content_type: 'certificate', item_id: 'Cert: Dart and Flutter Stephen Grider' })"
+            class="group snap-start shrink-0 w-[290px] sm:w-[330px] md:w-[340px] bg-white border border-gray-200/80 hover:border-brand-300 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-xs font-semibold border border-purple-100">
+                  <span class="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
+                  Udemy
+                </span>
+                <span class="text-xs font-medium text-gray-400">31.5 hrs • Dec 2024</span>
+              </div>
+              <h4
+                class="font-display text-lg font-bold text-gray-900 group-hover:text-brand-600 transition-colors leading-snug mb-2">
+                Dart and Flutter: The Complete Developer's Guide
+              </h4>
+              <p class="text-xs text-gray-500 mb-4">
+                Instructor: <span class="text-gray-700 font-medium">Stephen Grider</span>
+              </p>
+            </div>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-medium text-gray-500 bg-gray-50 px-2.5 py-1 rounded-md">Reactive &amp;
+                State</span>
+              <span
+                class="inline-flex items-center gap-1 text-xs font-semibold text-brand-600 group-hover:text-brand-700 transition-colors">
+                Verify Credential
+                <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </span>
+            </div>
+          </a>
+
+          <!-- Card 5: PZN -->
+          <a href="https://ude.my/UC-d08680d8-480d-4cae-a008-9dc4ff42530e" target="_blank" rel="noopener noreferrer"
+            onclick="gtag('event', 'select_content', { send_to: 'G-R06ZC07TJE', content_type: 'certificate', item_id: 'Cert: Pemrograman Dart PZN' })"
+            class="group snap-start shrink-0 w-[290px] sm:w-[330px] md:w-[340px] bg-white border border-gray-200/80 hover:border-brand-300 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-xs font-semibold border border-purple-100">
+                  <span class="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
+                  Udemy
+                </span>
+                <span class="text-xs font-medium text-gray-400">17.5 hrs • Aug 2025</span>
+              </div>
+              <h4
+                class="font-display text-lg font-bold text-gray-900 group-hover:text-brand-600 transition-colors leading-snug mb-2">
+                Pemrograman Dart : Pemula sampai Mahir
+              </h4>
+              <p class="text-xs text-gray-500 mb-4">
+                Instructor: <span class="text-gray-700 font-medium">Programmer Zaman Now</span>
+              </p>
+            </div>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-medium text-gray-500 bg-gray-50 px-2.5 py-1 rounded-md">Dart Fundamentals</span>
+              <span
+                class="inline-flex items-center gap-1 text-xs font-semibold text-brand-600 group-hover:text-brand-700 transition-colors">
+                Verify Credential
+                <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </span>
+            </div>
+          </a>
+
+          <!-- Card 6: Alterra Academy MSIB -->
+          <a href="https://drive.google.com/file/d/10EB0Rt6iVMIlPdRVYkaSucR44i-5tfvi/view?usp=sharing" target="_blank"
+            rel="noopener noreferrer"
+            onclick="gtag('event', 'select_content', { send_to: 'G-R06ZC07TJE', content_type: 'certificate', item_id: 'Cert: Alterra Academy Mastering Flutter MSIB' })"
+            class="group snap-start shrink-0 w-[290px] sm:w-[330px] md:w-[340px] bg-white border border-gray-200/80 hover:border-brand-300 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-50 text-amber-800 rounded-full text-xs font-semibold border border-amber-200/70">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                  Alterra Academy
+                </span>
+                <span class="text-xs font-medium text-gray-400">Aug — Dec 2022</span>
+              </div>
+              <h4
+                class="font-display text-lg font-bold text-gray-900 group-hover:text-brand-600 transition-colors leading-snug mb-2">
+                Mastering Flutter From Zero to Hero Engineer
+              </h4>
+              <p class="text-xs text-gray-500 mb-1">
+                Program: <span class="text-gray-700 font-medium">MSIB Batch 3 (Kampus Merdeka)</span>
+              </p>
+              <p class="text-xs text-gray-500 mb-4">
+                Capstone: <span class="text-brand-600 font-medium">Discussin</span>
+              </p>
+            </div>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-medium text-gray-500 bg-gray-50 px-2.5 py-1 rounded-md">MSIB Graduate</span>
+              <span
+                class="inline-flex items-center gap-1 text-xs font-semibold text-brand-600 group-hover:text-brand-700 transition-colors">
+                Verify Credential
+                <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </span>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Hobbies Section (Elegant Navigation Card) -->
-  <section class="py-24 bg-gray-50/30 border-t border-gray-100/50">
+  <section class="py-20 md:py-24 bg-gray-50/30 border-t border-gray-100/50">
     <div class="max-w-6xl mx-auto px-6">
       <div
         class="bg-gradient-to-br from-white to-gray-50 border border-gray-100 rounded-[2.5rem] p-8 md:p-16 flex flex-col lg:flex-row items-center justify-between gap-12 shadow-sm hover:shadow-md transition-all relative overflow-hidden">
@@ -1050,10 +1708,11 @@
           <div class="lg:col-span-6">
             <a href="ideas.html"
               class="group block relative bg-white rounded-3xl border border-stone-200/80 p-8 sm:p-10 shadow-sm hover:shadow-xl hover:border-stone-300 transition-all duration-500">
-              
+
               <!-- Card Header Badge & Tag -->
               <div class="flex items-center justify-between gap-4 pb-6 border-b border-stone-100 text-xs">
-                <span class="inline-flex items-center gap-2 px-3 py-1 bg-stone-100 text-stone-700 rounded-full font-semibold tracking-wide">
+                <span
+                  class="inline-flex items-center gap-2 px-3 py-1 bg-stone-100 text-stone-700 rounded-full font-semibold tracking-wide">
                   <span class="w-1.5 h-1.5 rounded-full bg-stone-500"></span>
                   <span id="featured-idea-category">Featured: Philosophy</span>
                 </span>
@@ -1111,9 +1770,9 @@
   </section>
 
   <!-- Built With Section -->
-  <section class="py-24 bg-white">
+  <section class="py-20 md:py-24 bg-white border-t border-gray-100/50">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16">
+      <div class="text-center mb-12 md:mb-16">
         <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
           Built with Purpose
         </h2>
@@ -1190,7 +1849,7 @@
   </section>
 
   <!-- Template Banner -->
-  <section class="max-w-5xl mx-auto px-6 mb-20">
+  <section class="max-w-6xl mx-auto px-6 mb-20 md:mb-24">
     <div
       class="bg-gradient-to-r from-gray-900 to-gray-800 rounded-[2.5rem] p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl relative overflow-hidden">
       <div
@@ -1312,7 +1971,7 @@
     class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
     <div id="ideas-modal-content"
       class="bg-[#FAF8F5] border border-stone-200/90 rounded-[2rem] p-7 sm:p-9 max-w-lg w-full shadow-2xl scale-95 transition-all duration-300 relative space-y-6">
-      
+
       <!-- Close button -->
       <button id="close-ideas-modal" type="button" aria-label="Close"
         class="absolute top-6 right-6 text-stone-400 hover:text-stone-700 transition-colors p-1.5 rounded-full hover:bg-stone-200/50">
@@ -1322,7 +1981,8 @@
       </button>
 
       <!-- Badge & Icon -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-stone-100 text-stone-700 rounded-full text-xs font-semibold tracking-wide">
+      <div
+        class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-stone-100 text-stone-700 rounded-full text-xs font-semibold tracking-wide">
         <svg class="w-4 h-4 text-stone-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -1332,11 +1992,15 @@
 
       <!-- Main Message -->
       <div>
-        <h3 id="ideas-modal-title" class="font-display text-2xl sm:text-3xl font-bold text-stone-900 tracking-tight mb-3">
+        <h3 id="ideas-modal-title"
+          class="font-display text-2xl sm:text-3xl font-bold text-stone-900 tracking-tight mb-3">
           A Note Before Proceeding
         </h3>
         <p class="font-sans text-stone-600 text-sm sm:text-base leading-relaxed font-normal">
-          The <strong>Ideas &amp; Reflections</strong> archive is a personal space dedicated to philosophical reflections, book notes, and thoughts explored outside of technology &mdash; <span class="text-stone-900 font-semibold underline decoration-stone-300">it does not discuss coding, programming ideas, or software tutorials</span>.
+          The <strong>Ideas &amp; Reflections</strong> archive is a personal space dedicated to philosophical
+          reflections, book notes, and thoughts explored outside of technology &mdash; <span
+            class="text-stone-900 font-semibold underline decoration-stone-300">it does not discuss coding, programming
+            ideas, or software tutorials</span>.
         </p>
         <p class="text-stone-500 text-xs sm:text-sm mt-3 italic font-serif">
           &ldquo;A personal archive of curiosity, thinking, and reading outside of code.&rdquo;
@@ -1402,6 +2066,233 @@
         if (e.key === "Escape" && !modal.classList.contains("opacity-0")) {
           closeModal();
         }
+      });
+    })();
+  </script>
+
+  <!-- Engineering Highlight Detail Modal -->
+  <div id="highlight-modal" role="dialog" aria-modal="true" aria-labelledby="highlight-modal-title"
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
+    <div id="highlight-modal-content"
+      class="bg-white border border-gray-100 rounded-[2rem] p-6 sm:p-8 max-w-lg w-full shadow-2xl scale-95 transition-all duration-300 relative max-h-[90vh] overflow-y-auto">
+
+      <!-- Close button -->
+      <button id="close-highlight-modal" type="button" aria-label="Close details"
+        class="absolute top-6 right-6 text-gray-400 hover:text-gray-700 transition-colors p-1.5 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-brand-500">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Header with Icon & Title -->
+      <div class="flex items-start gap-4 mb-6 pr-8">
+        <div id="highlight-modal-icon"
+          class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center border border-brand-100/80 shrink-0">
+        </div>
+        <div>
+          <div
+            class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-600 uppercase tracking-wider mb-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-600"></span>
+            Case Study
+          </div>
+          <h3 id="highlight-modal-title"
+            class="font-display text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
+          </h3>
+        </div>
+      </div>
+
+      <!-- Structured Detail Blocks: Problem, Solution, Result -->
+      <div class="space-y-4 mb-6">
+        <!-- Problem Block -->
+        <div class="bg-gray-50/80 rounded-2xl p-4 border border-gray-100">
+          <div class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+            Problem
+          </div>
+          <p id="highlight-modal-problem" class="text-sm sm:text-base text-gray-700 leading-relaxed font-normal"></p>
+        </div>
+
+        <!-- Solution Block -->
+        <div class="bg-brand-50/40 rounded-2xl p-4 border border-brand-100/70">
+          <div class="text-xs font-bold text-brand-700 uppercase tracking-wider mb-1.5 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-brand-600"></span>
+            Solution
+          </div>
+          <p id="highlight-modal-solution" class="text-sm sm:text-base text-gray-700 leading-relaxed font-normal"></p>
+        </div>
+
+        <!-- Result Block -->
+        <div class="bg-emerald-50/40 rounded-2xl p-4 border border-emerald-100/70">
+          <div class="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-1.5 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+            Result
+          </div>
+          <p id="highlight-modal-result" class="text-sm sm:text-base text-gray-700 leading-relaxed font-normal"></p>
+        </div>
+      </div>
+
+      <!-- Technologies / Badges -->
+      <div class="pt-4 border-t border-gray-100">
+        <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Technologies</div>
+        <div id="highlight-modal-tags" class="flex flex-wrap gap-2"></div>
+      </div>
+
+      <!-- Dismiss Button -->
+      <div class="pt-6 mt-2 flex justify-end">
+        <button id="dismiss-highlight-modal" type="button"
+          class="px-5 py-2.5 bg-gray-900 hover:bg-gray-800 text-white text-xs font-semibold rounded-full shadow-sm hover:shadow transition-all text-center">
+          Close
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Engineering Highlight Modal Script -->
+  <script>
+    (function () {
+      const data = {
+        "flutter-architecture": {
+          title: "Flutter Architecture",
+          icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>',
+          problem: "Application complexity increased as features and business logic grew.",
+          solution: "Applied Clean Architecture with Bloc to separate presentation, domain, and data responsibilities.",
+          result: "Improved maintainability, separation of concerns, and easier feature development.",
+          tags: ["Flutter", "Bloc", "Clean Architecture"]
+        },
+        "native-integration": {
+          title: "Native Integration",
+          icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>',
+          problem: "Some application capabilities required platform-specific Android and iOS functionality.",
+          solution: "Integrated Flutter with native platform code using MethodChannel.",
+          result: "Enabled Flutter applications to communicate with native Android and iOS capabilities.",
+          tags: ["Flutter", "Kotlin", "Swift", "MethodChannel"]
+        },
+        "mobile-testing": {
+          title: "Mobile Testing",
+          icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>',
+          problem: "Repeated manual regression testing became time-consuming for critical application flows.",
+          solution: "Introduced automated testing for important application scenarios and regression flows.",
+          result: "More consistent regression checks and reduced repetitive manual testing.",
+          tags: ["Flutter", "Testing", "Automation"]
+        },
+        "ml-research": {
+          title: "ML Research",
+          icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>',
+          problem: "Identify unusual patterns in mobile application event logs.",
+          solution: "Experimented with Autoencoder and traditional anomaly detection approaches.",
+          result: "Built an experimental pipeline for detecting anomalous user behavior from event logs.",
+          tags: ["Python", "Machine Learning", "Autoencoder"]
+        }
+      };
+
+      const modal = document.getElementById("highlight-modal");
+      const modalContent = document.getElementById("highlight-modal-content");
+      const closeBtn = document.getElementById("close-highlight-modal");
+      const dismissBtn = document.getElementById("dismiss-highlight-modal");
+      const titleEl = document.getElementById("highlight-modal-title");
+      const iconEl = document.getElementById("highlight-modal-icon");
+      const problemEl = document.getElementById("highlight-modal-problem");
+      const solutionEl = document.getElementById("highlight-modal-solution");
+      const resultEl = document.getElementById("highlight-modal-result");
+      const tagsEl = document.getElementById("highlight-modal-tags");
+
+      let lastActiveTrigger = null;
+
+      function openHighlightModal(highlightId, triggerEl) {
+        const item = data[highlightId];
+        if (!item) return;
+
+        lastActiveTrigger = triggerEl;
+        titleEl.textContent = item.title;
+        iconEl.innerHTML = item.icon;
+        problemEl.textContent = item.problem;
+        solutionEl.textContent = item.solution;
+        resultEl.textContent = item.result;
+
+        tagsEl.innerHTML = "";
+        item.tags.forEach(function (tag) {
+          const tagSpan = document.createElement("span");
+          tagSpan.className = "text-xs font-medium text-brand-700 bg-brand-50 border border-brand-100/80 px-2.5 py-1 rounded-lg";
+          tagSpan.textContent = tag;
+          tagsEl.appendChild(tagSpan);
+        });
+
+        modal.classList.remove("opacity-0", "pointer-events-none");
+        modal.classList.add("opacity-100", "pointer-events-auto");
+        modalContent.classList.remove("scale-95");
+        modalContent.classList.add("scale-100");
+        document.body.style.overflow = "hidden";
+
+        if (closeBtn) closeBtn.focus();
+
+        if (typeof gtag === "function") {
+          gtag("event", "select_content", {
+            send_to: "G-R06ZC07TJE",
+            content_type: "engineering_highlight",
+            item_id: "Engineering Highlight: " + item.title,
+          });
+        }
+      }
+
+      function closeHighlightModal() {
+        modal.classList.remove("opacity-100", "pointer-events-auto");
+        modal.classList.add("opacity-0", "pointer-events-none");
+        modalContent.classList.remove("scale-100");
+        modalContent.classList.add("scale-95");
+        document.body.style.overflow = "";
+
+        if (lastActiveTrigger) {
+          lastActiveTrigger.focus();
+          lastActiveTrigger = null;
+        }
+      }
+
+      document.querySelectorAll(".engineering-card").forEach(function (card) {
+        card.addEventListener("click", function () {
+          const id = this.getAttribute("data-highlight-id");
+          openHighlightModal(id, this);
+        });
+
+        card.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            const id = this.getAttribute("data-highlight-id");
+            openHighlightModal(id, this);
+          }
+        });
+      });
+
+      if (closeBtn) closeBtn.addEventListener("click", closeHighlightModal);
+      if (dismissBtn) dismissBtn.addEventListener("click", closeHighlightModal);
+
+      modal.addEventListener("click", function (e) {
+        if (e.target === modal) closeHighlightModal();
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && !modal.classList.contains("opacity-0")) {
+          closeHighlightModal();
+        }
+      });
+    })();
+
+    // Certificate Carousel Scroll Controller
+    (function () {
+      const carousel = document.getElementById("cert-carousel");
+      const prevBtn = document.getElementById("cert-prev-btn");
+      const nextBtn = document.getElementById("cert-next-btn");
+
+      if (!carousel || !prevBtn || !nextBtn) return;
+
+      const scrollAmount = 350;
+
+      prevBtn.addEventListener("click", function () {
+        carousel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      });
+
+      nextBtn.addEventListener("click", function () {
+        carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
       });
     })();
   </script>
