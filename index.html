@@ -169,6 +169,16 @@
       },
     };
   </script>
+  <style>
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-R06ZC07TJE"></script>
   <script>
@@ -1183,8 +1193,8 @@
             <div
               class="w-10 h-10 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center border border-brand-100 shadow-sm">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z">
+                </path>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z">
                 </path>
@@ -1219,9 +1229,14 @@
             </p>
 
             <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-100">
-              <span class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">AI &amp; ML</span>
-              <span class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">Data Analytics</span>
-              <span class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">Algorithms</span>
+              <span
+                class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">AI
+                &amp; ML</span>
+              <span
+                class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">Data
+                Analytics</span>
+              <span
+                class="text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-lg">Algorithms</span>
             </div>
           </div>
 
@@ -1335,36 +1350,237 @@
         </div>
       </div>
 
-      <!-- Quick Recognized Certifications Strip -->
-      <div class="mt-16 bg-white border border-gray-100 rounded-3xl p-6 sm:p-8 shadow-sm">
-        <div class="text-center mb-5">
-          <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Recognized Certifications</span>
+      <!-- Flutter & Dart Verified Certifications Carousel -->
+      <div
+        class="mt-16 bg-gradient-to-b from-white to-gray-50/50 border border-gray-100 rounded-3xl p-6 sm:p-8 shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+          <div>
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1 bg-brand-50 text-brand-600 rounded-full text-xs font-semibold tracking-wide uppercase mb-2 border border-brand-100">
+              Verified Specializations
+            </div>
+            <h3 class="font-display text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
+              Flutter &amp; Dart Certifications
+            </h3>
+            <p class="text-sm text-gray-500 mt-1">
+              Verified credentials focusing on Clean Architecture, SOLID design patterns, and framework mastery.
+            </p>
+          </div>
+
+          <!-- Carousel Scroll Controls -->
+          <div class="flex items-center gap-2 self-end sm:self-auto shrink-0">
+            <span class="text-xs font-medium text-gray-400 mr-1 sm:hidden">Swipe &harr;</span>
+            <button id="cert-prev-btn" type="button" aria-label="Scroll left"
+              class="w-10 h-10 rounded-full border border-gray-200 bg-white hover:bg-gray-50 hover:text-brand-600 hover:border-brand-200 text-gray-700 flex items-center justify-center transition-all shadow-sm active:scale-95">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button id="cert-next-btn" type="button" aria-label="Scroll right"
+              class="w-10 h-10 rounded-full border border-gray-200 bg-white hover:bg-gray-50 hover:text-brand-600 hover:border-brand-200 text-gray-700 flex items-center justify-center transition-all shadow-sm active:scale-95">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         </div>
-        <div class="flex flex-wrap gap-3 justify-center items-center">
-          <div
-            class="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 border border-gray-200/60 rounded-xl text-xs font-medium text-gray-700 hover:border-brand-300 transition-colors">
-            <span class="font-bold text-purple-600">Udemy</span>
-            <span class="text-gray-300">|</span>
-            <span>Flutter Dev Bootcamp</span>
-          </div>
-          <div
-            class="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 border border-gray-200/60 rounded-xl text-xs font-medium text-gray-700 hover:border-brand-300 transition-colors">
-            <span class="font-bold text-brand-600">Dicoding</span>
-            <span class="text-gray-300">|</span>
-            <span>Flutter, React, SQL</span>
-          </div>
-          <div
-            class="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 border border-gray-200/60 rounded-xl text-xs font-medium text-gray-700 hover:border-brand-300 transition-colors">
-            <span class="font-bold text-blue-600">Meta</span>
-            <span class="text-gray-300">|</span>
-            <span>Version Control &amp; JS</span>
-          </div>
-          <div
-            class="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 border border-gray-200/60 rounded-xl text-xs font-medium text-gray-700 hover:border-brand-300 transition-colors">
-            <span class="font-bold text-rose-500">Google</span>
-            <span class="text-gray-300">|</span>
-            <span>UX Design</span>
-          </div>
+
+        <!-- Swipeable Cards Track -->
+        <div id="cert-carousel"
+          class="flex gap-5 overflow-x-auto pb-4 pt-2 scroll-smooth snap-x snap-mandatory no-scrollbar">
+
+          <!-- Card 1: SOLID Principles -->
+          <a href="https://www.udemy.com/certificate/UC-314d1c64-844f-498c-a656-7d250e82e854/" target="_blank"
+            rel="noopener noreferrer"
+            onclick="gtag('event', 'select_content', { send_to: 'G-R06ZC07TJE', content_type: 'certificate', item_id: 'Cert: Flutter & Dart SOLID Principles' })"
+            class="group snap-start shrink-0 w-[290px] sm:w-[330px] md:w-[340px] bg-white border border-gray-200/80 hover:border-brand-300 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-xs font-semibold border border-purple-100">
+                  <span class="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
+                  Udemy
+                </span>
+                <span class="text-xs font-medium text-gray-400">4 hrs • Dec 2024</span>
+              </div>
+              <h4
+                class="font-display text-lg font-bold text-gray-900 group-hover:text-brand-600 transition-colors leading-snug mb-2">
+                Flutter &amp; Dart: SOLID Principles and Top Design Patterns
+              </h4>
+              <p class="text-xs text-gray-500 mb-4">
+                Instructor: <span class="text-gray-700 font-medium">Piotr Paweska</span>
+              </p>
+            </div>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-medium text-gray-500 bg-gray-50 px-2.5 py-1 rounded-md">Architecture</span>
+              <span
+                class="inline-flex items-center gap-1 text-xs font-semibold text-brand-600 group-hover:text-brand-700 transition-colors">
+                Verify Credential
+                <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </span>
+            </div>
+          </a>
+
+          <!-- Card 2: Dart Clean Code -->
+          <a href="https://drive.google.com/file/d/1RnUcZZ8ZiTkimlk_YUSsONLVl5-j1bJn/view" target="_blank"
+            rel="noopener noreferrer"
+            onclick="gtag('event', 'select_content', { send_to: 'G-R06ZC07TJE', content_type: 'certificate', item_id: 'Cert: Dart Clean Code LinkedIn' })"
+            class="group snap-start shrink-0 w-[290px] sm:w-[330px] md:w-[340px] bg-white border border-gray-200/80 hover:border-brand-300 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold border border-blue-100">
+                  <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                  LinkedIn Learning
+                </span>
+                <span class="text-xs font-medium text-gray-400">1.1 hrs • May 2026</span>
+              </div>
+              <h4
+                class="font-display text-lg font-bold text-gray-900 group-hover:text-brand-600 transition-colors leading-snug mb-2">
+                Dart Clean Code: Writing High-Efficiency, Maintainable Programs
+              </h4>
+              <p class="text-xs text-gray-500 mb-4">
+                Platform: <span class="text-gray-700 font-medium">LinkedIn Learning</span>
+              </p>
+            </div>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-medium text-gray-500 bg-gray-50 px-2.5 py-1 rounded-md">Clean Code</span>
+              <span
+                class="inline-flex items-center gap-1 text-xs font-semibold text-brand-600 group-hover:text-brand-700 transition-colors">
+                Verify Credential
+                <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </span>
+            </div>
+          </a>
+
+          <!-- Card 3: Complete Flutter Bootcamp -->
+          <a href="https://ude.my/UC-f9e723c2-8b9c-4d51-bf09-018cb15d0219" target="_blank" rel="noopener noreferrer"
+            onclick="gtag('event', 'select_content', { send_to: 'G-R06ZC07TJE', content_type: 'certificate', item_id: 'Cert: Complete Flutter Bootcamp Angela Yu' })"
+            class="group snap-start shrink-0 w-[290px] sm:w-[330px] md:w-[340px] bg-white border border-gray-200/80 hover:border-brand-300 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-xs font-semibold border border-purple-100">
+                  <span class="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
+                  Udemy
+                </span>
+                <span class="text-xs font-medium text-gray-400">29 hrs • Sept 2025</span>
+              </div>
+              <h4
+                class="font-display text-lg font-bold text-gray-900 group-hover:text-brand-600 transition-colors leading-snug mb-2">
+                The Complete Flutter Development Bootcamp with Dart
+              </h4>
+              <p class="text-xs text-gray-500 mb-4">
+                Instructor: <span class="text-gray-700 font-medium">Dr. Angela Yu</span>
+              </p>
+            </div>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-medium text-gray-500 bg-gray-50 px-2.5 py-1 rounded-md">Full Stack Mobile</span>
+              <span
+                class="inline-flex items-center gap-1 text-xs font-semibold text-brand-600 group-hover:text-brand-700 transition-colors">
+                Verify Credential
+                <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </span>
+            </div>
+          </a>
+
+          <!-- Card 4: Stephen Grider -->
+          <a href="https://ude.my/UC-70b9003a-b45a-4b0f-a30f-ce956aa7adf4" target="_blank" rel="noopener noreferrer"
+            onclick="gtag('event', 'select_content', { send_to: 'G-R06ZC07TJE', content_type: 'certificate', item_id: 'Cert: Dart and Flutter Stephen Grider' })"
+            class="group snap-start shrink-0 w-[290px] sm:w-[330px] md:w-[340px] bg-white border border-gray-200/80 hover:border-brand-300 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-xs font-semibold border border-purple-100">
+                  <span class="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
+                  Udemy
+                </span>
+                <span class="text-xs font-medium text-gray-400">31.5 hrs • Dec 2024</span>
+              </div>
+              <h4
+                class="font-display text-lg font-bold text-gray-900 group-hover:text-brand-600 transition-colors leading-snug mb-2">
+                Dart and Flutter: The Complete Developer's Guide
+              </h4>
+              <p class="text-xs text-gray-500 mb-4">
+                Instructor: <span class="text-gray-700 font-medium">Stephen Grider</span>
+              </p>
+            </div>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-medium text-gray-500 bg-gray-50 px-2.5 py-1 rounded-md">Reactive &amp;
+                State</span>
+              <span
+                class="inline-flex items-center gap-1 text-xs font-semibold text-brand-600 group-hover:text-brand-700 transition-colors">
+                Verify Credential
+                <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </span>
+            </div>
+          </a>
+
+          <!-- Card 5: PZN -->
+          <a href="https://ude.my/UC-d08680d8-480d-4cae-a008-9dc4ff42530e" target="_blank" rel="noopener noreferrer"
+            onclick="gtag('event', 'select_content', { send_to: 'G-R06ZC07TJE', content_type: 'certificate', item_id: 'Cert: Pemrograman Dart PZN' })"
+            class="group snap-start shrink-0 w-[290px] sm:w-[330px] md:w-[340px] bg-white border border-gray-200/80 hover:border-brand-300 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-xs font-semibold border border-purple-100">
+                  <span class="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
+                  Udemy
+                </span>
+                <span class="text-xs font-medium text-gray-400">17.5 hrs • Aug 2025</span>
+              </div>
+              <h4
+                class="font-display text-lg font-bold text-gray-900 group-hover:text-brand-600 transition-colors leading-snug mb-2">
+                Pemrograman Dart : Pemula sampai Mahir
+              </h4>
+              <p class="text-xs text-gray-500 mb-4">
+                Instructor: <span class="text-gray-700 font-medium">Programmer Zaman Now</span>
+              </p>
+            </div>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-medium text-gray-500 bg-gray-50 px-2.5 py-1 rounded-md">Dart Fundamentals</span>
+              <span
+                class="inline-flex items-center gap-1 text-xs font-semibold text-brand-600 group-hover:text-brand-700 transition-colors">
+                Verify Credential
+                <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </span>
+            </div>
+          </a>
+
+          <!-- Card 6: Alterra Academy MSIB -->
+          <a href="https://drive.google.com/file/d/10EB0Rt6iVMIlPdRVYkaSucR44i-5tfvi/view?usp=sharing" target="_blank"
+            rel="noopener noreferrer"
+            onclick="gtag('event', 'select_content', { send_to: 'G-R06ZC07TJE', content_type: 'certificate', item_id: 'Cert: Alterra Academy Mastering Flutter MSIB' })"
+            class="group snap-start shrink-0 w-[290px] sm:w-[330px] md:w-[340px] bg-white border border-gray-200/80 hover:border-brand-300 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:shadow-brand-500/5 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-50 text-amber-800 rounded-full text-xs font-semibold border border-amber-200/70">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                  Alterra Academy
+                </span>
+                <span class="text-xs font-medium text-gray-400">Aug — Dec 2022</span>
+              </div>
+              <h4
+                class="font-display text-lg font-bold text-gray-900 group-hover:text-brand-600 transition-colors leading-snug mb-2">
+                Mastering Flutter From Zero to Hero Engineer
+              </h4>
+              <p class="text-xs text-gray-500 mb-1">
+                Program: <span class="text-gray-700 font-medium">MSIB Batch 3 (Kampus Merdeka)</span>
+              </p>
+              <p class="text-xs text-gray-500 mb-4">
+                Capstone: <span class="text-brand-600 font-medium">Discussin</span>
+              </p>
+            </div>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-medium text-gray-500 bg-gray-50 px-2.5 py-1 rounded-md">MSIB Graduate</span>
+              <span
+                class="inline-flex items-center gap-1 text-xs font-semibold text-brand-600 group-hover:text-brand-700 transition-colors">
+                Verify Credential
+                <span class="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </span>
+            </div>
+          </a>
         </div>
       </div>
     </div>
@@ -2058,6 +2274,25 @@
         if (e.key === "Escape" && !modal.classList.contains("opacity-0")) {
           closeHighlightModal();
         }
+      });
+    })();
+
+    // Certificate Carousel Scroll Controller
+    (function () {
+      const carousel = document.getElementById("cert-carousel");
+      const prevBtn = document.getElementById("cert-prev-btn");
+      const nextBtn = document.getElementById("cert-next-btn");
+
+      if (!carousel || !prevBtn || !nextBtn) return;
+
+      const scrollAmount = 350;
+
+      prevBtn.addEventListener("click", function () {
+        carousel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      });
+
+      nextBtn.addEventListener("click", function () {
+        carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
       });
     })();
   </script>
