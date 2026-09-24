@@ -70,7 +70,7 @@ window.IDEAS_COLLECTION = [
     title: "The Weight of Being Unseen",
     category: "Philosophy",
     description: "A personal reflection through Crime and Punishment on responsibility, recognition, isolation, ambition, and finding self-worth beyond professional status.",
-    cover: "images/the_weight_of_being_unseen.png",
+    cover: "images/the_weight_of_being_unseen.jpg",
     googleDriveUrl: "https://drive.google.com/file/d/1QhlAGPnvLyxMOAsnLZgVvx5D2XnRCNX3/view?usp=sharing",
     tags: ["Dostoevsky", "Crime and Punishment", "Philosophy", "Reflection", "Career", "Recognition", "Self-worth", "Agency"],
     date: "2026",
