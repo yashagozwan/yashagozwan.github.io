@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
+import BioView from '@/views/BioView.vue'
+import HobbiesView from '@/views/HobbiesView.vue'
+import IdeasView from '@/views/IdeasView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,7 +22,7 @@ const router = createRouter({
       path: '/bio',
       name: 'bio',
       alias: ['/bio.html', '/bio/'],
-      component: () => import('@/views/BioView.vue'),
+      component: BioView,
       meta: {
         title: 'Yasha Gozwan Shuhada | Bio & Profile',
         description:
@@ -30,7 +33,7 @@ const router = createRouter({
       path: '/hobbies',
       name: 'hobbies',
       alias: ['/hobbies.html', '/hobbies/'],
-      component: () => import('@/views/HobbiesView.vue'),
+      component: HobbiesView,
       meta: {
         title: 'Hobbies | Yasha Gozwan Shuhada',
         description:
@@ -41,7 +44,7 @@ const router = createRouter({
       path: '/ideas',
       name: 'ideas',
       alias: ['/ideas.html', '/ideas/'],
-      component: () => import('@/views/IdeasView.vue'),
+      component: IdeasView,
       meta: {
         title: 'Ideas & Reflections — Yasha Gozwan Shuhada',
         description:

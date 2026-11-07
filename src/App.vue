@@ -22,9 +22,9 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <RouterView v-slot="{ Component }">
+  <RouterView v-slot="{ Component, route }">
     <Transition name="page" mode="out-in">
-      <component :is="Component" />
+      <component :is="Component" v-if="Component" :key="route.path" />
     </Transition>
   </RouterView>
 

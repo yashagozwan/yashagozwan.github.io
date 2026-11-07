@@ -161,27 +161,32 @@
     gtag("config", "G-R06ZC07TJE");
   </script>
 
-  <!-- Firebase JS SDK (Analytics) -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyAujqVmBJ1DGo-eqkwIOzeAC6hO-Cun4Dc",
-      authDomain: "yashagozwan-portfolio.firebaseapp.com",
-      projectId: "yashagozwan-portfolio",
-      storageBucket: "yashagozwan-portfolio.firebasestorage.app",
-      messagingSenderId: "1074266806510",
-      appId: "1:1074266806510:web:85872519a05c14ecccbbff",
-      measurementId: "G-34L60NWMHJ",
-    };
-
-    try {
-      const app = initializeApp(firebaseConfig);
-      getAnalytics(app);
-    } catch (e) {
-      // Ignore analytics blocked in local/adblock environments
-    }
+  <!-- Firebase JS SDK (Analytics) - loaded dynamically so it never blocks app bundle -->
+  <script defer>
+    window.addEventListener("load", function () {
+      Promise.all([
+        import("https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js"),
+        import("https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js"),
+      ])
+        .then(function (modules) {
+          var initializeApp = modules[0].initializeApp;
+          var getAnalytics = modules[1].getAnalytics;
+          var firebaseConfig = {
+            apiKey: "AIzaSyAujqVmBJ1DGo-eqkwIOzeAC6hO-Cun4Dc",
+            authDomain: "yashagozwan-portfolio.firebaseapp.com",
+            projectId: "yashagozwan-portfolio",
+            storageBucket: "yashagozwan-portfolio.firebasestorage.app",
+            messagingSenderId: "1074266806510",
+            appId: "1:1074266806510:web:85872519a05c14ecccbbff",
+            measurementId: "G-34L60NWMHJ",
+          };
+          var app = initializeApp(firebaseConfig);
+          getAnalytics(app);
+        })
+        .catch(function () {
+          // Ignore analytics blocked in local/adblock environments
+        });
+    });
   </script>
 </head>
 
