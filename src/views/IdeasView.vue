@@ -1,17 +1,33 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import { IDEAS_COLLECTION } from '@/data/ideas'
+import { computed, ref, onMounted } from 'vue'
+import { IDEAS_COLLECTION as LOCAL_IDEAS } from '@/data/ideas'
 import type { IdeaDocument } from '@/types/portfolio'
 import PdfReaderModal from '@/components/PdfReaderModal.vue'
 import { trackSelectContent } from '@/utils/analytics'
+import { fetchIdeasFromFirestore, formatDriveImageUrl } from '@/services/ideasService'
 
+const ideas = ref<IdeaDocument[]>(LOCAL_IDEAS)
 const activeTag = ref<string>('All')
 const searchQuery = ref<string>('')
 const previewDoc = ref<IdeaDocument | null>(null)
+const isLoading = ref(true)
+
+onMounted(async () => {
+  try {
+    const fetched = await fetchIdeasFromFirestore()
+    if (fetched && fetched.length > 0) {
+      ideas.value = fetched
+    }
+  } catch (e) {
+    console.warn('Using local fallback ideas:', e)
+  } finally {
+    isLoading.value = false
+  }
+})
 
 const allTags = computed(() => {
   const tagSet = new Set<string>()
-  for (const doc of IDEAS_COLLECTION) {
+  for (const doc of ideas.value) {
     for (const tag of doc.tags || []) {
       tagSet.add(tag)
     }
@@ -21,7 +37,7 @@ const allTags = computed(() => {
 
 const filteredIdeas = computed(() => {
   const q = searchQuery.value.trim().toLowerCase()
-  return IDEAS_COLLECTION.filter((item) => {
+  return ideas.value.filter((item) => {
     const matchesTag = activeTag.value === 'All' || item.tags?.includes(activeTag.value)
     if (!matchesTag) return false
     if (!q) return true
@@ -61,10 +77,23 @@ function openPreview(doc: IdeaDocument) {
           <span>Back to Portfolio</span>
         </RouterLink>
 
-        <div class="flex items-center gap-3 text-xs text-neutral-400 uppercase tracking-widest font-mono">
-          <span>03 / Archive</span>
-          <span>&middot;</span>
-          <span class="text-neutral-900">{{ IDEAS_COLLECTION.length }} Essays</span>
+        <div class="flex items-center gap-4 text-xs font-mono text-neutral-400">
+          <div class="uppercase tracking-widest hidden sm:inline">
+            <span>03 / Archive</span>
+            <span>&middot;</span>
+            <span class="text-neutral-900">{{ ideas.length }} Essays</span>
+          </div>
+
+          <RouterLink
+            to="/admin/login"
+            class="inline-flex items-center gap-1.5 text-neutral-400 hover:text-neutral-950 transition-colors uppercase tracking-widest text-[11px]"
+            title="Administrator Login"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            <span class="hidden md:inline">Admin</span>
+          </RouterLink>
         </div>
       </div>
     </header>
@@ -112,7 +141,7 @@ function openPreview(doc: IdeaDocument) {
           </div>
 
           <div class="text-xs text-neutral-400 font-mono">
-            Showing <strong class="text-neutral-950">{{ filteredIdeas.length }}</strong> of {{ IDEAS_COLLECTION.length }}
+            Showing <strong class="text-neutral-950">{{ filteredIdeas.length }}</strong> of {{ ideas.length }}
           </div>
         </div>
 
@@ -138,7 +167,7 @@ function openPreview(doc: IdeaDocument) {
       <!-- Document Grid -->
       <section aria-label="Documents and Reflections">
         <div
-          v-if="!filteredIdeas.length"
+          v-if="!filteredIdeas.length && !isLoading"
           class="py-16 text-center text-neutral-500 border border-neutral-200 rounded-2xl p-8"
         >
           <p class="font-serif italic text-lg text-neutral-800 mb-2">No matching reflections found.</p>
@@ -169,13 +198,13 @@ function openPreview(doc: IdeaDocument) {
             :key="doc.id"
             class="group bg-white rounded-2xl border border-neutral-200 hover:border-neutral-950 overflow-hidden transition-all duration-300 flex flex-col"
           >
-            <!-- Cover Image -->
+            <!-- Cover Image (from Drive or local) -->
             <div
               class="relative aspect-[16/10] overflow-hidden bg-neutral-100 cursor-pointer border-b border-neutral-100"
               @click="openPreview(doc)"
             >
               <img
-                :src="doc.cover"
+                :src="formatDriveImageUrl(doc.cover)"
                 :alt="`${doc.title} - Cover Artwork`"
                 loading="lazy"
                 class="w-full h-full object-cover grayscale contrast-105 group-hover:grayscale-0 transition-all duration-700 ease-out group-hover:scale-[1.02]"
@@ -265,6 +294,7 @@ function openPreview(doc: IdeaDocument) {
           <RouterLink to="/" class="hover:text-neutral-950 transition-colors">Portfolio</RouterLink>
           <RouterLink to="/bio" class="hover:text-neutral-950 transition-colors">Bio</RouterLink>
           <RouterLink to="/hobbies" class="hover:text-neutral-950 transition-colors">Hobbies</RouterLink>
+          <RouterLink to="/admin/login" class="hover:text-neutral-950 transition-colors">Admin</RouterLink>
         </div>
       </div>
     </footer>

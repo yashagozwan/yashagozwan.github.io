@@ -103,13 +103,26 @@ const pages = [
       'Books, ideas, and personal reflections explored outside of software engineering.',
     ogImage: 'https://yashagozwan.github.io/images/bagaimana_saya_ingin_menjalani_hidup.png',
   },
+  {
+    slug: 'admin/login',
+    title: 'Sign In — Ideas CMS | Yasha Gozwan Shuhada',
+    description: 'Ideas CMS authentication portal.',
+    canonicalUrl: 'https://yashagozwan.github.io/admin/login',
+  },
+  {
+    slug: 'admin/ideas',
+    title: 'Manage Reflections — Ideas CMS',
+    description: 'Ideas CMS management dashboard.',
+    canonicalUrl: 'https://yashagozwan.github.io/admin/ideas',
+  },
 ]
 
 for (const page of pages) {
   const htmlContent = createPageHtml(page)
 
-  // 1. Write legacy .html file (e.g. dist/bio.html) for backward compatibility & sitemap
-  fs.writeFileSync(path.join(distDir, `${page.slug}.html`), htmlContent, 'utf-8')
+  const filePath = path.join(distDir, `${page.slug}.html`)
+  fs.mkdirSync(path.dirname(filePath), { recursive: true })
+  fs.writeFileSync(filePath, htmlContent, 'utf-8')
 
   // 2. Write clean URL directory index (e.g. dist/bio/index.html) so /bio returns HTTP 200 OK on GitHub Pages
   const subDir = path.join(distDir, page.slug)
