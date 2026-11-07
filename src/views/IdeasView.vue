@@ -41,14 +41,14 @@ function openPreview(doc: IdeaDocument) {
 
 <template>
   <div
-    class="bg-[#FAF8F5] text-stone-800 font-sans antialiased selection:bg-brand-500 selection:text-white overflow-x-hidden min-h-screen flex flex-col"
+    class="bg-white text-neutral-950 font-sans antialiased selection:bg-neutral-950 selection:text-white overflow-x-hidden min-h-screen flex flex-col"
   >
-    <!-- Navigation Bar -->
-    <header class="w-full border-b border-stone-200/60 bg-white/70 backdrop-blur-md sticky top-0 z-40 transition-all">
-      <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+    <!-- Minimalist Top Header -->
+    <header class="w-full border-b border-neutral-200 bg-white/90 backdrop-blur-md sticky top-0 z-40">
+      <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
         <RouterLink
           to="/"
-          class="group inline-flex items-center gap-2.5 text-xs font-semibold text-stone-500 hover:text-stone-900 transition-colors uppercase tracking-widest"
+          class="group inline-flex items-center gap-2.5 text-xs font-semibold text-neutral-500 hover:text-neutral-950 transition-colors uppercase tracking-[0.18em]"
         >
           <svg
             class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
@@ -56,54 +56,42 @@ function openPreview(doc: IdeaDocument) {
             stroke="currentColor"
             viewBox="0 0 24 24"
           >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M15 19l-7-7 7-7"></path>
           </svg>
-          Back to Portfolio
+          <span>Back to Portfolio</span>
         </RouterLink>
 
-        <div class="flex items-center gap-4 text-xs text-stone-400 uppercase tracking-widest font-semibold">
-          <span>Digital Bookshelf</span>
-          <span class="w-1 h-1 rounded-full bg-stone-300"></span>
-          <span class="text-stone-700">Archive ({{ IDEAS_COLLECTION.length }})</span>
+        <div class="flex items-center gap-3 text-xs text-neutral-400 uppercase tracking-widest font-mono">
+          <span>03 / Archive</span>
+          <span>&middot;</span>
+          <span class="text-neutral-900">{{ IDEAS_COLLECTION.length }} Essays</span>
         </div>
       </div>
     </header>
 
     <!-- Main Content Area -->
-    <main class="flex-grow max-w-6xl mx-auto px-6 py-16 md:py-24 w-full">
+    <main class="flex-grow max-w-5xl mx-auto px-6 py-16 md:py-24 w-full">
       <!-- Editorial Page Header -->
-      <section class="max-w-2xl mb-12 md:mb-16">
-        <div
-          class="inline-flex items-center gap-2 mb-4 text-xs font-semibold tracking-[0.25em] text-slate-500 uppercase"
-        >
-          <span class="w-6 h-px bg-slate-300"></span>
-          <span>Personal Archive</span>
+      <section class="max-w-2xl mb-14">
+        <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-neutral-400 mb-4">
+          <span class="w-2 h-2 rounded-full bg-neutral-950"></span>
+          <span>Personal Reading Archive</span>
         </div>
-        <h1
-          class="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 tracking-tight leading-[1.15] mb-5"
-        >
-          Ideas &amp; Reflections
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-neutral-950 tracking-tight leading-[1.1] mb-5">
+          Ideas &amp; <span class="font-serif italic font-normal">Reflections</span>
         </h1>
-        <p class="font-sans text-lg sm:text-xl text-stone-600 leading-relaxed font-normal">
-          Things I'm curious about outside of code.
+        <p class="text-base sm:text-lg text-neutral-600 leading-relaxed">
+          Essays, book notes, and personal inquiries explored outside of software engineering.
         </p>
-
-        <!-- Non-Tech Curiosity Notice -->
-        <div
-          class="mt-6 inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-stone-100/90 border border-stone-200 text-stone-600 text-xs font-medium"
-        >
-          <span class="w-1.5 h-1.5 rounded-full bg-stone-400"></span>
-          <span>Personal reflections &amp; philosophy &mdash; not about coding or programming ideas.</span>
-        </div>
       </section>
 
       <!-- Search & Topic Tag Filters -->
-      <div class="mb-10 pb-6 border-b border-stone-200/70 space-y-4">
+      <div class="mb-12 pb-6 border-b border-neutral-200 space-y-5">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <!-- Search Input -->
           <div class="relative max-w-md w-full">
             <svg
-              class="w-4 h-4 text-stone-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none"
+              class="w-4 h-4 text-neutral-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -111,34 +99,34 @@ function openPreview(doc: IdeaDocument) {
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="2"
+                stroke-width="1.75"
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               />
             </svg>
             <input
               v-model="searchQuery"
               type="search"
-              placeholder="Search reflections, philosophers, or topics..."
-              class="w-full pl-10 pr-4 py-2.5 bg-white border border-stone-200/90 rounded-2xl text-xs sm:text-sm text-stone-800 placeholder-stone-400 focus:outline-none focus:border-stone-400 transition-colors"
+              placeholder="Search reflections or topics..."
+              class="w-full pl-10 pr-4 py-2.5 bg-[#FAFAFA] border border-neutral-200 rounded-full text-xs sm:text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-neutral-950 transition-colors"
             />
           </div>
 
-          <div class="text-xs text-stone-500 font-medium">
-            Showing <strong>{{ filteredIdeas.length }}</strong> of {{ IDEAS_COLLECTION.length }} documents
+          <div class="text-xs text-neutral-400 font-mono">
+            Showing <strong class="text-neutral-950">{{ filteredIdeas.length }}</strong> of {{ IDEAS_COLLECTION.length }}
           </div>
         </div>
 
         <!-- Topic Tag Pills -->
-        <div id="category-filters" class="flex flex-wrap items-center gap-2">
+        <div id="category-filters" class="flex flex-wrap items-center gap-1.5">
           <button
             v-for="tag in allTags"
             :key="tag"
             type="button"
-            class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all"
+            class="px-3.5 py-1.5 rounded-full text-xs font-medium transition-all"
             :class="
               tag === activeTag
-                ? 'bg-stone-900 text-white shadow-sm'
-                : 'bg-white text-stone-600 hover:bg-stone-100 border border-stone-200/80'
+                ? 'bg-neutral-950 text-white'
+                : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200 hover:text-neutral-950'
             "
             @click="activeTag = tag"
           >
@@ -151,13 +139,13 @@ function openPreview(doc: IdeaDocument) {
       <section aria-label="Documents and Reflections">
         <div
           v-if="!filteredIdeas.length"
-          class="col-span-full py-16 text-center text-stone-500 bg-white rounded-3xl border border-stone-200/60 p-8"
+          class="py-16 text-center text-neutral-500 border border-neutral-200 rounded-2xl p-8"
         >
-          <p class="font-serif italic text-lg text-stone-700 mb-2">No matching reflections found.</p>
-          <p class="text-sm text-stone-500 mb-4">Try clearing your search query or selecting another topic tag.</p>
+          <p class="font-serif italic text-lg text-neutral-800 mb-2">No matching reflections found.</p>
+          <p class="text-sm text-neutral-500 mb-5">Try clearing your search query or selecting another topic tag.</p>
           <button
             type="button"
-            class="px-4 py-2 bg-stone-900 text-white rounded-full text-xs font-semibold"
+            class="px-5 py-2.5 bg-neutral-950 text-white rounded-full text-xs font-semibold uppercase tracking-widest"
             @click="
               () => {
                 activeTag = 'All'
@@ -174,33 +162,33 @@ function openPreview(doc: IdeaDocument) {
           id="ideas-grid"
           name="skill-list"
           tag="div"
-          class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-stretch"
+          class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch"
         >
           <article
             v-for="doc in filteredIdeas"
             :key="doc.id"
-            class="group bg-white rounded-3xl border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:border-stone-300 transition-all duration-500 flex flex-col"
+            class="group bg-white rounded-2xl border border-neutral-200 hover:border-neutral-950 overflow-hidden transition-all duration-300 flex flex-col"
           >
             <!-- Cover Image -->
             <div
-              class="relative aspect-[16/10] overflow-hidden bg-stone-100 cursor-pointer"
+              class="relative aspect-[16/10] overflow-hidden bg-neutral-100 cursor-pointer border-b border-neutral-100"
               @click="openPreview(doc)"
             >
               <img
                 :src="doc.cover"
                 :alt="`${doc.title} - Cover Artwork`"
                 loading="lazy"
-                class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                class="w-full h-full object-cover grayscale contrast-105 group-hover:grayscale-0 transition-all duration-700 ease-out group-hover:scale-[1.02]"
               />
               <div class="absolute top-4 left-4 flex items-center gap-2">
                 <span
-                  class="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[11px] font-semibold tracking-wider uppercase text-stone-800 shadow-sm border border-stone-200/50"
+                  class="px-3 py-1 bg-white/95 backdrop-blur-sm rounded-full text-[10px] font-bold tracking-widest uppercase text-neutral-950 border border-neutral-200"
                 >
                   {{ doc.category || 'Reflection' }}
                 </span>
                 <span
                   v-if="doc.featured"
-                  class="px-2.5 py-1 bg-stone-900/85 backdrop-blur-md rounded-full text-[10px] font-semibold tracking-wider uppercase text-white"
+                  class="px-2.5 py-1 bg-neutral-950 rounded-full text-[10px] font-semibold tracking-widest uppercase text-white"
                 >
                   Featured
                 </span>
@@ -208,34 +196,34 @@ function openPreview(doc: IdeaDocument) {
             </div>
 
             <!-- Document Content -->
-            <div class="p-7 sm:p-8 flex flex-col flex-grow justify-between space-y-6">
+            <div class="p-7 flex flex-col flex-grow justify-between space-y-6">
               <div class="space-y-3">
-                <div class="flex items-center justify-between gap-2 text-xs text-stone-400">
+                <div class="flex items-center justify-between gap-2 text-xs font-mono text-neutral-400">
                   <span>{{ doc.date || 'Reflection' }}</span>
-                  <span>PDF Document</span>
+                  <span>PDF Essay</span>
                 </div>
 
-                <h2 class="font-serif italic text-2xl sm:text-3xl text-stone-900 font-medium leading-snug">
+                <h2 class="font-serif italic text-2xl sm:text-3xl text-neutral-950 font-normal leading-snug">
                   {{ doc.title }}
                 </h2>
 
-                <p class="font-sans text-stone-600 text-sm sm:text-base leading-relaxed font-normal">
+                <p class="text-neutral-600 text-sm leading-relaxed">
                   {{ doc.description }}
                 </p>
               </div>
 
               <!-- Tags & Actions -->
-              <div class="pt-4 border-t border-stone-100 space-y-5">
-                <div v-if="doc.tags?.length" class="flex flex-wrap gap-2">
+              <div class="pt-5 border-t border-neutral-100 space-y-5">
+                <div v-if="doc.tags?.length" class="flex flex-wrap gap-1.5">
                   <button
                     v-for="tag in doc.tags"
                     :key="tag"
                     type="button"
-                    class="px-2.5 py-1 rounded-full text-[11px] font-medium tracking-wide transition-colors"
+                    class="px-2.5 py-0.5 rounded-full text-[11px] font-medium border transition-colors"
                     :class="
                       activeTag === tag
-                        ? 'bg-stone-900 text-white'
-                        : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
+                        ? 'bg-neutral-950 text-white border-neutral-950'
+                        : 'bg-white text-neutral-500 border-neutral-200 hover:border-neutral-950 hover:text-neutral-950'
                     "
                     @click="activeTag = activeTag === tag ? 'All' : tag"
                   >
@@ -243,37 +231,23 @@ function openPreview(doc: IdeaDocument) {
                   </button>
                 </div>
 
-                <div class="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <div class="grid grid-cols-2 gap-2.5">
                   <button
                     type="button"
-                    class="inline-flex items-center justify-center gap-2 px-4 py-3.5 bg-stone-100 hover:bg-stone-200/80 text-stone-900 text-xs font-semibold rounded-2xl transition-all"
+                    class="inline-flex items-center justify-center gap-2 px-4 py-3 bg-white border border-neutral-200 hover:border-neutral-950 text-neutral-950 text-xs font-semibold uppercase tracking-widest rounded-full transition-all"
                     @click="openPreview(doc)"
                   >
-                    <svg class="w-4 h-4 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                      />
-                    </svg>
-                    <span>Quick Preview</span>
+                    <span>Preview</span>
                   </button>
 
                   <a
                     :href="doc.googleDriveUrl"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex items-center justify-center gap-2 px-4 py-3.5 bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold rounded-2xl transition-all shadow-sm hover:shadow"
+                    class="inline-flex items-center justify-center gap-2 px-4 py-3 bg-neutral-950 hover:bg-neutral-800 text-white text-xs font-semibold uppercase tracking-widest rounded-full transition-all"
                     @click="trackSelectContent('document', doc.id)"
                   >
-                    <span>{{ doc.actionLabel || 'Read Reflection ↗' }}</span>
+                    <span>Read &nearr;</span>
                   </a>
                 </div>
               </div>
@@ -283,23 +257,14 @@ function openPreview(doc: IdeaDocument) {
       </section>
     </main>
 
-    <!-- Editorial Footer -->
-    <footer class="border-t border-stone-200/60 bg-white py-12">
-      <div
-        class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500"
-      >
-        <p>© 2026 Yasha Gozwan Shuhada. All rights reserved.</p>
-        <div class="flex items-center gap-6">
-          <RouterLink to="/" class="hover:text-stone-900 transition-colors">Portfolio</RouterLink>
-          <RouterLink to="/bio" class="hover:text-stone-900 transition-colors">Bio</RouterLink>
-          <RouterLink to="/hobbies" class="hover:text-stone-900 transition-colors">Hobbies</RouterLink>
-          <a
-            href="https://github.com/yashagozwan"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hover:text-stone-900 transition-colors"
-            >GitHub</a
-          >
+    <!-- Minimalist Monochrome Footer -->
+    <footer class="border-t border-neutral-200 bg-white py-12 px-6">
+      <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
+        <p>&copy; {{ new Date().getFullYear() }} Yasha Gozwan Shuhada.</p>
+        <div class="flex items-center gap-6 font-medium text-neutral-500">
+          <RouterLink to="/" class="hover:text-neutral-950 transition-colors">Portfolio</RouterLink>
+          <RouterLink to="/bio" class="hover:text-neutral-950 transition-colors">Bio</RouterLink>
+          <RouterLink to="/hobbies" class="hover:text-neutral-950 transition-colors">Hobbies</RouterLink>
         </div>
       </div>
     </footer>

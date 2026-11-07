@@ -111,6 +111,23 @@ export interface CertificateItem {
   analyticsId: string
 }
 
+export interface DicodingLearningStep {
+  step: number
+  id: string
+  milestoneTitle: string
+  courseTitle: string
+  courseSubtitleEn: string
+  level: 'Fundamental' | 'Beginner' | 'Intermediate' | 'Advanced' | 'Professional'
+  levelId: string
+  hours: number
+  modules: number
+  rating: string
+  status: 'completed' | 'in-progress'
+  description: string
+  skills: string[]
+  certificateUrl?: string
+}
+
 export interface HobbyTimelineMilestone {
   period: string
   title: string

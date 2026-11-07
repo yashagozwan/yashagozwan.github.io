@@ -28,17 +28,17 @@ onUnmounted(() => {
     </Transition>
   </RouterView>
 
-  <!-- Floating Back to Top Button -->
+  <!-- Minimalist Monochrome Back to Top Button -->
   <Transition name="page">
     <button
       v-if="showScrollTop"
       type="button"
       aria-label="Scroll to top"
-      class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-gray-900/90 hover:bg-brand-600 text-white shadow-lg shadow-gray-900/20 backdrop-blur-md flex items-center justify-center transition-all duration-300 hover:-translate-y-1 active:scale-95 focus:outline-none focus:ring-2 focus:ring-brand-500"
+      class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-neutral-950 hover:bg-neutral-800 text-white border border-neutral-800 shadow-lg flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 active:scale-95 focus:outline-none"
       @click="scrollToTop"
     >
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7" />
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
       </svg>
     </button>
   </Transition>

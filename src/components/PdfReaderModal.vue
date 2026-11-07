@@ -15,7 +15,6 @@ const isLoading = ref(true)
 
 const embedUrl = computed(() => {
   if (!props.document?.googleDriveUrl) return ''
-  // Convert Google Drive /view link to /preview for clean iframe embedding
   return props.document.googleDriveUrl.replace(/\/view(\?.*)?$/, '/preview')
 })
 
@@ -52,23 +51,23 @@ onUnmounted(() => {
     role="dialog"
     aria-modal="true"
     aria-labelledby="pdf-reader-title"
-    class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-stone-950/75 backdrop-blur-sm transition-all duration-300"
+    class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-neutral-950/80 backdrop-blur-sm transition-all duration-300"
     :class="document ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'"
     @click.self="emit('close')"
   >
     <div
-      class="bg-[#FAF8F5] border border-stone-200 rounded-3xl max-w-5xl w-full h-[88vh] shadow-2xl flex flex-col overflow-hidden transition-all duration-300"
+      class="bg-white border border-neutral-200 rounded-2xl max-w-5xl w-full h-[88vh] shadow-2xl flex flex-col overflow-hidden transition-all duration-300"
       :class="document ? 'scale-100' : 'scale-95'"
     >
       <!-- Reader Top Bar -->
-      <div class="px-5 py-4 bg-white border-b border-stone-200/80 flex items-center justify-between gap-4 shrink-0">
+      <div class="px-6 py-4 bg-white border-b border-neutral-200 flex items-center justify-between gap-4 shrink-0">
         <div class="min-w-0">
-          <div class="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-stone-400">
+          <div class="flex items-center gap-2 text-[11px] font-mono uppercase tracking-wider text-neutral-400">
             <span>{{ document?.category || 'Reflection' }}</span>
-            <span>&bull;</span>
+            <span>&middot;</span>
             <span>{{ document?.date || '2026' }}</span>
           </div>
-          <h3 id="pdf-reader-title" class="font-serif italic text-lg sm:text-xl text-stone-900 font-medium truncate">
+          <h3 id="pdf-reader-title" class="font-serif italic text-lg sm:text-xl text-neutral-950 font-normal truncate">
             {{ document?.title }}
           </h3>
         </div>
@@ -79,33 +78,33 @@ onUnmounted(() => {
             :href="document.googleDriveUrl"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold rounded-xl transition-all"
+            class="inline-flex items-center gap-1.5 px-4 py-2 bg-neutral-950 hover:bg-neutral-800 text-white text-xs font-semibold uppercase tracking-widest rounded-full transition-all"
             @click="trackSelectContent('document', `${document.id}_external`)"
           >
-            <span>Open in Google Drive</span>
+            <span>Open Drive</span>
             <span>&nearr;</span>
           </a>
           <button
             type="button"
             aria-label="Close reader"
-            class="p-2 rounded-xl text-stone-500 hover:text-stone-900 hover:bg-stone-100 transition-colors"
+            class="p-2 rounded-full text-neutral-400 hover:text-neutral-950 hover:bg-neutral-100 transition-colors"
             @click="emit('close')"
           >
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
       </div>
 
       <!-- Embedded PDF Frame -->
-      <div class="relative flex-1 bg-stone-100">
+      <div class="relative flex-1 bg-neutral-100">
         <div
           v-if="isLoading"
-          class="absolute inset-0 flex flex-col items-center justify-center gap-3 text-stone-500 bg-stone-100 z-10"
+          class="absolute inset-0 flex flex-col items-center justify-center gap-3 text-neutral-500 bg-neutral-100 z-10"
         >
-          <div class="w-8 h-8 rounded-full border-2 border-stone-300 border-t-stone-800 animate-spin"></div>
-          <p class="text-xs font-medium tracking-wide">Loading document preview...</p>
+          <div class="w-7 h-7 rounded-full border-2 border-neutral-300 border-t-neutral-950 animate-spin"></div>
+          <p class="text-xs font-mono uppercase tracking-widest">Loading document...</p>
         </div>
         <iframe
           v-if="embedUrl"
@@ -119,4 +118,3 @@ onUnmounted(() => {
     </div>
   </div>
 </template>
-
