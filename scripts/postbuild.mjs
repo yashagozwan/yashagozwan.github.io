@@ -3,31 +3,15 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const rootDir = path.resolve(__dirname, '..')
-const distDir = path.join(rootDir, 'dist')
-const distIndexHtmlPath = path.join(distDir, 'index.html')
+const distDir = path.resolve(__dirname, '../dist')
+const indexHtmlPath = path.join(distDir, 'index.html')
 
-if (!fs.existsSync(distIndexHtmlPath)) {
+if (!fs.existsSync(indexHtmlPath)) {
   console.error('dist/index.html not found. Run vite build first.')
   process.exit(1)
 }
 
-const baseHtml = fs.readFileSync(distIndexHtmlPath, 'utf-8')
-
-// 1. Replace root /assets with fresh compiled dist/assets
-const rootAssetsDir = path.join(rootDir, 'assets')
-const distAssetsDir = path.join(distDir, 'assets')
-
-if (fs.existsSync(rootAssetsDir)) {
-  fs.rmSync(rootAssetsDir, { recursive: true, force: true })
-}
-if (fs.existsSync(distAssetsDir)) {
-  fs.cpSync(distAssetsDir, rootAssetsDir, { recursive: true })
-}
-
-// 2. Write compiled index.html & 404.html to repository root
-fs.writeFileSync(path.join(rootDir, 'index.html'), baseHtml, 'utf-8')
-fs.writeFileSync(path.join(rootDir, '404.html'), baseHtml, 'utf-8')
+const baseHtml = fs.readFileSync(indexHtmlPath, 'utf-8')
 
 function createPageHtml({ title, description, canonicalUrl, ogTitle, ogDescription, ogImage }) {
   let html = baseHtml
@@ -124,19 +108,19 @@ const pages = [
 for (const page of pages) {
   const htmlContent = createPageHtml(page)
 
-  // Write legacy .html file (e.g. /bio.html) for backward compatibility & sitemap
-  fs.writeFileSync(path.join(rootDir, `${page.slug}.html`), htmlContent, 'utf-8')
+  // 1. Write legacy .html file (e.g. dist/bio.html) for backward compatibility & sitemap
+  fs.writeFileSync(path.join(distDir, `${page.slug}.html`), htmlContent, 'utf-8')
 
-  // Write clean URL directory index (e.g. /bio/index.html) so /bio returns HTTP 200 OK on GitHub Pages
-  const subDir = path.join(rootDir, page.slug)
+  // 2. Write clean URL directory index (e.g. dist/bio/index.html) so /bio returns HTTP 200 OK on GitHub Pages
+  const subDir = path.join(distDir, page.slug)
   fs.mkdirSync(subDir, { recursive: true })
   fs.writeFileSync(path.join(subDir, 'index.html'), htmlContent, 'utf-8')
 }
 
-// 3. Ensure .nojekyll exists in root
-fs.writeFileSync(path.join(rootDir, '.nojekyll'), '', 'utf-8')
+// 3. Write 404.html SPA fallback for any other route on GitHub Pages
+fs.writeFileSync(path.join(distDir, '404.html'), baseHtml, 'utf-8')
 
-// 4. Clean up temporary dist/ folder
-fs.rmSync(distDir, { recursive: true, force: true })
+// 4. Ensure .nojekyll exists in dist/
+fs.writeFileSync(path.join(distDir, '.nojekyll'), '', 'utf-8')
 
-console.log('✅ Build output written directly to repository root for zero-pipeline GitHub Pages hosting!')
+console.log('✅ Post-build completed: generated static entry points (.html + clean URLs) and 404.html in dist/ for GitHub Pages.')

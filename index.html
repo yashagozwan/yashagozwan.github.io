@@ -135,13 +135,13 @@
     </script>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/assets/favicon-CPQrjvS8.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32-WpRwrpCG.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16-DKIK41Y_.png" />
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon-CNmWPK5Y.png" />
-  <link rel="manifest" href="/assets/site-BOknSviK.webmanifest" />
+  <link rel="icon" type="image/x-icon" href="/images/favicon_io/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_io/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/images/favicon_io/apple-touch-icon.png" />
+  <link rel="manifest" href="/images/favicon_io/site.webmanifest" />
   <meta name="msapplication-TileColor" content="#2563eb" />
-  <meta name="msapplication-config" content="data:text/xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxicm93c2VyY29uZmlnPg0KICAgIDxtc2FwcGxpY2F0aW9uPg0KICAgICAgICA8dGlsZT4NCiAgICAgICAgICAgIDxzcXVhcmUxNTB4MTUwbG9nbyBzcmM9Im1zdGlsZS0xNTB4MTUwLnBuZyIvPg0KICAgICAgICAgICAgPFRpbGVDb2xvcj4jMjU2M2ViPC9UaWxlQ29sb3I+DQogICAgICAgIDwvdGlsZT4NCiAgICA8L21zYXBwbGljYXRpb24+DQo8L2Jyb3dzZXJjb25maWc+DQo=" />
+  <meta name="msapplication-config" content="/images/favicon_io/browserconfig.xml" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -162,8 +162,27 @@
   </script>
 
   <!-- Firebase JS SDK (Analytics) -->
-  <script type="module" crossorigin src="/assets/index-CgrO_wvY.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-Dw1r7w9w.css">
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAujqVmBJ1DGo-eqkwIOzeAC6hO-Cun4Dc",
+      authDomain: "yashagozwan-portfolio.firebaseapp.com",
+      projectId: "yashagozwan-portfolio",
+      storageBucket: "yashagozwan-portfolio.firebasestorage.app",
+      messagingSenderId: "1074266806510",
+      appId: "1:1074266806510:web:85872519a05c14ecccbbff",
+      measurementId: "G-34L60NWMHJ",
+    };
+
+    try {
+      const app = initializeApp(firebaseConfig);
+      getAnalytics(app);
+    } catch (e) {
+      // Ignore analytics blocked in local/adblock environments
+    }
+  </script>
 </head>
 
 <body class="bg-gray-50/50 text-gray-800 font-sans antialiased selection:bg-brand-500 selection:text-white overflow-x-hidden">
@@ -173,6 +192,7 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
 </body>
 
 </html>
