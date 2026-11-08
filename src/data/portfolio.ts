@@ -102,7 +102,7 @@ export const FREELANCE_EXPERIENCES: ExperienceItem[] = [
     period: 'Jul 2023 – Mar 2024',
     type: 'Freelance',
     summary:
-      'Developed offline-capable mobile tools for mining operations using GetX, Hive, and Google Maps integration.',
+      'Architected and engineered enterprise field mining applications (HSES App & Kimper by KPC) leveraging Flutter, Dart, GetX, and HiveDB with full offline capabilities and automated background data synchronization.',
   },
   {
     id: 'genero-backend',
@@ -134,6 +134,29 @@ export const FREELANCE_EXPERIENCES: ExperienceItem[] = [
 ]
 
 export const PROJECTS: ProjectItem[] = [
+  {
+    id: 'hses-kpc',
+    title: 'HSES App',
+    company: 'PT. Kaltim Prima Coal',
+    role: 'Flutter Mobile Developer',
+    platform: 'Android & iOS (Enterprise HSE Mining)',
+    summary:
+      'Essential HSE field tool for PT. Kaltim Prima Coal featuring full offline operations, On Spot Monitoring, hazard reporting, commissioning, and automated background data synchronization.',
+    challenge:
+      'Safety and health inspections in mining fields frequently occur in remote pits without internet connectivity. Incident reports, hazard photos, and commissioning records must remain 100% operable offline and synchronize automatically once connectivity is detected without data loss.',
+    architecture:
+      'Engineered with Flutter, Dart, GetX state management, and HiveDB local caching with a dedicated background sync worker queue.',
+    keyContributions: [
+      'Architected seamless offline and online dual-mode capability: full offline inspection execution with automated background synchronization upon network recovery.',
+      'Developed On Spot Monitoring for live field safety audits, compliance tracking, and immediate hazard logging.',
+      'Implemented Hazard Reporting modules complete with compressed photo attachments, precise geolocation tagging, and incident dispatch.',
+      'Constructed Commissioning workflows ensuring structured multi-stage documentation to minimize operational and environmental risks.',
+    ],
+    tags: ['Flutter', 'Dart', 'GetX', 'HiveDB', 'Offline-First', 'Background Sync'],
+    featured: true,
+    gradientClass: 'from-emerald-500 to-teal-600',
+    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>',
+  },
   {
     id: 'kimper-kpc',
     title: 'Kimper By KPC',
