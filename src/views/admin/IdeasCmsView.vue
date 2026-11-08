@@ -19,6 +19,7 @@ const ideas = ref<IdeaDocument[]>([])
 const isLoading = ref(true)
 const isSaving = ref(false)
 const showModal = ref(false)
+const coverLoadError = ref(false)
 const notification = ref<{ message: string; type: 'success' | 'error' } | null>(null)
 
 // Editing state
@@ -72,6 +73,7 @@ async function handleLogout() {
 
 function openAddModal() {
   editingId.value = null
+  coverLoadError.value = false
   const defaultSlug = 'reflection-' + Date.now().toString(36)
   form.value = {
     id: defaultSlug,
@@ -90,6 +92,7 @@ function openAddModal() {
 
 function editIdea(item: IdeaDocument) {
   editingId.value = item.id
+  coverLoadError.value = false
   form.value = {
     id: item.id,
     title: item.title,
@@ -298,6 +301,7 @@ async function handleSeed() {
                   :src="formatDriveImageUrl(item.cover)"
                   :alt="item.title"
                   class="w-full h-full object-cover grayscale"
+                  referrerpolicy="no-referrer"
                   @error="(e) => (e.target as HTMLElement).style.display = 'none'"
                 />
               </div>
@@ -481,6 +485,41 @@ async function handleSeed() {
             <p class="text-[11px] text-neutral-400 mt-1">
               Supports Google Drive public image link, File ID, or existing `/images/...` path.
             </p>
+
+            <!-- Live Cover Image Preview -->
+            <div
+              v-if="form.coverDriveUrl.trim()"
+              class="mt-3 p-3 bg-neutral-50 border border-neutral-200 rounded-xl flex items-center gap-4"
+            >
+              <div class="w-16 h-20 rounded-lg bg-neutral-200 border border-neutral-300 overflow-hidden shrink-0 flex items-center justify-center">
+                <img
+                  :src="formatDriveImageUrl(form.coverDriveUrl)"
+                  alt="Live Cover Preview"
+                  referrerpolicy="no-referrer"
+                  class="w-full h-full object-cover"
+                  @load="coverLoadError = false"
+                  @error="coverLoadError = true"
+                />
+              </div>
+              <div class="text-xs space-y-1">
+                <p v-if="!coverLoadError" class="font-medium text-emerald-700 flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  Gambar berhasil dimuat
+                </p>
+                <div v-else class="text-amber-700 space-y-0.5">
+                  <p class="font-medium flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                    Gambar tidak dapat dimuat
+                  </p>
+                  <p class="text-[11px] text-neutral-500">
+                    Pastikan akses di Google Drive diatur ke: <strong>"Siapa saja yang memiliki link" (Anyone with the link)</strong>.
+                  </p>
+                </div>
+                <p class="font-mono text-[10px] text-neutral-400 truncate max-w-xs">
+                  {{ formatDriveImageUrl(form.coverDriveUrl) }}
+                </p>
+              </div>
+            </div>
           </div>
 
           <!-- Tags -->

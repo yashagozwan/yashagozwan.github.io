@@ -12,6 +12,27 @@ const searchQuery = ref<string>('')
 const previewDoc = ref<IdeaDocument | null>(null)
 const isLoading = ref(true)
 
+const DEFAULT_FALLBACK_COVER = '/images/bagaimana_saya_ingin_menjalani_hidup.png'
+
+function handleImageError(event: Event) {
+  const img = event.target as HTMLImageElement
+  if (!img) return
+
+  // If it was trying lh3, attempt standard drive thumbnail
+  if (img.src.includes('lh3.googleusercontent.com/d/')) {
+    const fileId = img.src.split('/d/')[1]?.split(/[=?&]/)[0]
+    if (fileId) {
+      img.src = `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`
+      return
+    }
+  }
+
+  // Prevent infinite loop if fallback image is already set
+  if (!img.src.includes('bagaimana_saya_ingin_menjalani_hidup')) {
+    img.src = DEFAULT_FALLBACK_COVER
+  }
+}
+
 onMounted(async () => {
   try {
     const fetched = await fetchIdeasFromFirestore()
@@ -207,7 +228,9 @@ function openPreview(doc: IdeaDocument) {
                 :src="formatDriveImageUrl(doc.cover)"
                 :alt="`${doc.title} - Cover Artwork`"
                 loading="lazy"
+                referrerpolicy="no-referrer"
                 class="w-full h-full object-cover grayscale contrast-105 group-hover:grayscale-0 transition-all duration-700 ease-out group-hover:scale-[1.02]"
+                @error="handleImageError"
               />
               <div class="absolute top-4 left-4 flex items-center gap-2">
                 <span
