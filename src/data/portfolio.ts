@@ -372,6 +372,7 @@ export const DICODING_FLUTTER_PATH: DicodingLearningStep[] = [
     description:
       'Mastering the core foundation, OS lifecycle, platform guidelines, and end-to-end mobile engineering ecosystem.',
     skills: ['Mobile OS Architecture', 'UI/UX Guidelines', 'App Lifecycle'],
+    certificateUrl: 'https://www.dicoding.com/certificates/NVP7W5YQ4ZR0',
   },
   {
     step: 2,
@@ -388,6 +389,7 @@ export const DICODING_FLUTTER_PATH: DicodingLearningStep[] = [
     description:
       'Building strong fluency in Dart type systems, null safety, OOP, functional paradigms, and asynchronous Futures/Streams.',
     skills: ['Dart Language', 'Null Safety', 'Async & Streams', 'Functional & OOP'],
+    certificateUrl: 'https://www.dicoding.com/certificates/KEXL2LOE0ZG2',
   },
   {
     step: 3,
@@ -404,6 +406,7 @@ export const DICODING_FLUTTER_PATH: DicodingLearningStep[] = [
     description:
       'Constructing responsive multi-platform UI using Stateless/Stateful widgets, navigation routing, and adaptive layouts.',
     skills: ['Widget Tree', 'Responsive UI', 'Navigation & Routing', 'State Lifecycle'],
+    certificateUrl: 'https://www.dicoding.com/certificates/L4PQ21GK2ZO1',
   },
   {
     step: 4,
@@ -420,6 +423,7 @@ export const DICODING_FLUTTER_PATH: DicodingLearningStep[] = [
     description:
       'Developing production apps with RESTful API consumption, state management, local persistence (SQLite/SharedPrefs), and background scheduling.',
     skills: ['State Management', 'REST API & JSON', 'Local Storage', 'Background Tasks'],
+    certificateUrl: 'https://www.dicoding.com/certificates/GRX504VORZ0M',
   },
   {
     step: 5,
@@ -436,6 +440,7 @@ export const DICODING_FLUTTER_PATH: DicodingLearningStep[] = [
     description:
       'Enriching Flutter applications with advanced custom widgets, Router API (Navigator 2.0), localization, media integration, and Google Maps/Location services.',
     skills: ['Custom Painter & Animations', 'Declarative Router', 'Maps & Geolocation', 'Localization'],
+    certificateUrl: 'https://www.dicoding.com/certificates/NVP7W4MLRZR0',
   },
   {
     step: 6,
@@ -452,6 +457,7 @@ export const DICODING_FLUTTER_PATH: DicodingLearningStep[] = [
     description:
       'Deepening software design discipline with Object-Oriented Programming (OOP) and the 5 SOLID principles for scalable, maintainable codebases.',
     skills: ['Single Responsibility', 'Open-Closed', 'Liskov & Interface Segregation', 'Dependency Inversion'],
+    certificateUrl: 'https://www.dicoding.com/certificates/6RPN8MKJ9Z2M',
   },
   {
     step: 7,
@@ -464,10 +470,11 @@ export const DICODING_FLUTTER_PATH: DicodingLearningStep[] = [
     hours: 85,
     modules: 93,
     rating: '4.84',
-    status: 'in-progress',
+    status: 'completed',
     description:
       'Industry-grade mastery of Clean Architecture, Test-Driven Development (TDD), multi-module modularization, CI/CD pipelines, performance profiling, and app security.',
     skills: ['Clean Architecture & Bloc', 'TDD & Automated Testing', 'Modularization', 'CI/CD & Security'],
+    certificateUrl: 'https://www.dicoding.com/certificates/N9ZO093E8XG5',
   },
 ]
 
