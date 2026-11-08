@@ -24,7 +24,7 @@ export function formatDriveImageUrl(urlOrId: string): string {
   const trimmed = urlOrId.trim()
 
   // If it's a local path or external non-drive URL
-  if (trimmed.startsWith('/') || trimmed.startsWith('data:')) {
+  if (trimmed.startsWith('/') || trimmed.startsWith('data:') || trimmed.startsWith('blob:')) {
     return trimmed
   }
 
@@ -55,21 +55,24 @@ export function formatDriveDocUrl(urlOrId: string): string {
   return trimmed
 }
 
+/**
+ * Fetch ideas combining Firestore documents AND default hardcoded ideas.
+ * If a Firestore document shares the same ID as a hardcoded idea, the Firestore version overrides it.
+ * This guarantees the original 4 hardcoded reflections are NEVER lost.
+ */
 export async function fetchIdeasFromFirestore(): Promise<IdeaDocument[]> {
   try {
     const ideasRef = collection(db, COLLECTION_NAME)
     const q = query(ideasRef, orderBy('createdAt', 'desc'))
     const snapshot = await getDocs(q)
 
-    if (snapshot.empty) {
-      // If collection is empty, return default hardcoded collection
-      return DEFAULT_IDEAS
-    }
+    const firestoreItems: IdeaDocument[] = []
+    const firestoreIds = new Set<string>()
 
-    const items: IdeaDocument[] = []
     snapshot.forEach((d) => {
       const data = d.data()
-      items.push({
+      firestoreIds.add(d.id)
+      firestoreItems.push({
         id: d.id,
         title: data.title || '',
         category: data.category || 'Philosophy',
@@ -83,7 +86,11 @@ export async function fetchIdeasFromFirestore(): Promise<IdeaDocument[]> {
       })
     })
 
-    return items
+    // Filter default ideas that haven't been overwritten in Firestore
+    const nonOverriddenDefaults = DEFAULT_IDEAS.filter((def) => !firestoreIds.has(def.id))
+
+    // Combined list: newly added Firestore ideas first, followed by default hardcoded ideas
+    return [...firestoreItems, ...nonOverriddenDefaults]
   } catch (error) {
     console.warn('Firestore fetch failed or not configured yet, falling back to local data:', error)
     return DEFAULT_IDEAS
