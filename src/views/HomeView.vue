@@ -17,7 +17,8 @@ import {
   STATS,
 } from '@/data/portfolio'
 import { IDEAS_COLLECTION } from '@/data/ideas'
-import type { EngineeringHighlight, ProjectItem, SkillCategory } from '@/types/portfolio'
+import { fetchIdeasFromFirestore } from '@/services/ideasService'
+import type { EngineeringHighlight, IdeaDocument, ProjectItem, SkillCategory } from '@/types/portfolio'
 import { initScrollDepthTracking, trackSelectContent } from '@/utils/analytics'
 
 const isIdeasModalOpen = ref(false)
@@ -46,7 +47,8 @@ const filteredSkills = computed(() => {
 
 const featuredProjects = computed(() => PROJECTS.filter((p) => p.featured))
 const otherProjects = computed(() => PROJECTS.filter((p) => !p.featured))
-const featuredIdea = computed(() => IDEAS_COLLECTION.find((i) => i.featured) || IDEAS_COLLECTION[0])
+const liveIdeas = ref<IdeaDocument[]>(IDEAS_COLLECTION)
+const featuredIdea = computed(() => liveIdeas.value.find((i) => i.featured) || liveIdeas.value[0])
 
 function openIdeasModal(analyticsLabel?: string) {
   if (analyticsLabel) {
@@ -90,8 +92,16 @@ function handleProfileImgError(e: Event) {
 
 let cleanupScrollTracking: (() => void) | null = null
 
-onMounted(() => {
+onMounted(async () => {
   cleanupScrollTracking = initScrollDepthTracking()
+  try {
+    const fetched = await fetchIdeasFromFirestore()
+    if (fetched && fetched.length > 0) {
+      liveIdeas.value = fetched
+    }
+  } catch (e) {
+    console.warn('Using local fallback ideas:', e)
+  }
 })
 
 onUnmounted(() => {

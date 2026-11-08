@@ -15,61 +15,84 @@ import { IDEAS_COLLECTION as DEFAULT_IDEAS } from '@/data/ideas'
 const COLLECTION_NAME = 'ideas_reflections'
 
 /**
- * Convert any Google Drive sharing URL or ID into a clean image preview/direct link.
- * e.g. https://drive.google.com/file/d/FILE_ID/view?usp=sharing
- * or https://drive.google.com/uc?id=FILE_ID
+ * Extract Google Drive File ID from any variant of Google Drive URL or bare ID
+ */
+export function extractDriveFileId(urlOrId: string): string | null {
+  if (!urlOrId) return null
+  const trimmed = urlOrId.trim()
+
+  // Match /file/d/ID or /d/ID
+  const matchFileD = trimmed.match(/\/file\/d\/([a-zA-Z0-9_-]+)/)
+  if (matchFileD && matchFileD[1]) return matchFileD[1]
+
+  const matchD = trimmed.match(/\/d\/([a-zA-Z0-9_-]+)/)
+  if (matchD && matchD[1]) return matchD[1]
+
+  // Match id=ID
+  const matchIdParam = trimmed.match(/[?&]id=([a-zA-Z0-9_-]+)/)
+  if (matchIdParam && matchIdParam[1]) return matchIdParam[1]
+
+  // Match bare 20+ alphanumeric character token
+  if (/^[a-zA-Z0-9_-]{20,}$/.test(trimmed)) {
+    return trimmed
+  }
+
+  return null
+}
+
+/**
+ * Convert any Google Drive sharing URL or ID into reliable, embeddable image direct URLs.
+ * Uses lh3.googleusercontent.com/d/FILE_ID which does NOT block cross-origin or hotlink requests.
  */
 export function formatDriveImageUrl(urlOrId: string): string {
   if (!urlOrId) return ''
   const trimmed = urlOrId.trim()
 
-  // If it's a local path or external non-drive URL
-  if (trimmed.startsWith('/') || trimmed.startsWith('data:')) {
+  // If it's a local asset or already a data/blob URI
+  if (trimmed.startsWith('/') || trimmed.startsWith('data:') || trimmed.startsWith('blob:')) {
     return trimmed
   }
 
-  // Extract ID from Google Drive URL
-  const match = trimmed.match(/\/d\/([a-zA-Z0-9_-]+)/) ||
-                trimmed.match(/id=([a-zA-Z0-9_-]+)/) ||
-                trimmed.match(/^([a-zA-Z0-9_-]{20,})$/)
-
-  if (match && match[1]) {
-    const fileId = match[1]
-    // Google Drive direct image embed endpoint (thumbnail with high res)
-    return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1200`
+  // Extract Google Drive ID if present
+  const fileId = extractDriveFileId(trimmed)
+  if (fileId) {
+    // lh3.googleusercontent.com/d/FILE_ID is the most reliable endpoint for embedding images publicly
+    return `https://lh3.googleusercontent.com/d/${fileId}`
   }
 
+  // Standard external HTTP/HTTPS URL
   return trimmed
 }
 
 export function formatDriveDocUrl(urlOrId: string): string {
   if (!urlOrId) return ''
   const trimmed = urlOrId.trim()
-  const match = trimmed.match(/\/d\/([a-zA-Z0-9_-]+)/) ||
-                trimmed.match(/id=([a-zA-Z0-9_-]+)/) ||
-                trimmed.match(/^([a-zA-Z0-9_-]{20,})$/)
+  const fileId = extractDriveFileId(trimmed)
 
-  if (match && match[1]) {
-    return `https://drive.google.com/file/d/${match[1]}/view?usp=sharing`
+  if (fileId) {
+    return `https://drive.google.com/file/d/${fileId}/view?usp=sharing`
   }
   return trimmed
 }
 
+/**
+ * Fetch ideas combining Firestore documents AND default hardcoded ideas.
+ * If a Firestore document shares the same ID as a hardcoded idea, the Firestore version overrides it.
+ * This guarantees the original 4 hardcoded reflections are NEVER lost.
+ */
 export async function fetchIdeasFromFirestore(): Promise<IdeaDocument[]> {
   try {
     const ideasRef = collection(db, COLLECTION_NAME)
     const q = query(ideasRef, orderBy('createdAt', 'desc'))
     const snapshot = await getDocs(q)
 
-    if (snapshot.empty) {
-      // If collection is empty, return default hardcoded collection
-      return DEFAULT_IDEAS
-    }
+    const firestoreItems: IdeaDocument[] = []
+    const firestoreIds = new Set<string>()
 
-    const items: IdeaDocument[] = []
     snapshot.forEach((d) => {
       const data = d.data()
-      items.push({
+      firestoreIds.add(d.id)
+      firestoreItems.push({
         id: d.id,
         title: data.title || '',
         category: data.category || 'Philosophy',
@@ -83,7 +106,11 @@ export async function fetchIdeasFromFirestore(): Promise<IdeaDocument[]> {
       })
     })
 
-    return items
+    // Filter default ideas that haven't been overwritten in Firestore
+    const nonOverriddenDefaults = DEFAULT_IDEAS.filter((def) => !firestoreIds.has(def.id))
+
+    // Combined list: newly added Firestore ideas first, followed by default hardcoded ideas
+    return [...firestoreItems, ...nonOverriddenDefaults]
   } catch (error) {
     console.warn('Firestore fetch failed or not configured yet, falling back to local data:', error)
     return DEFAULT_IDEAS
