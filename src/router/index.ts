@@ -3,6 +3,8 @@ import HomeView from '@/views/HomeView.vue'
 import BioView from '@/views/BioView.vue'
 import HobbiesView from '@/views/HobbiesView.vue'
 import IdeasView from '@/views/IdeasView.vue'
+import LoginView from '@/views/admin/LoginView.vue'
+import IdeasCmsView from '@/views/admin/IdeasCmsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -52,6 +54,28 @@ const router = createRouter({
       },
     },
     {
+      path: '/admin/login',
+      name: 'admin-login',
+      alias: ['/admin/login.html'],
+      component: LoginView,
+      meta: {
+        title: 'Sign In — Ideas CMS | Yasha Gozwan Shuhada',
+      },
+    },
+    {
+      path: '/admin/ideas',
+      name: 'admin-ideas',
+      alias: ['/admin/ideas.html'],
+      component: IdeasCmsView,
+      meta: {
+        title: 'Manage Reflections — Ideas CMS',
+      },
+    },
+    {
+      path: '/admin',
+      redirect: '/admin/login',
+    },
+    {
       path: '/:pathMatch(.*)*',
       redirect: '/',
     },
@@ -83,4 +107,3 @@ router.afterEach((to) => {
 })
 
 export default router
-
