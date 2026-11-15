@@ -42,6 +42,11 @@ export interface ExperienceItem {
   tags?: string[]
 }
 
+export interface ProjectFeature {
+  title: string
+  description: string
+}
+
 export interface ProjectItem {
   id: string
   title: string
@@ -57,6 +62,10 @@ export interface ProjectItem {
   gradientClass?: string
   miniIconColorClass?: string
   icon: string
+  imageUrl?: string
+  screenshotUrl?: string
+  about?: string
+  coreFeatures?: ProjectFeature[]
 }
 
 export interface EngineeringHighlight {

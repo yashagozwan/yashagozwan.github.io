@@ -52,6 +52,15 @@ export function trackSelectContent(contentType: string, itemId: string): void {
   }
 }
 
+export function trackEvent(eventName: string, params?: Record<string, any>): void {
+  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+    window.gtag('event', eventName, {
+      send_to: GA_MEASUREMENT_ID,
+      ...params,
+    })
+  }
+}
+
 export function initScrollDepthTracking(): () => void {
   if (typeof window === 'undefined') return () => {}
 

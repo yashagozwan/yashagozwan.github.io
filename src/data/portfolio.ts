@@ -141,7 +141,36 @@ export const PROJECTS: ProjectItem[] = [
     role: 'Flutter Mobile Developer',
     platform: 'Android & iOS (Enterprise HSE Mining)',
     summary:
-      'Essential HSE field tool for PT. Kaltim Prima Coal featuring full offline operations, On Spot Monitoring, hazard reporting, commissioning, and automated background data synchronization.',
+      'Alat esensial untuk profesional HSE di PT. Kaltim Prima Coal featuring full offline operations, On Spot Monitoring, hazard reporting, commissioning, dan automated background data synchronization.',
+    about:
+      'Jadikan tempat kerja lebih aman dengan HSES App – alat esensial untuk profesional HSE.',
+    coreFeatures: [
+      {
+        title: 'On Spot Monitoring',
+        description:
+          'Memungkinkan pengguna untuk melakukan pemantauan langsung di lapangan, mencatat kondisi keselamatan, dan memastikan kepatuhan terhadap standar HSE (Health, Safety, and Environment).',
+      },
+      {
+        title: 'Hazard Report',
+        description:
+          'Mempermudah pelaporan bahaya atau insiden di tempat kerja dengan cepat dan akurat, lengkap dengan foto dan detail lokasi untuk tindakan yang segera.',
+      },
+      {
+        title: 'Comissioning',
+        description:
+          'Memastikan setiap tahap komisioning berjalan sesuai prosedur dengan dokumentasi yang lengkap, meminimalkan risiko, dan meningkatkan efisiensi operasional.',
+      },
+      {
+        title: 'User-Friendly Interface',
+        description:
+          'Desain antarmuka yang intuitif dan mudah digunakan, memfasilitasi pengguna dalam menjalankan tugas HSE dengan lebih efektif dan efisien.',
+      },
+      {
+        title: 'Real-time Data Synchronization',
+        description:
+          'Semua data dan laporan tersimpan secara otomatis dan tersinkronisasi secara real-time, memastikan informasi selalu up-to-date dan dapat diakses kapan saja.',
+      },
+    ],
     challenge:
       'Safety and health inspections in mining fields frequently occur in remote pits without internet connectivity. Incident reports, hazard photos, and commissioning records must remain 100% operable offline and synchronize automatically once connectivity is detected without data loss.',
     architecture:
@@ -151,10 +180,13 @@ export const PROJECTS: ProjectItem[] = [
       'Developed On Spot Monitoring for live field safety audits, compliance tracking, and immediate hazard logging.',
       'Implemented Hazard Reporting modules complete with compressed photo attachments, precise geolocation tagging, and incident dispatch.',
       'Constructed Commissioning workflows ensuring structured multi-stage documentation to minimize operational and environmental risks.',
+      'Implemented reactive data persistence using HiveDB for zero-latency local read/write with automated real-time background sync.',
     ],
     tags: ['Flutter', 'Dart', 'GetX', 'HiveDB', 'Offline-First', 'Background Sync'],
     featured: true,
     gradientClass: 'from-emerald-500 to-teal-600',
+    imageUrl: '/images/hses-app-icon.png',
+    screenshotUrl: '/images/hses-app-preview.png',
     icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>',
   },
   {

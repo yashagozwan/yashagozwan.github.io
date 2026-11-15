@@ -2,6 +2,7 @@
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import type { IdeaDocument } from '@/types/portfolio'
 import { trackSelectContent } from '@/utils/analytics'
+import { XMarkIcon } from '@heroicons/vue/24/outline'
 
 const props = defineProps<{
   document: IdeaDocument | null
@@ -87,12 +88,10 @@ onUnmounted(() => {
           <button
             type="button"
             aria-label="Close reader"
-            class="p-2 rounded-full text-neutral-400 hover:text-neutral-950 hover:bg-neutral-100 transition-colors"
+            class="p-2 rounded-full text-neutral-400 hover:text-neutral-950 hover:bg-neutral-100 transition-colors cursor-pointer"
             @click="emit('close')"
           >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            <XMarkIcon class="w-5 h-5" />
           </button>
         </div>
       </div>

@@ -20,6 +20,10 @@ import { IDEAS_COLLECTION } from '@/data/ideas'
 import { fetchIdeasFromFirestore } from '@/services/ideasService'
 import type { EngineeringHighlight, IdeaDocument, ProjectItem, SkillCategory } from '@/types/portfolio'
 import { initScrollDepthTracking, trackSelectContent } from '@/utils/analytics'
+import {
+  subscribeJyashHomeVisibility,
+  getCachedJyashHomeVisibility,
+} from '@/services/siteSettingsService'
 
 const isIdeasModalOpen = ref(false)
 const activeHighlight = ref<EngineeringHighlight | null>(null)
@@ -91,22 +95,22 @@ function handleProfileImgError(e: Event) {
 }
 
 let cleanupScrollTracking: (() => void) | null = null
+let cleanupJyashSetting: (() => void) | null = null
+const isJyashSectionEnabled = ref(getCachedJyashHomeVisibility())
 
 onMounted(async () => {
   cleanupScrollTracking = initScrollDepthTracking()
-  try {
-    const fetched = await fetchIdeasFromFirestore()
-    if (fetched && fetched.length > 0) {
-      liveIdeas.value = fetched
-    }
-  } catch (e) {
-    console.warn('Using local fallback ideas:', e)
-  }
+  cleanupJyashSetting = subscribeJyashHomeVisibility((enabled) => {
+    isJyashSectionEnabled.value = enabled
+  })
 })
 
 onUnmounted(() => {
   if (cleanupScrollTracking) {
     cleanupScrollTracking()
+  }
+  if (cleanupJyashSetting) {
+    cleanupJyashSetting()
   }
 })
 </script>
@@ -414,8 +418,8 @@ onUnmounted(() => {
           </p>
         </div>
 
-        <!-- Featured Projects Grid (3 Columns) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <!-- Featured Projects Grid (Balanced 2-Column Grid) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           <div
             v-for="(project, idx) in featuredProjects"
             :key="project.id"
@@ -436,9 +440,17 @@ onUnmounted(() => {
                 </span>
               </div>
 
-              <h3 class="font-display text-2xl font-bold text-white mb-3 tracking-tight">
-                {{ project.title }}
-              </h3>
+              <div class="flex items-center gap-3 mb-3">
+                <div
+                  v-if="project.imageUrl"
+                  class="w-10 h-10 rounded-xl overflow-hidden bg-white/10 p-1 border border-white/10 shrink-0 flex items-center justify-center"
+                >
+                  <img :src="project.imageUrl" :alt="project.title" class="w-full h-full object-contain rounded-lg" />
+                </div>
+                <h3 class="font-display text-2xl font-bold text-white tracking-tight">
+                  {{ project.title }}
+                </h3>
+              </div>
               <p class="text-neutral-400 text-sm leading-relaxed mb-8">
                 {{ project.summary }}
               </p>
@@ -648,11 +660,177 @@ onUnmounted(() => {
       </div>
     </section>
 
-    <!-- 05 / BEYOND CODE (Editorial Index to /bio, /hobbies, /ideas) -->
+    <!-- 05 / JYASH — JAPANESE LEARNING PLATFORM (Yang — Crisp White & Editorial Monospace) -->
+    <section
+      v-if="isJyashSectionEnabled"
+      id="jyash"
+      class="py-24 md:py-32 px-6 border-t border-neutral-200 bg-white"
+    >
+      <div class="max-w-5xl mx-auto">
+        <!-- Section Header -->
+        <div class="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.2em] text-neutral-400 mb-6">
+          <span>05</span>
+          <span class="w-8 h-px bg-neutral-300"></span>
+          <span>Japanese Learning Platform</span>
+        </div>
+
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+          <div class="max-w-2xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 text-neutral-800 text-[11px] font-mono font-semibold mb-4 border border-neutral-200">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>Minna no Nihongo N5 &bull; Chapters 1–5 Available</span>
+            </div>
+            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-neutral-950 mb-4">
+              JYash <span class="font-serif italic font-normal text-neutral-500">— Interactive Japanese Learning</span>
+            </h2>
+            <p class="text-neutral-600 text-sm sm:text-base leading-relaxed">
+              A structured, self-paced learning platform integrating the standard Minna no Nihongo I curriculum with real-time simulators, stroke-order animated Kana &amp; Kanji, native Web Speech pronunciation, streak gamification, and cloud synchronization.
+            </p>
+          </div>
+
+          <div class="shrink-0 flex flex-col sm:flex-row gap-3">
+            <RouterLink
+              to="/nihongo"
+              class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-neutral-950 hover:bg-neutral-800 text-white rounded-2xl text-xs font-semibold uppercase tracking-widest transition-all shadow-sm group"
+            >
+              <span>Launch JYash Platform</span>
+              <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+            </RouterLink>
+          </div>
+        </div>
+
+        <!-- 4 Core Pillars Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          <!-- Pillar 1: Huruf Kana -->
+          <div class="bg-[#FAFAFA] border border-neutral-200 hover:border-neutral-950 rounded-3xl p-7 transition-all flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-400">01 / KANA SYSTEM</span>
+                <span class="text-[10px] font-mono px-2.5 py-1 rounded-full bg-neutral-200 text-neutral-800 font-bold">176 Characters</span>
+              </div>
+              <div class="flex items-center gap-3 mb-3">
+                <span class="text-2xl font-serif font-black text-neutral-950">あ ア</span>
+                <h3 class="font-display text-lg font-bold text-neutral-950">
+                  Complete Hiragana &amp; Katakana
+                </h3>
+              </div>
+              <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                Featuring interactive stroke-order (Kakijun) animations powered by HanziWriter, native pronunciation audio, and character recognition quizzes. Covers Gojūon, Dakuon, Handakuon, and compound Yōon.
+              </p>
+            </div>
+            <div class="pt-6 border-t border-neutral-200/60 mt-6 flex items-center justify-between text-[11px] font-mono text-neutral-500">
+              <span>Stroke Order &bull; Native Audio</span>
+              <span class="font-bold text-neutral-950 group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+            </div>
+          </div>
+
+          <!-- Pillar 2: Kanji Foundation -->
+          <div class="bg-[#FAFAFA] border border-neutral-200 hover:border-neutral-950 rounded-3xl p-7 transition-all flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-400">02 / KANJI FOUNDATION</span>
+                <span class="text-[10px] font-mono px-2.5 py-1 rounded-full bg-neutral-200 text-neutral-800 font-bold">80/20 Rule</span>
+              </div>
+              <div class="flex items-center gap-3 mb-3">
+                <span class="text-2xl font-serif font-black text-neutral-950">日 本</span>
+                <h3 class="font-display text-lg font-bold text-neutral-950">
+                  N5 Kanji Foundation &amp; Radicals
+                </h3>
+              </div>
+              <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                Understand the fundamental principles of On'yomi (compound readings) vs. Kun'yomi (standalone Japanese readings) without rote memorization, backed by 45+ contextual Kanji for Chapters 1 through 5.
+              </p>
+            </div>
+            <div class="pt-6 border-t border-neutral-200/60 mt-6 flex items-center justify-between text-[11px] font-mono text-neutral-500">
+              <span>On'yomi &bull; Kun'yomi &bull; Bushu</span>
+              <span class="font-bold text-neutral-950 group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+            </div>
+          </div>
+
+          <!-- Pillar 3: Minna no Nihongo Bab 1-5 -->
+          <div class="bg-[#FAFAFA] border border-neutral-200 hover:border-neutral-950 rounded-3xl p-7 transition-all flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-400">03 / CURRICULUM</span>
+                <span class="text-[10px] font-mono px-2.5 py-1 rounded-full bg-neutral-200 text-neutral-800 font-bold">Chapters 1–5</span>
+              </div>
+              <div class="flex items-center gap-3 mb-3">
+                <span class="text-2xl font-serif font-black text-neutral-950">第 課</span>
+                <h3 class="font-display text-lg font-bold text-neutral-950">
+                  Structured Minna no Nihongo I
+                </h3>
+              </div>
+              <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                8 modular sessions per chapter: thematic vocabulary, particle breakdowns (wa, mo, no, o, de, e, to), interactive matching cards, progressive quizzes, situational dialogues, and self-evaluation summaries.
+              </p>
+            </div>
+            <div class="pt-6 border-t border-neutral-200/60 mt-6 flex items-center justify-between text-[11px] font-mono text-neutral-500">
+              <span>8 Sessions per Chapter &bull; 5-Day Plan</span>
+              <span class="font-bold text-neutral-950 group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+            </div>
+          </div>
+
+          <!-- Pillar 4: Simulator & Feedback -->
+          <div class="bg-[#FAFAFA] border border-neutral-200 hover:border-neutral-950 rounded-3xl p-7 transition-all flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-neutral-400">04 / PRACTICE & FEEDBACK</span>
+                <span class="text-[10px] font-mono px-2.5 py-1 rounded-full bg-neutral-200 text-neutral-800 font-bold">Interactive</span>
+              </div>
+              <div class="flex items-center gap-3 mb-3">
+                <span class="text-2xl font-serif font-black text-neutral-950">話 す</span>
+                <h3 class="font-display text-lg font-bold text-neutral-950">
+                  Sentence Builder &amp; Feedback Hub
+                </h3>
+              </div>
+              <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                Random sentence generator to build grammatical reflexes, real-time conversation simulators, onboarding coachmark guides for first-time learners, and an integrated feedback loop for continuous platform improvements.
+              </p>
+            </div>
+            <div class="pt-6 border-t border-neutral-200/60 mt-6 flex items-center justify-between text-[11px] font-mono text-neutral-500">
+              <span>Simulator &bull; Feedback &bull; Cloud XP</span>
+              <span class="font-bold text-neutral-950 group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Summary Ribbon -->
+        <div class="p-6 rounded-2xl bg-neutral-950 text-white flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex flex-wrap items-center gap-6 text-xs font-mono">
+            <div class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              <span>176 Animated Kana Characters</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              <span>45+ Essential N5 Kanji</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              <span>Minna no Nihongo Chapters 1–5</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              <span>Learner Feedback System</span>
+            </div>
+          </div>
+
+          <RouterLink
+            to="/nihongo"
+            class="px-5 py-2.5 bg-white hover:bg-neutral-200 text-neutral-950 rounded-xl text-xs font-bold font-mono transition-all shrink-0 inline-flex items-center gap-2"
+          >
+            <span>Start Learning Now</span>
+            <span>&rarr;</span>
+          </RouterLink>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 / BEYOND CODE (Editorial Index to /bio, /hobbies, /ideas) -->
     <section class="py-20 md:py-28 px-6 border-t border-neutral-200 bg-[#FAFAFA]">
       <div class="max-w-5xl mx-auto">
         <div class="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.2em] text-neutral-400 mb-10">
-          <span>05</span>
+          <span>{{ isJyashSectionEnabled ? '06' : '05' }}</span>
           <span class="w-8 h-px bg-neutral-300"></span>
           <span>Beyond Software</span>
         </div>

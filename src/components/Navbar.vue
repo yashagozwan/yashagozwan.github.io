@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
 import { trackSelectContent } from '@/utils/analytics'
+import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 const emit = defineEmits<{
   (e: 'open-ideas-modal'): void
@@ -87,7 +88,7 @@ onUnmounted(() => {
         >
           Y
         </span>
-        <span>Yasha Gozwan<span class="text-neutral-400">.</span></span>
+        <span>yashagozwan<span class="text-neutral-400">.</span></span>
       </RouterLink>
 
       <!-- Desktop Navigation -->
@@ -130,17 +131,13 @@ onUnmounted(() => {
       <!-- Mobile Hamburger Button -->
       <button
         type="button"
-        class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-neutral-200 bg-white text-neutral-900 hover:bg-neutral-100 transition-all focus:outline-none"
+        class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-neutral-200 bg-white text-neutral-900 hover:bg-neutral-100 transition-all focus:outline-none cursor-pointer"
         :aria-expanded="isMobileMenuOpen"
         aria-label="Toggle navigation menu"
         @click="toggleMobileMenu"
       >
-        <svg v-if="!isMobileMenuOpen" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4 7h16M4 12h16M4 17h16" />
-        </svg>
-        <svg v-else class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M6 18L18 6M6 6l12 12" />
-        </svg>
+        <Bars3Icon v-if="!isMobileMenuOpen" class="w-5 h-5" />
+        <XMarkIcon v-else class="w-5 h-5" />
       </button>
     </div>
 

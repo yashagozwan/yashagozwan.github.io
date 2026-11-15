@@ -1,24 +1,36 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   type User,
 } from 'firebase/auth'
 import { auth } from '@/services/firebase'
+import { isPasswordAuthenticatedAdmin } from '@/services/adminAuthService'
+import { ArrowLeftIcon } from '@heroicons/vue/24/outline'
 
 const router = useRouter()
+const route = useRoute()
 
 const email = ref('')
 const password = ref('')
 const errorMessage = ref('')
 const isLoading = ref(false)
 
+function getDestination(): string {
+  const redirect = route.query.redirect as string
+  if (redirect && redirect.startsWith('/admin')) {
+    return redirect
+  }
+  return '/admin/ideas'
+}
+
 onMounted(() => {
   onAuthStateChanged(auth, (user: User | null) => {
-    if (user) {
-      router.replace('/admin/ideas')
+    // Only auto-redirect if specifically signed in with Email & Password
+    if (user && isPasswordAuthenticatedAdmin(user)) {
+      router.replace(getDestination())
     }
   })
 })
@@ -33,7 +45,7 @@ async function handleLogin() {
     isLoading.value = true
     errorMessage.value = ''
     await signInWithEmailAndPassword(auth, email.value.trim(), password.value)
-    router.replace('/admin/ideas')
+    router.replace(getDestination())
   } catch (error: any) {
     console.error('Firebase Auth Error:', error)
     if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
@@ -58,14 +70,7 @@ async function handleLogin() {
           to="/"
           class="group inline-flex items-center gap-2.5 text-xs font-semibold text-neutral-500 hover:text-neutral-950 transition-colors uppercase tracking-[0.18em]"
         >
-          <svg
-            class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M15 19l-7-7 7-7" />
-          </svg>
+          <ArrowLeftIcon class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" />
           <span>Return to Site</span>
         </RouterLink>
 
