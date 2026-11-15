@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { DICODING_FLUTTER_PATH } from '@/data/portfolio'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/outline'
 
 const trackRef = ref<HTMLElement | null>(null)
 
@@ -41,22 +42,18 @@ function scrollNext() {
         <button
           type="button"
           aria-label="Scroll timeline left"
-          class="w-9 h-9 rounded-full border border-neutral-200 text-neutral-600 hover:text-neutral-950 hover:border-neutral-950 flex items-center justify-center transition-colors"
+          class="w-9 h-9 rounded-full border border-neutral-200 text-neutral-600 hover:text-neutral-950 hover:border-neutral-950 flex items-center justify-center transition-colors cursor-pointer"
           @click="scrollPrev"
         >
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M15 19l-7-7 7-7" />
-          </svg>
+          <ChevronLeftIcon class="w-4 h-4" />
         </button>
         <button
           type="button"
           aria-label="Scroll timeline right"
-          class="w-9 h-9 rounded-full border border-neutral-200 text-neutral-600 hover:text-neutral-950 hover:border-neutral-950 flex items-center justify-center transition-colors"
+          class="w-9 h-9 rounded-full border border-neutral-200 text-neutral-600 hover:text-neutral-950 hover:border-neutral-950 flex items-center justify-center transition-colors cursor-pointer"
           @click="scrollNext"
         >
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 5l7 7-7 7" />
-          </svg>
+          <ChevronRightIcon class="w-4 h-4" />
         </button>
       </div>
     </div>

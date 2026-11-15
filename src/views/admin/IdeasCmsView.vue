@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { signOut, onAuthStateChanged, type User } from 'firebase/auth'
 import { auth } from '@/services/firebase'
+import { isPasswordAuthenticatedAdmin } from '@/services/adminAuthService'
 import {
   fetchIdeasFromFirestore,
   saveIdeaToFirestore,
@@ -45,7 +46,8 @@ function notify(message: string, type: 'success' | 'error' = 'success') {
 
 onMounted(() => {
   onAuthStateChanged(auth, async (currentUser) => {
-    if (!currentUser) {
+    // Strictly require Email & Password authentication for admin access
+    if (!currentUser || !isPasswordAuthenticatedAdmin(currentUser)) {
       router.replace('/admin/login')
     } else {
       user.value = currentUser
@@ -183,9 +185,9 @@ async function handleSeed() {
     <!-- Top Bar -->
     <header class="w-full border-b border-neutral-200 bg-white sticky top-0 z-40">
       <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-5">
           <RouterLink
-            to="/ideas"
+            to="/admin/ideas"
             class="font-display font-bold text-lg text-neutral-950 tracking-tight flex items-center gap-2"
           >
             <span class="w-7 h-7 rounded-full bg-neutral-950 text-white flex items-center justify-center font-serif italic text-sm">
@@ -193,7 +195,24 @@ async function handleSeed() {
             </span>
             <span>Ideas CMS</span>
           </RouterLink>
-          <span class="text-xs text-neutral-400 font-mono hidden sm:inline">&bull; {{ user?.email }}</span>
+
+          <!-- Navigation Tab Switcher -->
+          <nav class="hidden sm:flex items-center gap-1 bg-neutral-100 p-1 rounded-full text-xs font-mono font-bold">
+            <RouterLink
+              to="/admin/ideas"
+              class="px-3.5 py-1.5 rounded-full transition-all bg-neutral-950 text-white shadow-2xs"
+            >
+              Ideas CMS
+            </RouterLink>
+            <RouterLink
+              to="/admin/feedback"
+              class="px-3.5 py-1.5 rounded-full transition-all text-neutral-600 hover:text-neutral-950"
+            >
+              JYash Feedback
+            </RouterLink>
+          </nav>
+
+          <span class="text-xs text-neutral-400 font-mono hidden md:inline">&bull; {{ user?.email }}</span>
         </div>
 
         <div class="flex items-center gap-3">

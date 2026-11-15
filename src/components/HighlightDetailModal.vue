@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import type { EngineeringHighlight } from '@/types/portfolio'
+import { XMarkIcon } from '@heroicons/vue/24/outline'
 
 const props = defineProps<{
   highlight: EngineeringHighlight | null
@@ -64,12 +65,10 @@ onUnmounted(() => {
         ref="closeBtnRef"
         type="button"
         aria-label="Close details"
-        class="absolute top-6 right-6 text-neutral-400 hover:text-neutral-950 transition-colors p-2 rounded-full hover:bg-neutral-100 focus:outline-none"
+        class="absolute top-6 right-6 text-neutral-400 hover:text-neutral-950 transition-colors p-2 rounded-full hover:bg-neutral-100 focus:outline-none cursor-pointer"
         @click="emit('close')"
       >
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M6 18L18 6M6 6l12 12" />
-        </svg>
+        <XMarkIcon class="w-5 h-5" />
       </button>
 
       <!-- Header -->

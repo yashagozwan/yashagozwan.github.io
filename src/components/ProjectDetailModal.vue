@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import type { ProjectItem } from '@/types/portfolio'
+import { XMarkIcon } from '@heroicons/vue/24/outline'
 
 const props = defineProps<{
   project: ProjectItem | null
@@ -62,25 +63,80 @@ onUnmounted(() => {
         ref="closeBtnRef"
         type="button"
         aria-label="Close project details"
-        class="absolute top-6 right-6 text-neutral-400 hover:text-neutral-950 transition-colors p-2 rounded-full hover:bg-neutral-100 focus:outline-none"
+        class="absolute top-6 right-6 text-neutral-400 hover:text-neutral-950 transition-colors p-2 rounded-full hover:bg-neutral-100 focus:outline-none cursor-pointer"
         @click="emit('close')"
       >
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M6 18L18 6M6 6l12 12" />
-        </svg>
+        <XMarkIcon class="w-5 h-5" />
       </button>
 
       <!-- Header -->
       <div class="mb-8 pr-8 border-b border-neutral-200 pb-6">
-        <div class="flex flex-wrap items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-neutral-400 mb-2">
-          <span>{{ project?.company }}</span>
-          <span>&middot;</span>
-          <span>{{ project?.platform }}</span>
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <div class="flex flex-wrap items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-neutral-400 mb-2">
+              <span>{{ project?.company }}</span>
+              <span>&middot;</span>
+              <span>{{ project?.platform }}</span>
+            </div>
+            <h3 id="project-modal-title" class="font-display text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight">
+              {{ project?.title }}
+            </h3>
+            <p class="text-xs font-medium text-neutral-500 mt-1">Role: {{ project?.role }}</p>
+          </div>
+          <div
+            v-if="project?.imageUrl"
+            class="shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden border border-neutral-200 shadow-sm bg-neutral-50 p-1"
+          >
+            <img :src="project.imageUrl" :alt="project.title" class="w-full h-full object-contain rounded-xl" />
+          </div>
         </div>
-        <h3 id="project-modal-title" class="font-display text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight">
-          {{ project?.title }}
-        </h3>
-        <p class="text-xs font-medium text-neutral-500 mt-1">Role: {{ project?.role }}</p>
+      </div>
+
+      <!-- About / Tagline (if provided) -->
+      <div v-if="project?.about" class="mb-6 p-4 rounded-xl bg-neutral-50 border border-neutral-200/80">
+        <div class="text-[11px] font-bold text-neutral-900 uppercase tracking-[0.18em] mb-1">
+          Tentang Aplikasi Ini
+        </div>
+        <p class="text-sm text-neutral-700 leading-relaxed font-medium">
+          {{ project.about }}
+        </p>
+      </div>
+
+      <!-- Core Modules & Features (if provided) -->
+      <div v-if="project?.coreFeatures && project.coreFeatures.length > 0" class="mb-8">
+        <div class="text-[11px] font-bold text-neutral-950 uppercase tracking-[0.18em] mb-3">
+          Fitur &amp; Modul Utama
+        </div>
+        <div class="grid grid-cols-1 gap-2.5">
+          <div
+            v-for="feat in project.coreFeatures"
+            :key="feat.title"
+            class="p-3.5 rounded-xl border border-neutral-200/80 bg-neutral-50/50"
+          >
+            <div class="text-xs font-bold text-neutral-950 mb-1 flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0"></span>
+              {{ feat.title }}
+            </div>
+            <p class="text-xs text-neutral-600 leading-relaxed pl-3.5">
+              {{ feat.description }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screenshot / App Preview (if provided) -->
+      <div v-if="project?.screenshotUrl" class="mb-8">
+        <div class="text-[11px] font-bold text-neutral-950 uppercase tracking-[0.18em] mb-3">
+          Dokumentasi &amp; Tampilan Aplikasi
+        </div>
+        <div class="rounded-xl overflow-hidden border border-neutral-200/80 bg-neutral-50 shadow-sm p-1.5">
+          <img
+            :src="project.screenshotUrl"
+            :alt="`${project.title} Preview`"
+            class="w-full h-auto object-contain rounded-lg max-h-80 bg-white"
+            loading="lazy"
+          />
+        </div>
       </div>
 
       <!-- Case Study Blocks -->
@@ -101,7 +157,7 @@ onUnmounted(() => {
 
         <div class="border-t border-neutral-100 pt-5">
           <div class="text-[11px] font-bold text-neutral-950 uppercase tracking-[0.18em] mb-2.5">
-            03 / Key Contributions
+            03 / Key Contributions &amp; Implementation
           </div>
           <ul class="space-y-2">
             <li

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { HOBBIES_SECTIONS } from '@/data/portfolio'
+import { ArrowLeftIcon } from '@heroicons/vue/24/outline'
 </script>
 
 <template>
@@ -13,14 +14,7 @@ import { HOBBIES_SECTIONS } from '@/data/portfolio'
           to="/"
           class="group inline-flex items-center gap-2.5 text-xs font-semibold text-neutral-500 hover:text-neutral-950 transition-colors uppercase tracking-[0.18em]"
         >
-          <svg
-            class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M15 19l-7-7 7-7"></path>
-          </svg>
+          <ArrowLeftIcon class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" />
           <span>Back to Portfolio</span>
         </RouterLink>
 
@@ -142,6 +136,7 @@ import { HOBBIES_SECTIONS } from '@/data/portfolio'
           <RouterLink to="/" class="hover:text-neutral-950 transition-colors">Portfolio</RouterLink>
           <RouterLink to="/bio" class="hover:text-neutral-950 transition-colors">Bio</RouterLink>
           <RouterLink to="/ideas" class="hover:text-neutral-950 transition-colors">Ideas</RouterLink>
+          <RouterLink to="/nihongo" class="hover:text-neutral-950 transition-colors">日本語</RouterLink>
         </div>
       </div>
     </footer>

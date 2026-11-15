@@ -104,6 +104,17 @@ const pages = [
     ogImage: 'https://yashagozwan.github.io/images/bagaimana_saya_ingin_menjalani_hidup.png',
   },
   {
+    slug: 'nihongo',
+    title: 'JYash — Platform Belajar Bahasa Jepang Interaktif (Minna no Nihongo N5) | Yasha Gozwan Shuhada',
+    description:
+      'Platform interaktif belajar bahasa Jepang mandiri: 176 huruf Hiragana & Katakana dengan animasi coretan stroke (Kakijun), Fondasi Kanji On/Kun, kurikulum Minna no Nihongo Bab 1–5 lengkap, simulator dialog, dan audio native.',
+    canonicalUrl: 'https://yashagozwan.github.io/nihongo',
+    ogTitle: 'JYash — Platform Belajar Bahasa Jepang Interaktif (Minna no Nihongo N5)',
+    ogDescription:
+      'Pelajari bahasa Jepang terstruktur: 176 huruf Kana beranimasi, Fondasi Kanji, Minna no Nihongo Bab 1 s/d 5, kuis interaktif, gamifikasi streak, dan simulator kalimat real-time.',
+    ogImage: 'https://yashagozwan.github.io/images/yasha-bio.png',
+  },
+  {
     slug: 'admin/login',
     title: 'Sign In — Ideas CMS | Yasha Gozwan Shuhada',
     description: 'Ideas CMS authentication portal.',
@@ -114,6 +125,12 @@ const pages = [
     title: 'Manage Reflections — Ideas CMS',
     description: 'Ideas CMS management dashboard.',
     canonicalUrl: 'https://yashagozwan.github.io/admin/ideas',
+  },
+  {
+    slug: 'admin/feedback',
+    title: 'Learner Feedback — JYash Admin Dashboard',
+    description: 'JYash learner feedback management dashboard.',
+    canonicalUrl: 'https://yashagozwan.github.io/admin/feedback',
   },
 ]
 

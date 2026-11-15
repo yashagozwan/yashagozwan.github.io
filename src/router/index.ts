@@ -3,6 +3,7 @@ import HomeView from '@/views/HomeView.vue'
 import BioView from '@/views/BioView.vue'
 import HobbiesView from '@/views/HobbiesView.vue'
 import IdeasView from '@/views/IdeasView.vue'
+import NihongoView from '@/views/NihongoView.vue'
 import LoginView from '@/views/admin/LoginView.vue'
 import IdeasCmsView from '@/views/admin/IdeasCmsView.vue'
 
@@ -54,6 +55,17 @@ const router = createRouter({
       },
     },
     {
+      path: '/nihongo',
+      name: 'nihongo',
+      alias: ['/nihongo.html', '/nihongo/', '/japanese', '/belajar-jepang'],
+      component: NihongoView,
+      meta: {
+        title: 'JYash — Platform Belajar Bahasa Jepang Interaktif (Minna no Nihongo N5) | Yasha Gozwan Shuhada',
+        description:
+          'Platform interaktif belajar bahasa Jepang mandiri: 176 huruf Hiragana & Katakana dengan animasi coretan stroke (Kakijun), Fondasi Kanji On/Kun, kurikulum Minna no Nihongo Bab 1–5 lengkap, simulator dialog, dan audio native.',
+      },
+    },
+    {
       path: '/admin/login',
       name: 'admin-login',
       alias: ['/admin/login.html'],
@@ -69,6 +81,15 @@ const router = createRouter({
       component: IdeasCmsView,
       meta: {
         title: 'Manage Reflections — Ideas CMS',
+      },
+    },
+    {
+      path: '/admin/feedback',
+      name: 'admin-feedback',
+      alias: ['/admin/feedback.html', '/admin/feedbacks', '/admin/jyash'],
+      component: () => import('@/views/admin/NihongoFeedbackCmsView.vue'),
+      meta: {
+        title: 'Learner Feedback — JYash Admin Dashboard',
       },
     },
     {

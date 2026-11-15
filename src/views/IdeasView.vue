@@ -5,6 +5,11 @@ import type { IdeaDocument } from '@/types/portfolio'
 import PdfReaderModal from '@/components/PdfReaderModal.vue'
 import { trackSelectContent } from '@/utils/analytics'
 import { fetchIdeasFromFirestore, formatDriveImageUrl } from '@/services/ideasService'
+import {
+  ArrowLeftIcon,
+  LockClosedIcon,
+  MagnifyingGlassIcon,
+} from '@heroicons/vue/24/outline'
 
 const ideas = ref<IdeaDocument[]>(LOCAL_IDEAS)
 const activeTag = ref<string>('All')
@@ -66,14 +71,7 @@ function openPreview(doc: IdeaDocument) {
           to="/"
           class="group inline-flex items-center gap-2.5 text-xs font-semibold text-neutral-500 hover:text-neutral-950 transition-colors uppercase tracking-[0.18em]"
         >
-          <svg
-            class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M15 19l-7-7 7-7"></path>
-          </svg>
+          <ArrowLeftIcon class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" />
           <span>Back to Portfolio</span>
         </RouterLink>
 
@@ -89,9 +87,7 @@ function openPreview(doc: IdeaDocument) {
             class="inline-flex items-center gap-1.5 text-neutral-400 hover:text-neutral-950 transition-colors uppercase tracking-widest text-[11px]"
             title="Administrator Login"
           >
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-            </svg>
+            <LockClosedIcon class="w-3.5 h-3.5" />
             <span class="hidden md:inline">Admin</span>
           </RouterLink>
         </div>
@@ -119,19 +115,9 @@ function openPreview(doc: IdeaDocument) {
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <!-- Search Input -->
           <div class="relative max-w-md w-full">
-            <svg
+            <MagnifyingGlassIcon
               class="w-4 h-4 text-neutral-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.75"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
+            />
             <input
               v-model="searchQuery"
               type="search"
@@ -294,6 +280,7 @@ function openPreview(doc: IdeaDocument) {
           <RouterLink to="/" class="hover:text-neutral-950 transition-colors">Portfolio</RouterLink>
           <RouterLink to="/bio" class="hover:text-neutral-950 transition-colors">Bio</RouterLink>
           <RouterLink to="/hobbies" class="hover:text-neutral-950 transition-colors">Hobbies</RouterLink>
+          <RouterLink to="/nihongo" class="hover:text-neutral-950 transition-colors">日本語</RouterLink>
           <RouterLink to="/admin/login" class="hover:text-neutral-950 transition-colors">Admin</RouterLink>
         </div>
       </div>

@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { CERTIFICATES } from '@/data/portfolio'
 import { trackSelectContent } from '@/utils/analytics'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/outline'
 
 const carouselRef = ref<HTMLElement | null>(null)
 const scrollAmount = 340
@@ -36,23 +37,19 @@ function scrollNext() {
           id="cert-prev-btn"
           type="button"
           aria-label="Scroll left"
-          class="w-9 h-9 rounded-full border border-neutral-200 bg-white hover:border-neutral-950 text-neutral-600 hover:text-neutral-950 flex items-center justify-center transition-colors"
+          class="w-9 h-9 rounded-full border border-neutral-200 bg-white hover:border-neutral-950 text-neutral-600 hover:text-neutral-950 flex items-center justify-center transition-colors cursor-pointer"
           @click="scrollPrev"
         >
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M15 19l-7-7 7-7" />
-          </svg>
+          <ChevronLeftIcon class="w-4 h-4" />
         </button>
         <button
           id="cert-next-btn"
           type="button"
           aria-label="Scroll right"
-          class="w-9 h-9 rounded-full border border-neutral-200 bg-white hover:border-neutral-950 text-neutral-600 hover:text-neutral-950 flex items-center justify-center transition-colors"
+          class="w-9 h-9 rounded-full border border-neutral-200 bg-white hover:border-neutral-950 text-neutral-600 hover:text-neutral-950 flex items-center justify-center transition-colors cursor-pointer"
           @click="scrollNext"
         >
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 5l7 7-7 7" />
-          </svg>
+          <ChevronRightIcon class="w-4 h-4" />
         </button>
       </div>
     </div>
