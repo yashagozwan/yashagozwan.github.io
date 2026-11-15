@@ -57,7 +57,7 @@ onMounted(() => {
   onAuthStateChanged(auth, async (currentUser) => {
     // Strictly require Email & Password authentication for admin access
     if (!currentUser || !isPasswordAuthenticatedAdmin(currentUser)) {
-      router.replace('/admin/login')
+      router.replace({ path: '/admin/login', query: { redirect: '/admin/feedback' } })
     } else {
       user.value = currentUser
       await loadSettings()

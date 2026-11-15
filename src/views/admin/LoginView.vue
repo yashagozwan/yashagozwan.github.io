@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
@@ -11,17 +11,26 @@ import { isPasswordAuthenticatedAdmin } from '@/services/adminAuthService'
 import { ArrowLeftIcon } from '@heroicons/vue/24/outline'
 
 const router = useRouter()
+const route = useRoute()
 
 const email = ref('')
 const password = ref('')
 const errorMessage = ref('')
 const isLoading = ref(false)
 
+function getDestination(): string {
+  const redirect = route.query.redirect as string
+  if (redirect && redirect.startsWith('/admin')) {
+    return redirect
+  }
+  return '/admin/ideas'
+}
+
 onMounted(() => {
   onAuthStateChanged(auth, (user: User | null) => {
     // Only auto-redirect if specifically signed in with Email & Password
     if (user && isPasswordAuthenticatedAdmin(user)) {
-      router.replace('/admin/ideas')
+      router.replace(getDestination())
     }
   })
 })
@@ -36,7 +45,7 @@ async function handleLogin() {
     isLoading.value = true
     errorMessage.value = ''
     await signInWithEmailAndPassword(auth, email.value.trim(), password.value)
-    router.replace('/admin/ideas')
+    router.replace(getDestination())
   } catch (error: any) {
     console.error('Firebase Auth Error:', error)
     if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
