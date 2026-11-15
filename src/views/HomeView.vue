@@ -17,7 +17,6 @@ import {
   STATS,
 } from '@/data/portfolio'
 import { IDEAS_COLLECTION } from '@/data/ideas'
-import { fetchIdeasFromFirestore } from '@/services/ideasService'
 import type { EngineeringHighlight, IdeaDocument, ProjectItem, SkillCategory } from '@/types/portfolio'
 import { initScrollDepthTracking, trackSelectContent } from '@/utils/analytics'
 import {
