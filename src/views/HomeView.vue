@@ -17,7 +17,8 @@ import {
   STATS,
 } from '@/data/portfolio'
 import { IDEAS_COLLECTION } from '@/data/ideas'
-import type { EngineeringHighlight, ProjectItem, SkillCategory } from '@/types/portfolio'
+import { fetchIdeasFromFirestore } from '@/services/ideasService'
+import type { EngineeringHighlight, IdeaDocument, ProjectItem, SkillCategory } from '@/types/portfolio'
 import { initScrollDepthTracking, trackSelectContent } from '@/utils/analytics'
 import {
   subscribeJyashHomeVisibility,
@@ -50,7 +51,8 @@ const filteredSkills = computed(() => {
 
 const featuredProjects = computed(() => PROJECTS.filter((p) => p.featured))
 const otherProjects = computed(() => PROJECTS.filter((p) => !p.featured))
-const featuredIdea = computed(() => IDEAS_COLLECTION.find((i) => i.featured) || IDEAS_COLLECTION[0])
+const liveIdeas = ref<IdeaDocument[]>(IDEAS_COLLECTION)
+const featuredIdea = computed(() => liveIdeas.value.find((i) => i.featured) || liveIdeas.value[0])
 
 function openIdeasModal(analyticsLabel?: string) {
   if (analyticsLabel) {
@@ -96,7 +98,7 @@ let cleanupScrollTracking: (() => void) | null = null
 let cleanupJyashSetting: (() => void) | null = null
 const isJyashSectionEnabled = ref(getCachedJyashHomeVisibility())
 
-onMounted(() => {
+onMounted(async () => {
   cleanupScrollTracking = initScrollDepthTracking()
   cleanupJyashSetting = subscribeJyashHomeVisibility((enabled) => {
     isJyashSectionEnabled.value = enabled
