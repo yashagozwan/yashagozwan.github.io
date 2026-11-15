@@ -19,6 +19,10 @@ import {
 import { IDEAS_COLLECTION } from '@/data/ideas'
 import type { EngineeringHighlight, ProjectItem, SkillCategory } from '@/types/portfolio'
 import { initScrollDepthTracking, trackSelectContent } from '@/utils/analytics'
+import {
+  subscribeJyashHomeVisibility,
+  getCachedJyashHomeVisibility,
+} from '@/services/siteSettingsService'
 
 const isIdeasModalOpen = ref(false)
 const activeHighlight = ref<EngineeringHighlight | null>(null)
@@ -89,14 +93,22 @@ function handleProfileImgError(e: Event) {
 }
 
 let cleanupScrollTracking: (() => void) | null = null
+let cleanupJyashSetting: (() => void) | null = null
+const isJyashSectionEnabled = ref(getCachedJyashHomeVisibility())
 
 onMounted(() => {
   cleanupScrollTracking = initScrollDepthTracking()
+  cleanupJyashSetting = subscribeJyashHomeVisibility((enabled) => {
+    isJyashSectionEnabled.value = enabled
+  })
 })
 
 onUnmounted(() => {
   if (cleanupScrollTracking) {
     cleanupScrollTracking()
+  }
+  if (cleanupJyashSetting) {
+    cleanupJyashSetting()
   }
 })
 </script>
@@ -647,7 +659,11 @@ onUnmounted(() => {
     </section>
 
     <!-- 05 / JYASH — JAPANESE LEARNING PLATFORM (Yang — Crisp White & Editorial Monospace) -->
-    <section id="jyash" class="py-24 md:py-32 px-6 border-t border-neutral-200 bg-white">
+    <section
+      v-if="isJyashSectionEnabled"
+      id="jyash"
+      class="py-24 md:py-32 px-6 border-t border-neutral-200 bg-white"
+    >
       <div class="max-w-5xl mx-auto">
         <!-- Section Header -->
         <div class="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.2em] text-neutral-400 mb-6">
@@ -812,7 +828,7 @@ onUnmounted(() => {
     <section class="py-20 md:py-28 px-6 border-t border-neutral-200 bg-[#FAFAFA]">
       <div class="max-w-5xl mx-auto">
         <div class="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.2em] text-neutral-400 mb-10">
-          <span>06</span>
+          <span>{{ isJyashSectionEnabled ? '06' : '05' }}</span>
           <span class="w-8 h-px bg-neutral-300"></span>
           <span>Beyond Software</span>
         </div>

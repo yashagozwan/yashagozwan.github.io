@@ -11,6 +11,10 @@ import {
   type LearnerFeedback,
 } from '@/services/nihongoFeedbackService'
 import {
+  fetchJyashHomeVisibility,
+  updateJyashHomeVisibility,
+} from '@/services/siteSettingsService'
+import {
   ChatBubbleBottomCenterTextIcon,
   ArrowPathIcon,
   TrashIcon,
@@ -18,6 +22,8 @@ import {
   ArrowDownTrayIcon,
   ClipboardDocumentCheckIcon,
   MagnifyingGlassIcon,
+  EyeSlashIcon,
+  GlobeAltIcon,
 } from '@heroicons/vue/24/outline'
 import { StarIcon as StarSolidIcon } from '@heroicons/vue/24/solid'
 
@@ -30,6 +36,9 @@ const isDeletingId = ref<string | null>(null)
 const lastFetchedAt = ref<string>('')
 const hasPermissionError = ref(false)
 const notification = ref<{ message: string; type: 'success' | 'error' } | null>(null)
+
+const isHomeShowcaseEnabled = ref(true)
+const isUpdatingShowcase = ref(false)
 
 // Filters & Search
 const searchQuery = ref('')
@@ -51,10 +60,38 @@ onMounted(() => {
       router.replace('/admin/login')
     } else {
       user.value = currentUser
+      await loadSettings()
       await loadFeedbacks()
     }
   })
 })
+
+async function loadSettings() {
+  try {
+    isHomeShowcaseEnabled.value = await fetchJyashHomeVisibility()
+  } catch (err) {
+    console.warn('Could not load site setting:', err)
+  }
+}
+
+async function handleToggleShowcase() {
+  isUpdatingShowcase.value = true
+  const nextVal = !isHomeShowcaseEnabled.value
+  try {
+    await updateJyashHomeVisibility(nextVal)
+    isHomeShowcaseEnabled.value = nextVal
+    notify(
+      nextVal
+        ? 'Section JYash sekarang AKTIF dan DITAMPILKAN di halaman utama (HomeView).'
+        : 'Section JYash sekarang NONAKTIF dan DISEMBUNYIKAN dari halaman utama (HomeView).',
+      'success'
+    )
+  } catch (err: any) {
+    notify('Gagal memperbarui pengaturan homepage: ' + (err?.message || 'Error'), 'error')
+  } finally {
+    isUpdatingShowcase.value = false
+  }
+}
 
 async function loadFeedbacks() {
   isLoading.value = true
@@ -103,6 +140,12 @@ service cloud.firestore {
 
     // 3. Ideas & Reflections
     match /ideas_reflections/{document=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // 4. Site Settings (Homepage Visibility Toggle)
+    match /site_settings/{docId} {
       allow read: if true;
       allow write: if request.auth != null;
     }
@@ -395,6 +438,67 @@ function formatDateTime(isoStr?: string) {
             <ArrowPathIcon class="w-4 h-4" :class="{ 'animate-spin': isLoading }" />
             <span>{{ isLoading ? 'Mengambil Data...' : 'Ambil Feedback' }}</span>
           </button>
+        </div>
+      </div>
+
+      <!-- Homepage Showcase Visibility Control Card -->
+      <div class="p-6 rounded-3xl bg-white border border-neutral-200 shadow-2xs mb-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="flex items-start gap-4">
+          <div
+            class="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border"
+            :class="isHomeShowcaseEnabled ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-neutral-100 text-neutral-500 border-neutral-200'"
+          >
+            <GlobeAltIcon v-if="isHomeShowcaseEnabled" class="w-6 h-6" />
+            <EyeSlashIcon v-else class="w-6 h-6" />
+          </div>
+
+          <div class="space-y-1">
+            <div class="flex items-center gap-2 flex-wrap">
+              <h3 class="font-display font-bold text-base text-neutral-950">
+                Kontrol Tampilan Section JYash di Homepage
+              </h3>
+              <span
+                class="text-[10px] font-mono px-2.5 py-0.5 rounded-full font-bold flex items-center gap-1.5 border"
+                :class="
+                  isHomeShowcaseEnabled
+                    ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
+                    : 'bg-neutral-100 text-neutral-600 border-neutral-200'
+                "
+              >
+                <span
+                  class="w-1.5 h-1.5 rounded-full"
+                  :class="isHomeShowcaseEnabled ? 'bg-emerald-500 animate-pulse' : 'bg-neutral-400'"
+                ></span>
+                <span>{{ isHomeShowcaseEnabled ? 'AKTIF (Ditampilkan)' : 'NONAKTIF (Disembunyikan)' }}</span>
+              </span>
+            </div>
+            <p class="text-xs text-neutral-600 max-w-2xl leading-relaxed">
+              Sakelar ini mengontrol apakah Section 05 (Showcase JYash Belajar Jepang) muncul di halaman utama portofolio (<code class="bg-neutral-100 px-1 py-0.5 rounded">HomeView</code>).
+              Halaman <code class="bg-neutral-100 px-1 py-0.5 rounded">/nihongo</code> tetap dapat diakses via link langsung.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 shrink-0 self-end md:self-center">
+          <button
+            type="button"
+            :disabled="isUpdatingShowcase"
+            class="relative inline-flex h-8 w-14 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-neutral-950 focus:ring-offset-2 disabled:opacity-50"
+            :class="isHomeShowcaseEnabled ? 'bg-neutral-950' : 'bg-neutral-300'"
+            role="switch"
+            :aria-checked="isHomeShowcaseEnabled"
+            @click="handleToggleShowcase"
+          >
+            <span class="sr-only">Toggle JYash Home Showcase</span>
+            <span
+              aria-hidden="true"
+              class="pointer-events-none inline-block h-7 w-7 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out"
+              :class="isHomeShowcaseEnabled ? 'translate-x-6' : 'translate-x-0'"
+            />
+          </button>
+          <span class="text-xs font-mono font-bold text-neutral-800 min-w-[70px]">
+            {{ isUpdatingShowcase ? 'Menyimpan...' : (isHomeShowcaseEnabled ? 'Aktif' : 'Nonaktif') }}
+          </span>
         </div>
       </div>
 

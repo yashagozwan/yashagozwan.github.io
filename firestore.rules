@@ -4,22 +4,29 @@ service cloud.firestore {
   match /databases/{database}/documents {
 
     // 1. Koleksi Pengguna Belajar Bahasa Jepang (JYash / Nihongo Learners)
-    // Pengguna yang telah login hanya boleh membaca & menulis dokumen milik uid mereka sendiri
+    // Pengguna yang login hanya boleh membaca & menulis progress uid milik mereka sendiri
     match /nihongo_learners/{userId} {
       allow read, write: if request.auth != null && request.auth.uid == userId;
     }
 
     // 2. Koleksi Feedback Pengguna JYash
-    // Siapapun (pengguna login maupun tamu) boleh mengirim masukan/feedback
-    // Admin dan pembaca dapat melihat masukan, penghapusan/pengeditan memerlukan login
+    // Siapapun boleh mengirim masukan & membaca daftar masukan
+    // Penghapusan & pengeditan feedback dibatasi hanya untuk user yang terautentikasi (Admin)
     match /jyash_feedbacks/{feedbackId} {
       allow create, read: if true;
       allow update, delete: if request.auth != null;
     }
 
     // 3. Koleksi Ide & Refleksi Portofolio
-    // Publik boleh membaca; hanya user yang login yang boleh menulis/mengedit
+    // Publik boleh membaca; hanya user terautentikasi (Admin) yang boleh menulis/mengedit
     match /ideas_reflections/{document=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // 4. Pengaturan Global Situs (Feature Flags / Site Settings)
+    // Publik boleh membaca pengaturan tampilan; hanya Admin yang boleh mengedit
+    match /site_settings/{docId} {
       allow read: if true;
       allow write: if request.auth != null;
     }
