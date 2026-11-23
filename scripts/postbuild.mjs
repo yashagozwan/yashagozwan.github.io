@@ -115,6 +115,17 @@ const pages = [
     ogImage: 'https://yashagozwan.github.io/images/yasha-bio.png',
   },
   {
+    slug: 'mother-quotes',
+    title: 'The Last Wealth — Mother Quotes | Yasha Gozwan Shuhada',
+    description:
+      'Ketika segala yang dapat dimiliki telah hilang, jangan biarkan apa yang membuat kita menjadi manusia ikut menghilang. Sebuah refleksi abadi tentang kebajikan dan kasih ibu.',
+    canonicalUrl: 'https://yashagozwan.github.io/mother-quotes',
+    ogTitle: 'The Last Wealth — Sebuah Refleksi Kasih Ibu',
+    ogDescription:
+      'Ketika segala yang dapat dimiliki telah hilang, jangan biarkan apa yang membuat kita menjadi manusia ikut menghilang. Sebuah refleksi abadi tentang kebajikan dan kasih ibu.',
+    ogImage: 'https://yashagozwan.github.io/images/mother-reflection.jpg',
+  },
+  {
     slug: 'admin/login',
     title: 'Sign In — Ideas CMS | Yasha Gozwan Shuhada',
     description: 'Ideas CMS authentication portal.',

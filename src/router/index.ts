@@ -6,6 +6,7 @@ import IdeasView from '@/views/IdeasView.vue'
 import NihongoView from '@/views/NihongoView.vue'
 import LoginView from '@/views/admin/LoginView.vue'
 import IdeasCmsView from '@/views/admin/IdeasCmsView.vue'
+import MotherQuotesView from '@/views/MotherQuotesView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -63,6 +64,17 @@ const router = createRouter({
         title: 'JYash — Platform Belajar Bahasa Jepang Interaktif (Minna no Nihongo N5) | Yasha Gozwan Shuhada',
         description:
           'Platform interaktif belajar bahasa Jepang mandiri: 176 huruf Hiragana & Katakana dengan animasi coretan stroke (Kakijun), Fondasi Kanji On/Kun, kurikulum Minna no Nihongo Bab 1–5 lengkap, simulator dialog, dan audio native.',
+      },
+    },
+    {
+      path: '/mother-quotes',
+      name: 'mother-quotes',
+      alias: ['/mother-quotes.html', '/mother-quotes/'],
+      component: MotherQuotesView,
+      meta: {
+        title: 'The Last Wealth — Mother Quotes | Yasha Gozwan Shuhada',
+        description:
+          'Ketika segala yang dapat dimiliki telah hilang, jangan biarkan apa yang membuat kita menjadi manusia ikut menghilang. Sebuah refleksi abadi tentang kebajikan dan kasih ibu.',
       },
     },
     {
