@@ -834,7 +834,7 @@ onUnmounted(() => {
           <span>Beyond Software</span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- 01. Bio -->
           <RouterLink
             to="/bio"
@@ -899,6 +899,44 @@ onUnmounted(() => {
               <span>&rarr;</span>
             </div>
           </a>
+
+          <!-- 04. The Last Wealth (Mother Quotes Card) -->
+          <RouterLink
+            to="/mother-quotes"
+            class="group relative overflow-hidden rounded-2xl p-7 flex flex-col justify-between transition-all duration-300 border border-neutral-200 hover:border-neutral-950 shadow-xs hover:shadow-lg min-h-[280px]"
+            @click="trackSelectContent('button', 'Index View Mother Quotes Card')"
+          >
+            <!-- Background Flower Painting -->
+            <img
+              src="/images/mother-flowers.jpg"
+              alt="Floral oil painting background"
+              class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+            />
+
+            <!-- Contrast Scrim: dark gradient vignette ensures high contrast readability -->
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-neutral-950/95 via-neutral-950/65 to-neutral-950/35 transition-opacity duration-300 group-hover:opacity-90"
+            ></div>
+
+            <!-- Content Layer with Elegant Fonts -->
+            <div class="relative z-10">
+              <div class="flex items-center justify-between text-xs font-mono text-amber-200/90 mb-4 tracking-widest uppercase">
+                <span>04 / REFLECTION</span>
+                <span class="font-serif italic text-sm text-amber-100/70">&sect;</span>
+              </div>
+              <h3 class="font-serif text-2xl font-normal text-white tracking-tight mb-2 italic">
+                The Last Wealth
+              </h3>
+              <p class="font-serif italic text-xs sm:text-sm text-neutral-200 leading-relaxed line-clamp-3">
+                &ldquo;When everything that can be possessed is lost, never let that which makes us human disappear with it...&rdquo;
+              </p>
+            </div>
+
+            <div class="relative z-10 pt-4 border-t border-white/20 text-xs font-semibold uppercase tracking-widest text-amber-100 inline-flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
+              <span class="font-sans">Read Reflection</span>
+              <span>&rarr;</span>
+            </div>
+          </RouterLink>
         </div>
       </div>
     </section>
@@ -940,7 +978,11 @@ onUnmounted(() => {
         </div>
 
         <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
-          <p>&copy; {{ new Date().getFullYear() }} Yasha Gozwan Shuhada. Crafted in monochrome.</p>
+          <div class="flex items-center gap-3 flex-wrap">
+            <p>&copy; {{ new Date().getFullYear() }} Yasha Gozwan Shuhada. Crafted in monochrome.</p>
+            <span class="text-neutral-700 hidden sm:inline">&bull;</span>
+            <RouterLink to="/mother-quotes" class="hover:text-white transition-colors">Mother Quotes</RouterLink>
+          </div>
 
           <div class="flex items-center gap-6">
             <a
